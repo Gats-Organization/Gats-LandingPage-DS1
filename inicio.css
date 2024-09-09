@@ -3,16 +3,16 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0px 200px;
-    background-color: white;
+    margin: 20px 200px;
 }
 
 header div#logo-educaeco{
     display: flex;
+    align-items: center;
 }
 
 header div#logo-educaeco img{
-    height: 70px;
+    height: 60px;
 }
 
 header div#logo-educaeco p#educaeco{
@@ -40,6 +40,10 @@ header input{
     border: 0px;
     font-size: 16px;
     border-radius: 10px;
+}
+
+header input:hover{
+    border: 2px solid #33AB58;
 }
 
 /* --------------------------------COMEÇO DA MAIN---------------------------------- */
@@ -125,9 +129,10 @@ main{
 .seta p{
     margin: 0px;
 }
+
 /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "GIF"---------------------------------- */
 .gif{
-    margin-top: 150px;
+    margin-top: 130px;
     display:flex;
 }
 
