@@ -1,3 +1,4 @@
+/*Fontes*/
 .roboto-thin {
     font-family: "Roboto", sans-serif;
     font-weight: 100;
@@ -74,4 +75,11 @@
 /* Colocando a fonte */
 *{
     font-family: 'Roboto';
+    margin: 0px;
+    padding: 0px;
 }
+
+/* Cores 
+    #6D6D6D
+
+*/
