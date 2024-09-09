@@ -125,9 +125,27 @@ main{
 .seta p{
     margin: 0px;
 }
+/* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "GIF"---------------------------------- */
+.gif{
+    margin-top: 150px;
+    display:flex;
+}
+
+.gif #gif_img{
+    width: 400px;
+    height: 400px;
+    border-radius: 25px;
+}
+
+.gif #texto{
+    width: 700px;
+    margin-left: 100px;
+    margin-top: 100px;
+}
+
 
 /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "FUNDO"---------------------------------- */
-#titulo3{
+#titulo4{
     color:#1A990F;
     font-size: 45px;
     text-align: center;
