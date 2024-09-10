@@ -1,4 +1,5 @@
-/* --------------------------------COMEÇO DO HEADER---------------------------------- */
+/* ------------------------------------------------------ HEADER ---------------------------------------------------------*/
+
 header{
     display: flex;
     justify-content: space-between;
@@ -97,7 +98,7 @@ main{
 
 .beneficios{
     display: flex;
-    margin-top: 110px;
+    margin-top: 150px;
 }
 
 .beneficios #titulo{
@@ -110,7 +111,6 @@ main{
 }
 
 .conteudo #texto{
-    margin-top: 47px;
     font-size: 20px;
     width: 540px;
 }
@@ -129,10 +129,9 @@ main{
 .seta p{
     margin: 0px;
 }
-
 /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "GIF"---------------------------------- */
 .gif{
-    margin-top: 130px;
+    margin-top: 150px;
     display:flex;
 }
 
@@ -143,9 +142,8 @@ main{
 }
 
 .gif #texto{
-    width: 700px;
+    height: 100px;
     margin-left: 100px;
-    margin-top: 100px;
 }
 
 
