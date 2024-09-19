@@ -86,6 +86,7 @@ main{
 .baixeaqui #baixeaqui{
     background-color: #A3D977;
     color: white;
+    margin-top: 20px;
     font-weight: bolder;
     line-height: 50px;
     width: 140px;
@@ -161,4 +162,73 @@ main{
     margin-top: 50px;
 }
 
+/* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "FUNCIONALIDADES" + JAVASCRIPT"---------------------------------- */
+#titulo5{
+    color: #1A990F;
+    font-size: 45px;
+    text-align: center;
+    margin-top: 150px;
+    margin-bottom: 60px;
+}
+
+#botoes{
+    display: flex;
+    justify-content: center;
+    margin-top: 28px;
+    font-size: 25px;
+}
+
+#p-alunos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 60px;
+    background-color: #B5FB7D;
+    width: 234px;
+    height: 75px;
+    border-radius: 20px;
+}
+
+#p-professores{
+    margin-left: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 234px;
+    height: 75px;
+    border-radius: 20px;
+}
+
+#container{
+    display: flex;
+    background-color: #DEFBC7;
+    margin-top: 50px;
+    margin-left: 73px;
+    width: 1000px;
+    height: 538px;
+    padding-top: 41px;
+    border-radius: 50px;
+}
+
+.bloco_dem{
+    margin-top: 30px;
+    margin-left: 44px;
+    width: 258px;
+    text-align: justify;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.bloco_dem p{
+    margin-top: 20px;
+}
+
+#demonstracao1{
+    background-color: #B5FB7D;
+}
+
+#imagem_demonstracao{
+    width: 740px;
+    height: 475px;
+}
 
