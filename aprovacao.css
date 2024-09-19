@@ -56,10 +56,6 @@ main h1{
     margin-top: 100px;
 }
 
-main div p #texto{
-    display: flex;
-    justify-content: center;
-}
 
 /* Dados Escolas*/
 
@@ -67,7 +63,6 @@ main > div{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin-top: 100px;
 }
 
 main div .dados .d-aprov{
@@ -113,6 +108,8 @@ main div #grafico #col1{
     background-color: #7AD8EE;
     margin-right: 27px;
     border: solid 1px;
+    box-shadow: 2px 3px 2px rgba(128, 128, 128, 0.321);
+    border: rgba(0, 0, 0, 0.314) solid 1px;
 }
 
 main div #grafico #col2{
@@ -121,13 +118,30 @@ main div #grafico #col2{
     background-color: #FFC4C4;
     margin-right: 27px;
     border: solid 1px;
+    box-shadow: 2px 3px 2px rgba(128, 128, 128, 0.321);
+    border: rgba(0, 0, 0, 0.314) solid 1px;
 }
 
 main div #grafico #col3{
     width: 90px;
     height: 120px;
     background-color: #FFCDA7;
-    border: solid 1px;
+    box-shadow: 2px 3px 2px rgba(128, 128, 128, 0.321);
+    border: rgba(0, 0, 0, 0.314) solid 1px;
+}
+
+main .info {
+    width: 600px;
+    display: flex;
+    justify-content: center;
+    margin-left: 457px
+}
+
+main .info p {
+    margin-top: 50px;
+    margin-bottom: 42px;
+    text-align: center;
+    font-size: 20px;
 }
 
 
