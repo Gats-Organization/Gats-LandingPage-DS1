@@ -24,7 +24,7 @@ main{
     width: 600px;
 }
 
-.baixeaqui #titulo{
+.baixeaqui #titulo1{
     margin-top: 90px;
     color:#23BCDF;
     font-size: 45px;
@@ -54,7 +54,7 @@ main{
     margin-top: 150px;
 }
 
-.beneficios #titulo{
+.beneficios #titulo2{
     color: #1A990F;
     font-size: 45px;
 }
@@ -99,23 +99,8 @@ main{
     margin-left: 100px;
 }
 
-
-/* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "FUNDO"---------------------------------- */
-#titulo4{
-    color:#1A990F;
-    font-size: 45px;
-    text-align: center;
-    margin-top: 150px;
-}
-
-.funcoes{
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: 50px;
-}
-
 /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "FUNCIONALIDADES" + JAVASCRIPT"---------------------------------- */
-#titulo5{
+#titulo3{
     color: #1A990F;
     font-size: 45px;
     text-align: center;
@@ -185,8 +170,15 @@ main{
 }
 
 /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "ICONES-FUNCOES"---------------------------------- */
-.icones-funcoes {
+#titulo4{
+    color: #1A990F;
+    font-size: 45px;
+    text-align: center;
     margin-top: 150px;
+    margin-bottom: 60px;
+}
+
+.icones-funcoes {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(5, 1fr);
@@ -199,7 +191,6 @@ main{
     display: flex; 
     flex-direction: column; 
     align-items: center;
-    margin-bottom: 50px;
     text-align: justify;
 }
 
@@ -217,12 +208,15 @@ main{
 
 #img1 {
     grid-area: 1 / 1 / 2 / 2;
+    margin-bottom: 50px;
 }
 #img2 {
     grid-area: 1 / 3 / 2 / 4;
+    margin-bottom: 50px;
 }
 #img3 {
     grid-area: 1 / 5 / 2 / 6;
+    margin-bottom: 50px;
 }
 #img4 {
     grid-area: 2 / 2 / 3 / 3;
