@@ -1,10 +1,14 @@
 /* ------------------------------------------------------ HEADER ---------------------------------------------------------*/
 
 header{
+    position: sticky;
+    top: 0;
+    height: 70px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 20px 200px;
+    margin: 20px 110px;
+    background-color: white;
 }
 
 header div#logo-educaeco{
@@ -49,4 +53,85 @@ header input{
 
 header input:hover{
     border: 2px solid #33AB58;
+}
+
+/* ------------------------------------------------ FOOTER ---------------------------------------------------------*/
+footer{
+    background-color: #BEEE97;
+    margin: auto;
+    margin-top: 150px;
+    width: 1200px;
+    padding: 50px;
+
+    border-top-right-radius: 50px;
+    border-top-left-radius: 50px;
+}
+
+footer #parte-cima-footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+footer img{
+    width: 80px;
+}
+
+#LogoTexto{
+    display: flex;
+    align-items: end;
+    font-size: 24px;
+}
+
+#LogoTexto h1{
+    margin-left: 20px;
+    color: #247B3F;
+    text-decoration: underline;
+}
+
+#barra{
+    width: 3px;
+    height: 100px;
+    background-color: #247B3F;
+}
+
+#sobrenos{
+    color: #247B3F;
+    width: 600px;
+}
+
+#sobrenos h1{
+    font-size: 45px;
+    color: #247B3F;
+}
+
+
+/* FOOTER - ÍCONES */
+#icones img{
+    margin-top: 20px;
+}
+
+#youtube{
+    width: 45px;
+    height: 45px;
+}
+
+#email{
+    width: 43px;
+    height: 43px;
+}
+
+#instagram{
+    width: 45px;
+    height: 45px;
+}
+
+#whatsapp{
+    width: 50px;
+    height: 50px;
+}
+
+#linkedin{
+    width: 43px;
+    height: 43px;
 }

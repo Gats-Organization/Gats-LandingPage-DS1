@@ -55,7 +55,7 @@ function alterarConteudo(){
     ranking.innerHTML = "<h2>Ranking</h2>" //Tirando os textos do Ranking
 
     //Mudando a im'agem para representar o conteudo
-    alterarImagem("Imagens Início/Conteudo.png", "Image que representa o conteúdo do app")
+    alterarImagem("Imagens Início/4.png", "Image que representa o conteúdo do app")
 }
 
 //Função para alterar as demonstrações quando clicar em prática
@@ -87,7 +87,7 @@ function alterarPratica(){
     ranking.innerHTML = "<h2>Ranking</h2>" //Tirando os textos do Ranking[
     
     //Mostrando a imagem que representa a prática
-    alterarImagem("Imagens Início/Pratica.png", "Imagem que mostra a prática do aplicativo")
+    alterarImagem("Imagens Início/6.png", "Imagem que mostra a prática do aplicativo")
 }
 
 //Função para alterar as demonstrações quando clicar em quiz
@@ -118,7 +118,7 @@ function alterarQuiz(){
     ranking.innerHTML = "<h2>Ranking</h2>" //Tirando os textos do Ranking
 
     //Mudando a imagem para a que representa o quiz
-    alterarImagem("Imagens Início/Quiz.png", "Imagem que representa o quiz no app")
+    alterarImagem("Imagens Início/8.png", "Imagem que representa o quiz no app")
 }
 
 //Função para alterar as demonstrações quando clicar em ranking
@@ -149,7 +149,7 @@ function alterarRanking(){
     ranking.innerHTML += "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex cum, temporibus. Lorem, ipsum dolor. Lorem, ipsum dolor. Lorem Lorem<</p>"
 
     //Mudando a imagem para ser a que representa
-    alterarImagem("Imagens Início/Ranking.png", "Imagem que representa o Raning")
+    alterarImagem("Imagens Início/10.png", "Imagem que representa o Raning")
 }
 
 //Chamando a Função caso clique em professor
