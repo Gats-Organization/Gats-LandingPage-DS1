@@ -1,0 +1,47 @@
+/* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "BAIXEAQUI"---------------------------------- */
+#titulo1{
+    margin-top: 110px;
+    color: #1A990F;
+    font-size: 45px;
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.valores {
+    display: grid;
+    grid-template-columns: repeat(5, 0.5fr);
+    grid-template-rows: repeat(2, 0.5fr);
+    justify-content: center;
+    width: 450px;
+    margin-left: 550px;
+}
+
+.valores div {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+}
+
+.valores img{
+    width: 230px;
+    height: 230px;
+}
+
+.valores #valor1 {
+    grid-area: 1 / 1 / 2 / 2;
+    margin-bottom: 50px;
+}
+.valores #valor2 {
+    grid-area: 1 / 3 / 2 / 4;
+    margin-bottom: 50px;
+}
+.valores #valor3 {
+    grid-area: 1 / 5 / 2 / 6;
+    margin-bottom: 50px;
+}
+.valores #valor4 {
+    grid-area: 2 / 2 / 3 / 3;
+}
+.valores #valor5 {
+    grid-area: 2 / 4 / 3 / 5;
+}
