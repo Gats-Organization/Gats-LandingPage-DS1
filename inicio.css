@@ -49,7 +49,7 @@ main{
 
 .beneficios{
     display: flex;
-    margin-top: 150px;
+    margin-top: 130px;
 }
 
 .beneficios #titulo2{
@@ -83,7 +83,7 @@ main{
 }
 /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "GIF"---------------------------------- */
 .gif{
-    margin-top: 150px;
+    margin-top: 130px;
     display:flex;
     margin-left: 30px;
 }
@@ -173,17 +173,17 @@ main{
 
 /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "ICONES-FUNCOES"---------------------------------- */
 #titulo4{
+    margin-top: 150px;
     color: #1A990F;
     font-size: 45px;
     text-align: center;
-    margin-top: 150px;
-    margin-bottom: 60px;
+    margin-bottom: 100px;
 }
 
 .icones-funcoes {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 0.5fr);
     justify-content: center;
     width: 450px;
     margin-left: 350px;
