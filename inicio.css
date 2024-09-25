@@ -142,6 +142,10 @@
     border-radius: 50px;
 }
 
+#container-escondido{
+    display: none;
+}
+
 .bloco_dem{
     margin-top: 30px;
     margin-left: 44px;
