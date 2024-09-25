@@ -52,7 +52,7 @@ function alterarConteudo(){
 
     //Adicionando os conteúdos do Conteúdo
     conteudo.innerHTML = "<h2>Conteúdo</h2>" 
-    conteudo.innerHTML += "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex cum, temporibus. Lorem, ipsum dolor. Lorem, ipsum dolor. Lorem Lorem</p>"
+    conteudo.innerHTML += "<p>São disponibilizados diversos conteúdos para os alunos sobre os temas que estão sendo abordados. Os conteúdos são disponibilizados de forma escrita e vídeos podem ser acessados acerca do tema.</p>"
 
     pratica.innerHTML = "<h2>Prática</h2>" //Tirando os textos da prática
 
@@ -79,7 +79,7 @@ function alterarPratica(){
 
     //Adicionando os conteúdos de Prática
     pratica.innerHTML = "<h2>Prática</h2>"
-    pratica.innerHTML += "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex cum, temporibus. Lorem, ipsum dolor. Lorem, ipsum dolor. Lorem Lorem<</p>"
+    pratica.innerHTML += "<p>Na parte da prática, um desafio prático é solicitado ao estudante. O aluno deve enviar uma foto da atividade, registrada no momento em que está sendo realizada e anexá-la no App.</p>"
 
     quiz.innerHTML = "<h2>Quiz</h2>" //Tirando os textos do quiz
 
@@ -106,7 +106,7 @@ function alterarQuiz(){
 
     //Adicionando os conteúdos do Quiz
     quiz.innerHTML = "<h2>Quiz</h2>"
-    quiz.innerHTML += "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex cum, temporibus. Lorem, ipsum dolor. Lorem, ipsum dolor. Lorem Lorem<</p>"
+    quiz.innerHTML += "<p>São disponibilizados diversos quizzes para o aluno acerca do tema, perguntas e respostas para a fixação do conteúdo.</p>"
 
     ranking.innerHTML = "<h2>Ranking</h2>" //Tirando os textos do Ranking
 
@@ -133,7 +133,7 @@ function alterarRanking(){
 
     //Adicionando os conteúdos do Ranking
     ranking.innerHTML = "<h2>Ranking</h2>"
-    ranking.innerHTML += "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex cum, temporibus. Lorem, ipsum dolor. Lorem, ipsum dolor. Lorem Lorem<</p>"
+    ranking.innerHTML += "<p>Os alunos vão poder visualizar os rankings dos alunos mais engajados da turma. Promovendo um estimulo as práticas das atividades.</p>"
 
     //Mudando a imagem para ser a que representa
     alterarImagem("Imagens Início/10.png", "Imagem que representa o Ranking")
@@ -152,7 +152,7 @@ function alterarPaginaProfessor(){
 
     //Adicionando os conteúdos do Conteúdo
     pagina.innerHTML = "<h2>Página Inicial</h2>" 
-    pagina.innerHTML += "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex cum, temporibus. Lorem, ipsum dolor. Lorem, ipsum dolor. Lorem Lorem</p>"
+    pagina.innerHTML += "<p>Na página inicial é possível visualizar as turmas que pertencem ao professor e os ícones que representam outras funcionalidades que podem ser acessadas no site.</p>"
 
     pratica_prof.innerHTML = "<h2>Atividades Práticas</h2>" //Tirando os textos da prática
 
@@ -178,7 +178,7 @@ function alterarPraticaProfessor(){
 
     //Adicionando os conteúdos de Prática
     pratica_prof.innerHTML = "<h2>Atividades Práticas</h2>"
-    pratica_prof.innerHTML += "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex cum, temporibus. Lorem, ipsum dolor. Lorem, ipsum dolor. Lorem Lorem<</p>"
+    pratica_prof.innerHTML += "<p>O professor tem acesso as fotos enviadas pelos alunos correspondentes as atividades práticas. Podendo validar a entrega da atividade.</p>"
 
     quiz_prof.innerHTML = "<h2>Quiz</h2>" //Tirando os textos do quiz
 
@@ -204,7 +204,7 @@ function alterarQuizProfessor(){
 
     //Adicionando os conteúdos do Quiz
     quiz_prof.innerHTML = "<h2>Quiz</h2>"
-    quiz_prof.innerHTML += "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex cum, temporibus. Lorem, ipsum dolor. Lorem, ipsum dolor. Lorem Lorem</p>"
+    quiz_prof.innerHTML += "<p>Na área do quiz o professor consegue visualizar os nomes dos alunos e as notas dos quizzes correspondentes a esse aluno. Inclusive a sua média geral.</p>"
 
     ranking_prof.innerHTML = "<h2>Ranking</h2>" //Tirando os textos do Ranking
 
@@ -230,7 +230,7 @@ function alterarRankingProfessor(){
 
     //Adicionando os conteúdos do Ranking
     ranking_prof.innerHTML = "<h2>Ranking</h2>"
-    ranking_prof.innerHTML += "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex cum, temporibus. Lorem, ipsum dolor. Lorem, ipsum dolor. Lorem Lorem<</p>"
+    ranking_prof.innerHTML += "Nesta parte há os rankings dos alunos de cada turma. Assim, sendo possível verificar os alunos mais engajados com as atividades e aqueles menos envolvidos.</p>"
 
     //Mudando a imagem para ser a que representa
     alterarImagemProfessor("Imagens/Ranking.png", "Imagem que representa o Raning")

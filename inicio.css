@@ -132,11 +132,10 @@
     border-radius: 20px;
 }
 
-.funcionalidades #container{
+.containers-js{
     display: flex;
     background-color: #DEFBC7;
-    margin-top: 50px;
-    margin-left: 73px;
+    margin: 50px 73px;
     width: 1000px;
     height: 538px;
     padding-top: 41px;
@@ -156,7 +155,7 @@
     margin-top: 20px;
 }
 
-.bloco_dem #demonstracao1{
+#demonstracao1{
     background-color: #B5FB7D;
 }
 
