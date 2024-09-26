@@ -1,7 +1,4 @@
 /*ESTILOS GERAIS*/
-
-
-/* --------------------------------COMEÇO DA MAIN---------------------------------- */
 /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "BAIXEAQUI"---------------------------------- */
 .baixeaqui{
     display: flex;
@@ -11,16 +8,11 @@
 .baixeaqui #titulo1{
     margin-top: 90px;
     color:#23BCDF;
-    font-size: 45px;
     margin-bottom: 27px;
 }
 
 .baixeaqui img{
     margin-top: 40px;
-}
-
-.baixeaqui #texto{
-    margin-right: 80px;
 }
 
 .baixeaqui #texto1{
@@ -48,7 +40,6 @@
 
 .beneficios #titulo2{
     color: #1A990F;
-    font-size: 45px;
 }
 
 .conteudo{
@@ -56,8 +47,6 @@
 }
 
 .conteudo #texto{
-    font-size: 20px;
-    width: 540px;
     text-align: justify;
 }
 
@@ -247,13 +236,14 @@
     font-size: 30px;
 }
 
-/* ------------------- MEDIA QUERIES - 1100px min -----------------------*/
-@media screen and (min-width: 1100px){
+/* ------------------- MEDIA QUERIES - DESKTOP -----------------------*/
+@media screen and (min-width: 1024px){
+
     /* --------------------------------COMEÇO DA MAIN---------------------------------- */
 
     main{
-        margin-right: 200px;
-        margin-left: 200px;
+        margin-right: 10%;
+        margin-left: 10%;
     }
 
     /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "BAIXEAQUI"---------------------------------- */
@@ -261,6 +251,24 @@
     .baixeaqui img{
         width: 430px;
         height: 420px;
+    }
+
+    .baixeaqui #titulo1{
+        font-size: 45px;
+    }
+
+    .baixeaqui #texto{
+        margin-right: 80px;
+    }
+
+    /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "BENEFÍCIOS"---------------------------------- */
+    .beneficios #titulo2{
+        font-size: 45px;
+    }
+
+    .conteudo #texto{
+        font-size: 20px;
+        width: 540px;
     }
 
     
