@@ -2,6 +2,12 @@
 
 
 /* --------------------------------COMEÇO DA MAIN---------------------------------- */
+
+main{
+    margin-right: 200px;
+    margin-left: 200px;
+}
+
 /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "BAIXEAQUI"---------------------------------- */
 .baixeaqui{
     display: flex;
@@ -250,12 +256,6 @@
 /* ------------------- MEDIA QUERIES - 1100px min -----------------------*/
 @media screen and (min-width: 1100px){
     /* --------------------------------COMEÇO DA MAIN---------------------------------- */
-
-    main{
-        margin-right: 200px;
-        margin-left: 200px;
-    }
-
     /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "BAIXEAQUI"---------------------------------- */
 
     .baixeaqui img{
