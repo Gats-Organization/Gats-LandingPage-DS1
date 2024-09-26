@@ -9,6 +9,7 @@ header{
     justify-content: space-evenly;
     align-items: center;
     background-color: white;
+    box-shadow: 2px 3px 2px rgba(128, 128, 128, 0.321);
 }
 
 header div#logo-educaeco{
@@ -138,10 +139,10 @@ footer img{
 
 /* ------------------------------------------------------ MEDIA QUERIE - DESCTOP  ---------------------------------------------------------*/
 
-/* @media screen and (min-width: 400px){ */
+/* @media screen and (min-width: 800px){ */
     /* ------------------------------------------------------ FOOTER  ---------------------------------------------------------*/
-/* 
-    footer{
+
+    /* footer{
         background-color: #BEEE97;
         margin: auto;
         margin-top: 150px;
@@ -166,9 +167,10 @@ footer img{
     #sobrenos{
         color: #247B3F;
         width: 500px;
-    }
+    } */
 
         /* FOOTER - ÍCONES */
+    
     /* #icones img{
         margin-top: 10px;
     }
