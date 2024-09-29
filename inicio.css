@@ -1,7 +1,15 @@
 /*ESTILOS GERAIS*/
+
+/* --------------------------------COMEÇO DA MAIN---------------------------------- */
+main{
+    margin-right: 10%;
+    margin-left: 10%;
+}
+
 /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "BAIXEAQUI"---------------------------------- */
 .baixeaqui{
     display: flex;
+    align-items: center;
     flex-direction: row-reverse;
 }
 
@@ -68,26 +76,20 @@
 .gif{
     margin-top: 130px;
     display:flex;
-    margin-left: 30px;
+    align-items: center;
 }
 
 .gif #gif_img{
-    width: 400px;
-    height: 400px;
     border-radius: 25px;
 }
 
 .gif #texto{
-    width: 500px;
-    margin-left: 150px;
-    margin-top: 100px;
     text-align: justify;
 }
 
 /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "FUNCIONALIDADES" + JAVASCRIPT"---------------------------------- */
 #titulo3{
     color: #1A990F;
-    font-size: 45px;
     text-align: center;
     margin-top: 150px;
     margin-bottom: 60px;
@@ -97,36 +99,24 @@
     display: flex;
     justify-content: center;
     margin-top: 28px;
-    font-size: 25px;
+}
+
+.b-profalunos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
 }
 
 .funcionalidades #p-alunos{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 60px;
     background-color: #B5FB7D;
-    width: 234px;
-    height: 75px;
-    border-radius: 20px;
-}
-
-.funcionalidades #p-professores{
-    margin-left: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 234px;
-    height: 75px;
-    border-radius: 20px;
 }
 
 .containers-js{
     display: flex;
+    align-items: center;
     background-color: #DEFBC7;
-    margin: 50px 73px;
-    width: 1000px;
-    height: 538px;
+    margin: auto;
     padding-top: 41px;
     border-radius: 50px;
 }
@@ -137,11 +127,9 @@
 
 .bloco_dem{
     margin-top: 30px;
-    margin-left: 44px;
-    width: 258px;
     text-align: justify;
     border-radius: 20px;
-    padding: 20px;
+
 }
 
 .bloco_dem p{
@@ -152,16 +140,10 @@
     background-color: #B5FB7D;
 }
 
-.funcionalidades #imagem_demonstracao{
-    width: 740px;
-    height: 475px;
-}
-
 /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "ICONES-FUNCOES"---------------------------------- */
 #titulo4{
     margin-top: 150px;
     color: #1A990F;
-    font-size: 45px;
     text-align: center;
     margin-bottom: 100px;
 }
@@ -182,15 +164,12 @@
 }
 
 .icones-funcoes img{
-    width: 150px;
-    height: 150px;
     margin-bottom: 15px;
 }
 
 .icones-funcoes p{
     margin: 5px 0px 10px 0px;
     text-align: center;
-    font-size: 22px;
     color: #23BCDF;
 }
 
@@ -213,7 +192,6 @@
 /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "ESCOLA"---------------------------------- */
 #titulo5{
     color: #1A990F;
-    font-size: 45px;
     text-align: center;
     margin-top: 150px; 
     margin-bottom: 60px;
@@ -226,34 +204,77 @@
 }
 
 .escola img{
-    width: 1000px;
-    height: 500px;
     margin-bottom: 50px;
 }
 
 .escola p{
     color: #66C88E;
-    font-size: 30px;
 }
+
+/* ------------------- MEDIA QUERIES - TABLET -----------------------*/
+@media screen and (min-width: 756px){
+    /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "BAIXEAQUI"---------------------------------- */
+
+    .baixeaqui img{
+        width: 380px;
+        height: 370px;
+    }
+
+    .titulo{
+        font-size: 25px;
+    }
+
+    .baixeaqui #texto{
+        margin-right: 80px;
+        font-size: 12px;
+    }
+
+    /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "BENEFÍCIOS"---------------------------------- */
+    .conteudo #texto{
+        font-size: 15px;
+        width: 440px;
+    }
+
+    .seta{
+        font-size: 14px;
+    }
+
+    .gif{
+        margin-left: 30px;
+    }
+    
+    .gif #gif_img{
+        width: 400px;
+        height: 400px;
+    }
+
+    /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "GIF"---------------------------------- */
+    .gif{
+        margin-left: 30px;
+    }
+        
+    .gif #gif_img{
+        width: 300px;
+        height: 300px;
+    }
+    
+    .gif #texto{
+        width: 300px;
+        margin-left: 50px;
+    }
+
+}
+
 
 /* ------------------- MEDIA QUERIES - DESKTOP -----------------------*/
 @media screen and (min-width: 1024px){
-
-    /* --------------------------------COMEÇO DA MAIN---------------------------------- */
-
-    main{
-        margin-right: 10%;
-        margin-left: 10%;
-    }
-
     /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "BAIXEAQUI"---------------------------------- */
-
     .baixeaqui img{
         width: 430px;
         height: 420px;
     }
-
-    .baixeaqui #titulo1{
+    
+    .titulo{
         font-size: 45px;
     }
 
@@ -262,15 +283,89 @@
     }
 
     /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "BENEFÍCIOS"---------------------------------- */
-    .beneficios #titulo2{
-        font-size: 45px;
-    }
 
     .conteudo #texto{
         font-size: 20px;
         width: 540px;
     }
 
+    .seta{
+        font-size: 16px;
+    }
+
+    /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "GIF"---------------------------------- */
+    .gif{
+        margin-left: 30px;
+    }
+    
+    .gif #gif_img{
+        width: 400px;
+        height: 400px;
+    }
+
+    .gif #texto{
+        width: 500px;
+        margin-left: 150px;
+    }
+
+    /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "FUNCIONALIDADES" + JAVASCRIPT"---------------------------------- */
+
+    .funcionalidades #botoes{
+        font-size: 25px;
+    }
+
+    .b-profalunos{
+        width: 234px;
+        height: 75px;
+    }
+
+    .funcionalidades #p-alunos{
+        margin-right: 60px;
+    }
+
+    .funcionalidades #p-professores{
+        margin-left: 60px;
+    }
+    
+    .containers-js{
+        width: 850px;
+        height: 538px;
+    }
+
+    .bloco_dem{
+        margin-left: 44px;
+        width: 258px;
+        padding: 20px;
+    }
+
+    .funcionalidades #imagem_demonstracao{
+        width: 600px;
+        height: 400px;
+    }
+
+    /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "ICONES-FUNCOES"---------------------------------- */
+
+    .icones-funcoes img{
+        width: 150px;
+        height: 150px;
+    }
+
+    .icones-funcoes p{
+        font-size: 22px;
+    }
+
+    /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "ESCOLA"---------------------------------- */
+
+    .escola img{
+        width: 1000px;
+        height: 500px;
+    }
+    
+    .escola p{
+        font-size: 30px;
+    }
     
 }
+
+
 

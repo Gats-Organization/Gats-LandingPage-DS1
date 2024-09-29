@@ -9,6 +9,7 @@ header{
     justify-content: space-evenly;
     align-items: center;
     background-color: white;
+    box-shadow: 2px 3px 2px rgba(128, 128, 128, 0.321);
 }
 
 header div#logo-educaeco{
@@ -135,3 +136,68 @@ footer img{
     width: 43px;
     height: 43px;
 }
+
+/* ------------------------------------------------------ MEDIA QUERIE - DESCTOP  ---------------------------------------------------------*/
+
+/* @media screen and (min-width: 800px){ */
+    /* ------------------------------------------------------ FOOTER  ---------------------------------------------------------*/
+
+    /* footer{
+        background-color: #BEEE97;
+        margin: auto;
+        margin-top: 150px;
+        width: 850px;
+        padding: 50px;
+    
+        border-top-right-radius: 50px;
+        border-top-left-radius: 50px;
+    }  
+
+    #LogoTexto{
+        display: flex;
+        align-items: end;
+        font-size: 20px;
+    }
+
+    #sobrenos h1{
+        font-size: 35px;
+        color: #247B3F;
+    }
+
+    #sobrenos{
+        color: #247B3F;
+        width: 500px;
+    } */
+
+        /* FOOTER - ÍCONES */
+    
+    /* #icones img{
+        margin-top: 10px;
+    }
+
+    #youtube{
+        width: 40px;
+        height: 40px;
+    }
+
+    #email{
+        width: 38px;
+        height: 38px;
+    }
+
+    #instagram{
+        width: 40px;
+        height: 40px;
+    }
+
+    #whatsapp{
+        width: 45px;
+        height: 45px;
+    }
+
+    #linkedin{
+        width: 38px;
+        height: 38px;
+    }
+    
+} */

@@ -17,7 +17,7 @@ function proximo_anterior(proximo_anterior){
     if(contador == 0){
         texto = "<p>\“Olá, sou o Rodrigo! <br>Tenho 15 anos e adoro gatos! <br>Sou integrante do Gats. Sou responsável pelo desenvolvimento do site do EducaEco!\”</p><span>- Rodrigo Alex</span>"
         
-        img = "Imagens/Rodrigo.png"
+        img = "Imagens Sobre Nós/Giovanne.png"
         altimg = "Foto do Integrante Rodrigo"
 
         //Tirando o botão de anterior
@@ -29,7 +29,7 @@ function proximo_anterior(proximo_anterior){
 
         texto = "<p>\"Oi! Sou o Petherson! <br>Tenho 16 anos e sou um integrante do grupo GATS. <br>Nele, sou responsável pelo design geral do nosso app EducaEco.\"</p><span>- Petherson Martins</span>"
 
-        img = "Imagens/Petherson.png"
+        img = "Imagens Sobre Nós/Giovanne.png"
         altimg = "Foto da integrante Petherson"
 
         //Botando o botão de anterior e arrumando o estilo
@@ -40,27 +40,27 @@ function proximo_anterior(proximo_anterior){
 
         texto = "<p>\"Olá, sou o Giovanne! <br>Tenho 15 anos e faço parte do GATS. <br>Sou o responsável pelo gerenciamento de tarefas do EducaEco.\"</p><span>- Giovanne Torquato</span>"
         
-        img = "Imagens/Petherson.png"
+        img = "Imagens Sobre Nós/Giovanne.png"
         altimg = "Foto do Integrante Giovanne"
 
     } else if(contador == 3){ //Mostrando Giovanna
 
         texto = "<p>\"Oiie, me chamo Giovanna e tenho 16 anos :) <br> Faço parte da equipe de Dev e do monitoramento do projeto. <br>Amo livros e vivenciar novas experiências\"</p></p><span>- Giovanna Rosa</span>"
 
-        img = "Imagens/Rodrigo.png"
+        img = "Imagens Sobre Nós/Giovanna.png"
         altimg = "Foto da integrante Giovanna"
 
     } else if(contador == 4){ //Maria Eduarda
 
         texto = "<p>\"Oie! Eu sou a Maria Eduarda e gosto de chocolate! <br>Tenho 16 anos.<br>Sou responsável pelo desenvolvimento do front-end e back-end do site do EducaEco.\"</p><span>- Maria Eduarda</span>"
         
-        img = "Imagens/Rodrigo.png"
+        img = "Imagens Sobre Nós/Giovanna.png"
         altimg = "Foto da Integrante Maria Eduarda"
 
     } else if(contador == 5){ //Clara
         texto = "<p>\"Oiie, me chamo Giovanna e tenho 16 anos :) <br> Faço parte da equipe de Dev e do monitoramento do projeto. <br>Amo livros e vivenciar novas experiências\"</p></p><span>- Clara Bartollini</span>"
 
-        img = "Imagens/Petherson.png"
+        img = "Imagens Sobre Nós/Giovanna.png"
         altimg = "Foto da integrante Clara"
 
 
@@ -68,44 +68,44 @@ function proximo_anterior(proximo_anterior){
 
         texto = "<p>\"Olá, sou o Giovanne! <br>Tenho 15 anos e faço parte do GATS. <br>Sou o responsável pelo gerenciamento de tarefas do EducaEco.\"</p><span>- Raissa Casale</span>"
         
-        img = "Imagens/Petherson.png"
+        img = "Imagens Sobre Nós/Giovanna.png"
         altimg = "Foto da Integrante Raissa Casale"
 
     } else if(contador == 7){ //Mostrando Samuel
 
         texto = "<p>\"Oiie, me chamo Giovanna e tenho 16 anos :) <br> Faço parte da equipe de Dev e do monitoramento do projeto. <br>Amo livros e vivenciar novas experiências\"</p></p><span>- Samuel Xavier</span>"
 
-        img = "Imagens/Rodrigo.png"
+        img = "Imagens Sobre Nós/Samuel.png"
         altimg = "Foto do Integrante Samuel"
 
     } else if(contador == 8){ //Mostrando Carlos
 
         texto = "<p>\"Olá, sou o Giovanne! <br>Tenho 15 anos e faço parte do GATS. <br>Sou o responsável pelo gerenciamento de tarefas do EducaEco.\"</p><span>- Carlos Henrique</span>"
         
-        img = "Imagens/Rodrigo.png"
+        img = "Imagens Sobre Nós/Samuel.png"
         altimg = "Foto do Integrante Carlos"
 
     } else if(contador == 9){ // Mostrando Murilo
 
         texto = "<p>\"Oiie, me chamo Giovanna e tenho 16 anos :) <br> Faço parte da equipe de Dev e do monitoramento do projeto. <br>Amo livros e vivenciar novas experiências\"</p></p><span>- Murilo Moreira</span>"
 
-        img = "Imagens/Petherson.png"
+        img = "Imagens Sobre Nós/Samuel.png"
         altimg = "Foto do Integrante Murilo"
 
         //Colocando o botão do próximo
         prox.style.display = 'flex'
-        ant.style.marginRight = '70px'
+        ant.style.marginRight = '40px'
 
     } else{ //Mostrando Ryan
 
         texto = "<p>\"Olá, sou o Giovanne! <br>Tenho 15 anos e faço parte do GATS. <br>Sou o responsável pelo gerenciamento de tarefas do EducaEco.\"</p><span>- Ryan Evangelista</span>"
         
-        img = "Imagens/Rodrigo.png"
+        img = "Imagens Sobre Nós/Samuel.png"
         altimg = "Foto do Integrante Ryan"
 
         //Removendo o botão do próximo
         prox.style.display = 'none'
-        ant.style.marginRight = '430px'
+        ant.style.marginRight = '370px'
 
     }
 
