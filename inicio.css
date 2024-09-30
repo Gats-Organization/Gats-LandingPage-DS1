@@ -2,8 +2,8 @@
 
 /* --------------------------------COMEÇO DA MAIN---------------------------------- */
 main{
-    margin-right: 10%;
-    margin-left: 10%;
+    margin-right: 200px;
+    margin-left: 200px;
 }
 
 /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "BAIXEAQUI"---------------------------------- */
@@ -210,6 +210,7 @@ main{
 .escola p{
     color: #66C88E;
 }
+
 
 /* ------------------- MEDIA QUERIES - TABLET -----------------------*/
 @media screen and (min-width: 756px){

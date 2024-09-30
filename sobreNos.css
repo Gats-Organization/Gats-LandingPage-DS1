@@ -1,8 +1,12 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 
 /* --------------------------------COMEÇO DA MAIN---------------------------------- */
 main{
-    margin-right: 10%;
-    margin-left: 10%;
+    margin-right: 200px;
+    margin-left: 200px;
 }
 
 /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "VALORES"---------------------------------- */
@@ -63,12 +67,7 @@ div#container-fotos{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 132px 132px 19px 132px;
-    padding-top: 132px;
-}
-
-div#titulo-integrantes{
-    width: 600px;
+    margin-top: 150px;
 }
 
 div#fotos-int{
@@ -94,6 +93,12 @@ div#foto-sobre img{
 }
 
 /* Estilo dos textos */
+
+#titulo-integrantes{
+    color: #1A990F;
+    font-size: 45px;
+    width: 700px;
+}
 
 div#texto-int1{
     font-size: 16px;
@@ -126,13 +131,13 @@ div.prox-ant{
 }
 
 div#proximo{
-    margin-right: 130px;
+    margin-right: 0px;
 }
 
 /* O botão vai aparecer no javaScript*/
 div#anterior{
     display: none;
-    margin-right: 40px;
+    margin-right: 70px;
 }
 
 /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "VÍDEO"---------------------------------- */
