@@ -1,0 +1,99 @@
+/* --------------------------------FUNDO FO BODY---------------------------------- */
+/* body{
+    background:url('Imagens Login/Fundo do login.jpg');
+} */
+
+/* --------------------------------COMEÇO DA MAIN---------------------------------- */
+main{
+    display: flex;
+    justify-content: center;
+    margin-top: 170px;
+}
+
+/* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "LOGIN"---------------------------------- */
+.login{
+    display: flex;
+    align-items: center;
+    width: 800px;
+    height: auto;
+    background-color: white;
+    border-radius: 50px;
+    box-shadow: 2px 4px rgba(128, 128, 128, 0.4);
+}
+
+.login #lateral{
+    margin-right: 50px;
+    width: 400px;
+    height: 400px;
+    background-color: #ecfedd;
+    border-radius: 50px 0px 0px 50px;
+    text-align: center;
+}
+
+.login #lateral h1{
+    color: #1A990F;
+    margin-top: 60px;
+}
+
+.login #lateral p{
+    margin-top: 35px;
+    margin-left: 75px;
+    width: 250px;
+    font-size: 20px;
+    color: gray;
+}
+
+.login form{
+    display: flex;
+    flex-direction: column;
+}
+
+.login form h1{
+    text-align: center;
+}
+
+.login input{
+    border-radius: 6px;
+    height: 30px;
+    width: 300px;
+}
+
+.login #botão-login{
+    background-color: #B5FB7D;
+    border-color: #B5FB7D;
+}
+
+
+.login #lembrar{
+    margin-top: 10px;
+    display: flex;
+}
+
+.login #check{
+    margin-right: 5px;
+    width: 20px;
+    height: 20px;
+}
+
+.password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+#password {
+    padding-right: 30px; /* Espaço para o ícone de olho */
+    width: 100%;
+}
+
+.toggle-password img {
+    width: 25px;
+    cursor: pointer;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    font-size: 18px;
+}
