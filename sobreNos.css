@@ -60,14 +60,14 @@ main{
     grid-area: 2 / 4 / 3 / 5;
 }
 
-/* --------------------------------SUB MAIN -> INTEGRANTES DO GATS ---------------------------------- */
+/* --------------------------------SUB MAIN -> CLASSE CONTAINER-FOTOS (INTEGRANTES DO GATS) ---------------------------------- */
 /*Mexendo na parte das fotos*/
 
-div#container-fotos{
+.container-fotos{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 150px;
+    margin-top: 180px;
 }
 
 div#fotos-int{
@@ -142,7 +142,7 @@ div#anterior{
 
 /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "VÍDEO"---------------------------------- */
 #titulo2{
-    margin-top: 150px;
+    margin-top: 170px;
     color: #1A990F;
     font-size: 45px;
     text-align: center;

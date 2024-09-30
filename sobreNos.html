@@ -22,7 +22,7 @@
         <a href="inicio.html">Início</a>
         <a href=""><span>Sobre Nós</span></a>
         <a href="aprovacao.html">Aprovação</a>
-        <input type="button" value="Professor">
+        <input type="button" value="Professor" onclick="mudarTela()">
     </header>
 
     <main>
@@ -51,7 +51,8 @@
             </div>
         </div>
 
-        <div id="container-fotos">
+        <!-- Segunda parte -->
+        <div class="container-fotos">
                 <h1 id="titulo-integrantes">Conheça os desenvolvedores do EducaEco</h1>
             <div id="fotos-int">
                 <div id="foto-sobre">
@@ -106,6 +107,14 @@
                 </div>
             </div>
         </footer>
+
+        <!-- JavaScript do Header "Botão Professor" -->
+        <script>
+            function mudarTela() {
+                window.location.href = "login.html"; // Caminho da outra página
+        }
+        </script>
+            <!-- JavaScript da Classe "Container-fotos" -->
         <script src="sobre.js"></script>
 </body>
 </html>

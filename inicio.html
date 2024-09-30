@@ -22,7 +22,7 @@
         <a href="#"><span>Início</span></a>
         <a href="sobreNos.html">Sobre Nós</a>
         <a href="aprovacao.html">Aprovação</a>
-        <input type="button" value="Professor">
+        <input type="button" value="Professor" onclick="mudarTela()">
     </header>
 
     <main>
@@ -177,5 +177,13 @@
             </div>
         </div>
     </footer>
+    <!-- JavaScript do Header "Botão Professor" -->
+    <script>
+        function mudarTela() {
+            window.location.href = "login.html"; // Caminho da outra página
+        }
+    </script>
+
+    <!-- JavaScript da Classe "Funcionalidades" -->
     <script src="script.js"></script>
 </body>
