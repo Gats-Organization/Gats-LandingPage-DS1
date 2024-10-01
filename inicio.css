@@ -544,7 +544,11 @@
     }
 
     .icones-funcoes p{
-        font-size: 22px;
+        font-size: 16px;
+    }
+
+    .icones-funcoes span{
+        font-size: 19px;
     }
 
     /********SUB MAIN -> COMEÇO DA CLASSE "ESCOLA"********/
