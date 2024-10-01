@@ -56,12 +56,37 @@ header input:hover{
     border: 2px solid #33AB58;
 }
 
+/* ------------------- MEDIA QUERIES - CELULAR -----------------------*/
+@media screen and (max-width: 755px){
+    header div#logo-educaeco img{
+        height: 40px;
+    }
+
+    header div#logo-educaeco p#educaeco{
+        font-size: 14px;
+    }
+
+    header a{
+        font-size: 13px;
+    }
+
+    
+    header input{
+        line-height: 30px;
+        width: 70px;
+        border: 0px;
+        font-size: 12px;
+        border-radius: 10px;
+    }
+
+
+}
+
 /* ------------------------------------------------ FOOTER ---------------------------------------------------------*/
 footer{
     background-color: #BEEE97;
     margin: auto;
     margin-top: 150px;
-    width: 1200px;
     padding: 50px;
 
     border-top-right-radius: 50px;
@@ -74,14 +99,9 @@ footer #parte-cima-footer{
     justify-content: space-between;
 }
 
-footer img{
-    width: 80px;
-}
-
 #LogoTexto{
     display: flex;
     align-items: end;
-    font-size: 24px;
 }
 
 #LogoTexto h1{
@@ -97,12 +117,10 @@ footer img{
 }
 
 #sobrenos{
-    color: #247B3F;
     width: 600px;
 }
 
 #sobrenos h1{
-    font-size: 45px;
     color: #247B3F;
 }
 
@@ -112,92 +130,146 @@ footer img{
     margin-top: 20px;
 }
 
-#youtube{
-    width: 45px;
-    height: 45px;
-}
+/* ------------------- MEDIA QUERIES - CELULAR -----------------------*/
+@media screen and (max-width: 755px){
+    footer{
+        width: 300px;
+    }
 
-#email{
-    width: 43px;
-    height: 43px;
-}
-
-#instagram{
-    width: 45px;
-    height: 45px;
-}
-
-#whatsapp{
-    width: 50px;
-    height: 50px;
-}
-
-#linkedin{
-    width: 43px;
-    height: 43px;
-}
-
-/* ------------------------------------------------------ MEDIA QUERIE - DESCTOP  ---------------------------------------------------------*/
-
-/* @media screen and (min-width: 800px){ */
-    /* ------------------------------------------------------ FOOTER  ---------------------------------------------------------*/
-
-    /* footer{
-        background-color: #BEEE97;
-        margin: auto;
-        margin-top: 150px;
-        width: 850px;
-        padding: 50px;
-    
-        border-top-right-radius: 50px;
-        border-top-left-radius: 50px;
-    }  
+    footer img{
+        width: 30px;
+    }
 
     #LogoTexto{
-        display: flex;
-        align-items: end;
+        font-size: 14px;
+    } 
+
+    #sobrenos{
+        width: 100px;
+    }
+    
+    #sobrenos h1{
         font-size: 20px;
     }
 
-    #sobrenos h1{
-        font-size: 35px;
-        color: #247B3F;
+    #sobrenos p{
+        font-size: 8px;
     }
 
-    #sobrenos{
-        color: #247B3F;
-        width: 500px;
-    } */
-
-        /* FOOTER - ÍCONES */
-    
-    /* #icones img{
-        margin-top: 10px;
-    }
-
+    /* FOOTER - ÍCONES */
     #youtube{
-        width: 40px;
-        height: 40px;
+        width: 25px;
+        height: 25px;
     }
 
     #email{
-        width: 38px;
-        height: 38px;
+        width: 23px;
+        height: 23px;
     }
 
     #instagram{
-        width: 40px;
-        height: 40px;
+        width: 25px;
+        height: 25px;
     }
 
     #whatsapp{
+        width: 30px;
+        height: 30px;
+    }
+
+    #linkedin{
+        width: 23px;
+        height: 23px;
+    }
+}
+
+
+/* ------------------- MEDIA QUERIES - TABLET -----------------------*/
+@media screen and (min-width: 756px){
+    footer{
+        width: 600px;
+    }
+
+    footer img{
+        width: 40px;
+    }
+
+    #LogoTexto{
+        font-size: 18px;
+    } 
+
+    #sobrenos{
+        width: 300px;
+    }
+    
+    #sobrenos h1{
+        font-size: 30px;
+    }
+
+    #sobrenos p{
+        font-size: 12px;
+    }
+
+    /* FOOTER - ÍCONES */
+    #youtube{
         width: 45px;
         height: 45px;
     }
 
-    #linkedin{
-        width: 38px;
-        height: 38px;
+    #email{
+        width: 43px;
+        height: 43px;
     }
-    
-} */
+
+    #instagram{
+        width: 45px;
+        height: 45px;
+    }
+
+    #whatsapp{
+        width: 50px;
+        height: 50px;
+    }
+
+    #linkedin{
+        width: 43px;
+        height: 43px;
+    }
+}
+
+/* ------------------- MEDIA QUERIES - DESKTOP -----------------------*/
+@media screen and (min-width: 1000px){
+    footer{
+        width: 900px;
+    }
+
+    footer img{
+        width: 50px;
+    }
+
+    #LogoTexto{
+        font-size: 18px;
+    }
+
+    #sobrenos{
+        width: 600px;
+    }
+
+    #sobrenos h1{
+        font-size: 45px;
+    }
+}
+
+@media screen and (min-width: 1220px){
+    footer{
+        width: 1100px;
+    }
+
+    footer img{
+        width: 80px;
+    }
+
+    #LogoTexto{
+        font-size: 24px;
+    }
+}

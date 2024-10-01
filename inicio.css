@@ -1,16 +1,12 @@
 /*ESTILOS GERAIS*/
 
-/* --------------------------------COMEÇO DA MAIN---------------------------------- */
-main{
-    margin-right: 200px;
-    margin-left: 200px;
-}
+
 
 /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "BAIXEAQUI"---------------------------------- */
 .baixeaqui{
     display: flex;
     align-items: center;
-    flex-direction: row-reverse;
+
 }
 
 .baixeaqui #titulo1{
@@ -25,7 +21,6 @@ main{
 
 .baixeaqui #texto1{
     text-align: justify;
-    font-size: 18px;
 }
 
 .baixeaqui #baixeaqui{
@@ -49,10 +44,6 @@ main{
 
 .beneficios #titulo2{
     color: #1A990F;
-}
-
-.conteudo{
-    margin-left: 50px;
 }
 
 .conteudo #texto{
@@ -92,8 +83,6 @@ main{
 #titulo3{
     color: #1A990F;
     text-align: center;
-    margin-top: 150px;
-    margin-bottom: 60px;
 }
 
 .funcionalidades #botoes{
@@ -118,7 +107,6 @@ main{
     align-items: center;
     background-color: #DEFBC7;
     margin: auto;
-    padding-top: 41px;
     border-radius: 50px;
 }
 
@@ -127,10 +115,8 @@ main{
 }
 
 .bloco_dem{
-    margin-top: 30px;
     text-align: justify;
     border-radius: 20px;
-
 }
 
 .bloco_dem p{
@@ -146,15 +132,10 @@ main{
     margin-top: 150px;
     color: #1A990F;
     text-align: center;
-    margin-bottom: 100px;
 }
 
 .icones-funcoes {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(2, 1fr);
     justify-items: center;
-    row-gap: 10px;
 }
 
 .icones-funcoes div {
@@ -162,34 +143,16 @@ main{
     flex-direction: column; 
     align-items: center;
     text-align: justify;
+    margin-bottom: 50px;
 }
 
 .icones-funcoes img{
     margin-bottom: 15px;
 }
 
-.icones-funcoes p{
-    margin: 5px 0px 10px 0px;
-    text-align: center;
+.icones-funcoes span{
     color: #23BCDF;
 }
-
-.icones-funcoes #img1 {
-    grid-area: 1 / 1 / 2 / 2;
-}
-.icones-funcoes #img2 {
-    grid-area: 1 / 3 / 2 / 4;
-}
-.icones-funcoes #img3 {
-    grid-area: 1 / 5 / 2 / 6;
-}
-.icones-funcoes #img4 {
-    grid-area: 2 / 2 / 3 / 3;
-}
-.icones-funcoes #img5 {
-    grid-area: 2 / 4 / 3 / 5;
-}
-
 /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "ESCOLA"---------------------------------- */
 #titulo5{
     color: #1A990F;
@@ -213,13 +176,144 @@ main{
 }
 
 
-/* ------------------- MEDIA QUERIES - TABLET -----------------------*/
-@media screen and (min-width: 756px){
-    /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "BAIXEAQUI"---------------------------------- */
+/* ------------------- MEDIA QUERIES - CELULAR -----------------------*/
+@media screen and (max-width: 755px){
+    /********COMEÇO DA MAIN********/
+    main{
+        margin-right: 100px;
+        margin-left: 100px;
+    }
+
+    /********SUB MAIN -> COMEÇO DA CLASSE "BAIXEAQUI"********/
+    .baixeaqui{
+        flex-direction: column;
+    }
 
     .baixeaqui img{
-        width: 380px;
-        height: 370px;
+        width: 200px;
+        height: 190px;
+    }
+
+    .titulo{
+        font-size: 20px;
+    }
+
+    .baixeaqui #texto{
+        font-size: 12px;
+    }
+
+    /********SUB MAIN -> COMEÇO DA CLASSE "BENEFÍCIOS"********/
+    .beneficios{
+        flex-direction: column;
+    }
+
+    .beneficios #titulo2{
+        font-size: 20px;
+    }
+
+    .conteudo #texto{
+        font-size: 13px;
+        margin-top: 20px;
+    }
+
+    .seta{
+        font-size: 13px;
+    }
+
+    /********SUB MAIN -> COMEÇO DA CLASSE "GIF"********/
+    .gif{
+        flex-direction: column;
+    }
+
+    .gif #gif_img{
+        width: 200px;
+        height: 200px;
+    }
+
+    .gif #texto{
+        margin-top: 20px;
+        font-size: 12px;
+        width: 300px;
+    }
+
+    /********SUB MAIN -> COMEÇO DA CLASSE "FUNCIONALIDADES" + JAVASCRIPT"********/
+    #titulo3{
+        margin-top: 120px;
+        margin-bottom: 20px;
+    }
+    
+    .containers-js{
+        width: 300px;
+        height: 520px;
+        flex-direction: column;
+    }
+    
+    .funcionalidades #botoes{
+        font-size: 12px;
+    }
+
+    .b-profalunos{
+        width: 110px;
+        height: 45px;
+    }
+
+    .funcionalidades #imagem_demonstracao{
+        width: 350px;
+        height: 200px;
+    }
+
+    .bloco_dem{
+        margin-top: 20px;
+        width: 220px;
+        padding: 10px;
+        font-size: 10px;
+    }
+
+    /********SUB MAIN -> COMEÇO DA CLASSE "ICONES-FUNCOES"********/
+    .icones-funcoes img{
+        width: 80px;
+        height: 80px;
+    }
+
+    .icones-funcoes p{
+        font-size: 12px;
+    }
+
+    #titulo4{
+        margin-bottom: 50px;
+    }
+
+    /********SUB MAIN -> COMEÇO DA CLASSE "ESCOLA"********/
+    .escola img{
+        width: 600px;
+        height: 300px;
+    }
+    
+    .escola p{
+        font-size: 14px;
+    }
+    
+    
+    
+}
+
+/* ------------------- MEDIA QUERIES - TABLET -----------------------*/
+@media screen and (min-width: 756px){
+    /*******COMEÇO DA MAIN********/
+    main{
+        margin-right: 100px;
+        margin-left: 100px;
+    }
+
+    /*******SUB MAIN -> COMEÇO DA CLASSE "BAIXEAQUI"********/
+
+    .baixeaqui{
+        flex-direction: row-reverse;
+    }
+
+    .baixeaqui img{
+        width: 270px;
+        height: 260px;
     }
 
     .titulo{
@@ -231,7 +325,11 @@ main{
         font-size: 12px;
     }
 
-    /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "BENEFÍCIOS"---------------------------------- */
+    /********SUB MAIN -> COMEÇO DA CLASSE "BENEFÍCIOS"********/
+    .conteudo{
+        margin-left: 50px;
+    }
+   
     .conteudo #texto{
         font-size: 15px;
         width: 440px;
@@ -241,16 +339,7 @@ main{
         font-size: 14px;
     }
 
-    .gif{
-        margin-left: 30px;
-    }
-    
-    .gif #gif_img{
-        width: 400px;
-        height: 400px;
-    }
-
-    /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "GIF"---------------------------------- */
+    /*********SUB MAIN -> COMEÇO DA CLASSE "GIF"********/
     .gif{
         margin-left: 30px;
     }
@@ -261,16 +350,90 @@ main{
     }
     
     .gif #texto{
+        font-size: 14px;
         width: 300px;
         margin-left: 50px;
     }
 
+    /********SUB MAIN -> COMEÇO DA CLASSE "FUNCIONALIDADES" + JAVASCRIPT"********/
+    #titulo3{
+        margin-top: 150px;
+        margin-bottom: 60px;
+    }
+    
+    .containers-js{
+        width: 550px;
+        height: 300px;
+    }
+    
+    .funcionalidades #botoes{
+        font-size: 16px;
+    }
+
+    .b-profalunos{
+        width: 170px;
+        height: 55px;
+    }
+
+    .funcionalidades #imagem_demonstracao{
+        width: 350px;
+        height: 200px;
+    }
+
+    .bloco_dem{
+        margin-left: 20px;
+        width: 220px;
+        padding: 12px;
+        font-size: 10px;
+    }
+
+    /********SUB MAIN -> COMEÇO DA CLASSE "ICONES-FUNCOES"********/
+    #titulo4{
+        margin-bottom: 100px;
+    }
+    
+    .icones-funcoes img{
+        width: 100px;
+        height: 100px;
+    }
+
+    .icones-funcoes p{
+        font-size: 14px;
+    }
+
+    /********SUB MAIN -> COMEÇO DA CLASSE "ESCOLA"********/
+    .escola img{
+        width: 800px;
+        height: 400px;
+    }
+    
+    .escola p{
+        font-size: 20px;
+    }
+
+    
 }
 
+/* ------------------- MEDIA QUERIES - DESKTOP (pequenos detalhes) -----------------------*/
+@media screen  and (min-width: 1024px){
+    .baixeaqui img{
+        width: 400px;
+        height: 390px;
+    }
+    
+    .titulo{
+        font-size: 35px;
+    }
+
+    .baixeaqui #texto{
+        margin-right: 80px;
+        font-size: 14px;
+    }
+}
 
 /* ------------------- MEDIA QUERIES - DESKTOP -----------------------*/
-@media screen and (min-width: 1024px){
-    /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "BAIXEAQUI"---------------------------------- */
+@media screen and (min-width: 1200px){
+    /********SUB MAIN -> COMEÇO DA CLASSE "BAIXEAQUI"********/
     .baixeaqui img{
         width: 430px;
         height: 420px;
@@ -282,9 +445,10 @@ main{
 
     .baixeaqui #texto{
         margin-right: 80px;
+        font-size: 18px;
     }
 
-    /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "BENEFÍCIOS"---------------------------------- */
+    /******** MAIN -> COMEÇO DA CLASSE "BENEFÍCIOS"********/
 
     .conteudo #texto{
         font-size: 20px;
@@ -295,7 +459,7 @@ main{
         font-size: 16px;
     }
 
-    /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "GIF"---------------------------------- */
+    /********SUB MAIN -> COMEÇO DA CLASSE "GIF"********/
     .gif{
         margin-left: 30px;
     }
@@ -310,8 +474,7 @@ main{
         margin-left: 150px;
     }
 
-    /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "FUNCIONALIDADES" + JAVASCRIPT"---------------------------------- */
-
+    /********SUB MAIN -> COMEÇO DA CLASSE "FUNCIONALIDADES" + JAVASCRIPT"********/
     .funcionalidades #botoes{
         font-size: 25px;
     }
@@ -330,22 +493,50 @@ main{
     }
     
     .containers-js{
-        width: 850px;
+        width: 1000px;
         height: 538px;
+        padding-top: 41px;
     }
 
     .bloco_dem{
         margin-left: 44px;
         width: 258px;
         padding: 20px;
+        font-size: 16px;
+        margin-top: 30px;
     }
 
     .funcionalidades #imagem_demonstracao{
-        width: 600px;
-        height: 400px;
+        width: 800px;
+        height: 500px;
     }
 
-    /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "ICONES-FUNCOES"---------------------------------- */
+    
+
+    /********SUB MAIN -> COMEÇO DA CLASSE "ICONES-FUNCOES"********/
+    .icones-funcoes {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        justify-items: center;
+        row-gap: 10px;
+    }
+
+    .icones-funcoes #img1 {
+        grid-area: 1 / 1 / 2 / 2;
+    }
+    .icones-funcoes #img2 {
+        grid-area: 1 / 3 / 2 / 4;
+    }
+    .icones-funcoes #img3 {
+        grid-area: 1 / 5 / 2 / 6;
+    }
+    .icones-funcoes #img4 {
+        grid-area: 2 / 2 / 3 / 3;
+    }
+    .icones-funcoes #img5 {
+        grid-area: 2 / 4 / 3 / 5;
+    }
 
     .icones-funcoes img{
         width: 150px;
@@ -356,7 +547,7 @@ main{
         font-size: 22px;
     }
 
-    /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "ESCOLA"---------------------------------- */
+    /********SUB MAIN -> COMEÇO DA CLASSE "ESCOLA"********/
 
     .escola img{
         width: 1000px;
