@@ -1,7 +1,5 @@
 /*ESTILOS GERAIS*/
 
-
-
 /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "BAIXEAQUI"---------------------------------- */
 .baixeaqui{
     display: flex;
@@ -180,8 +178,9 @@
 @media screen and (max-width: 755px){
     /********COMEÇO DA MAIN********/
     main{
-        margin-right: 100px;
-        margin-left: 100px;
+        width: 400px;
+        margin-right: 10px;
+        margin-left: 10px;
     }
 
     /********SUB MAIN -> COMEÇO DA CLASSE "BAIXEAQUI"********/
@@ -200,6 +199,7 @@
 
     .baixeaqui #texto{
         font-size: 12px;
+        width: 200px;
     }
 
     /********SUB MAIN -> COMEÇO DA CLASSE "BENEFÍCIOS"********/
@@ -214,6 +214,7 @@
     .conteudo #texto{
         font-size: 13px;
         margin-top: 20px;
+        width: 320px;
     }
 
     .seta{
@@ -233,7 +234,7 @@
     .gif #texto{
         margin-top: 20px;
         font-size: 12px;
-        width: 300px;
+        width: 250px;
     }
 
     /********SUB MAIN -> COMEÇO DA CLASSE "FUNCIONALIDADES" + JAVASCRIPT"********/
@@ -258,7 +259,7 @@
     }
 
     .funcionalidades #imagem_demonstracao{
-        width: 350px;
+        width: 320px;
         height: 200px;
     }
 
@@ -270,6 +271,10 @@
     }
 
     /********SUB MAIN -> COMEÇO DA CLASSE "ICONES-FUNCOES"********/
+    .icones{
+        width: 300px;
+    }
+    
     .icones-funcoes img{
         width: 80px;
         height: 80px;
@@ -277,6 +282,7 @@
 
     .icones-funcoes p{
         font-size: 12px;
+        width: 300px;
     }
 
     #titulo4{
@@ -285,12 +291,16 @@
 
     /********SUB MAIN -> COMEÇO DA CLASSE "ESCOLA"********/
     .escola img{
-        width: 600px;
-        height: 300px;
+        width: 300px;
+        height: 180px;
+    }
+
+    #titulo5{
+        font-size: 16px;
     }
     
     .escola p{
-        font-size: 14px;
+        font-size: 13px;
     }
     
     
@@ -340,9 +350,6 @@
     }
 
     /*********SUB MAIN -> COMEÇO DA CLASSE "GIF"********/
-    .gif{
-        margin-left: 30px;
-    }
         
     .gif #gif_img{
         width: 300px;
@@ -399,6 +406,7 @@
 
     .icones-funcoes p{
         font-size: 14px;
+        width: 250px;
     }
 
     /********SUB MAIN -> COMEÇO DA CLASSE "ESCOLA"********/
@@ -416,6 +424,11 @@
 
 /* ------------------- MEDIA QUERIES - DESKTOP (pequenos detalhes) -----------------------*/
 @media screen  and (min-width: 1024px){
+    main{
+        margin-right: 200px;
+        margin-left: 200px;
+    }
+
     .baixeaqui img{
         width: 400px;
         height: 390px;
@@ -515,6 +528,7 @@
 
     /********SUB MAIN -> COMEÇO DA CLASSE "ICONES-FUNCOES"********/
     .icones-funcoes {
+        margin-left: -100px;
         display: grid;
         grid-template-columns: repeat(5, 1fr);
         grid-template-rows: repeat(2, 1fr);
@@ -548,7 +562,7 @@
     }
 
     .icones-funcoes span{
-        font-size: 19px;
+        font-size: 20px;
     }
 
     /********SUB MAIN -> COMEÇO DA CLASSE "ESCOLA"********/
