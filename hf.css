@@ -59,7 +59,7 @@ header input:hover{
 /* ------------------- MEDIA QUERIES - CELULAR -----------------------*/
 @media screen and (max-width: 755px){
     header{
-        width: 100%;
+        width: 100vw;
     }
 
     header div#logo-educaeco img{
