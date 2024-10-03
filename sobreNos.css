@@ -32,7 +32,8 @@
 div#fotos-int{
     display: flex;
     align-items: center;
-    border: 1px solid #136C80;
+    width: 100%;
+    border: 1px solid #000000;
     border-radius: 40px;
 }
 
@@ -54,13 +55,20 @@ div#foto-sobre img{
 }
 
 div#texto-int1{
-    padding: 10px 30px;
+    width: 100%;
+    height: 100%;
+    border-radius: 0px 40px 40px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 div#texto-int1 span{
     display: flex;
     justify-content: end;
-    color: #D16E36;
+    color: #181818;
 }
 
 /* Botões do Próximo e anterior */
@@ -76,9 +84,10 @@ div.prox-ant{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #D16E36;
-    color: #D4F7FF;
+    background-color: #FFA3A3;
+    color: #282525;
     border-radius: 100px;
+    border: #000000 solid 1px;
 }
 
 div#proximo{
