@@ -1,21 +1,39 @@
-/*ESTILOS GERAIS*/
-main{
+/* Estilos Gerais */
+main {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+p {
+    text-align: justify;
+}
+
+/* Classe geral para títulos */
+.titulo {
+    margin-top: 90px;
+    margin-bottom: 27px;
+    text-align: center;
+}
+
+#titulo1 {
+    color: #23BCDF;
+}
+
+#titulo2, #titulo3, #titulo4, #titulo5 {
+    color: #1A990F;
+    margin-top: 150px;
+    margin-bottom: 60px;
+}
+
+#titulo2{
+    margin-top: 60px;
 }
 
 /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "BAIXEAQUI"---------------------------------- */
 .baixeaqui{
     display: flex;
     align-items: center;
-
-}
-
-.baixeaqui #titulo1{
-    margin-top: 90px;
-    color:#23BCDF;
-    margin-bottom: 27px;
 }
 
 .baixeaqui img{
@@ -33,7 +51,7 @@ main{
     font-weight: bolder;
     line-height: 50px;
     width: 140px;
-    border: 0px;
+    border: none;
     font-size: 16px;
     border-radius: 45px;
 }
@@ -43,14 +61,6 @@ main{
 .beneficios{
     display: flex;
     margin-top: 130px;
-}
-
-.beneficios #titulo2{
-    color: #1A990F;
-}
-
-.conteudo #texto{
-    text-align: justify;
 }
 
 .seta{
@@ -69,24 +79,15 @@ main{
 }
 /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "GIF"---------------------------------- */
 .gif{
-    margin-top: 130px;
     display:flex;
     align-items: center;
+    margin-top: 130px;
 }
 
 .gif #gif_img{
     border-radius: 25px;
 }
-
-.gif #texto{
-    text-align: justify;
-}
-
-/* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "FUNCIONALIDADES" + JAVASCRIPT"---------------------------------- */
-#titulo3{
-    color: #1A990F;
-    text-align: center;
-}
+/* -------------------------SUB MAIN -> COMEÇO DA CLASSE "FUNCIONALIDADES" + JAVASCRIPT"----------------------- */
 
 .funcionalidades #botoes{
     display: flex;
@@ -101,7 +102,7 @@ main{
     border-radius: 20px;
 }
 
-.funcionalidades #p-alunos{
+#p-alunos, #demonstracao1 {
     background-color: #B5FB7D;
 }
 
@@ -125,17 +126,7 @@ main{
 .bloco_dem p{
     margin-top: 20px;
 }
-
-#demonstracao1{
-    background-color: #B5FB7D;
-}
-
 /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "ICONES-FUNCOES"---------------------------------- */
-#titulo4{
-    margin-top: 150px;
-    color: #1A990F;
-    text-align: center;
-}
 
 .icones-funcoes {
     display: grid;
@@ -158,12 +149,6 @@ main{
     color: #23BCDF;
 }
 /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "ESCOLA"---------------------------------- */
-#titulo5{
-    color: #1A990F;
-    text-align: center;
-    margin-top: 150px; 
-    margin-bottom: 60px;
-}
 
 .escola{
     display: flex;
@@ -188,7 +173,7 @@ main{
         margin-left: 10px;
     }
 
-    /********SUB MAIN -> COMEÇO DA CLASSE "BAIXEAQUI"********/
+    /********SUB MAIN -> BAIXEAQUI********/
     .baixeaqui{
         flex-direction: column;
     }
@@ -207,7 +192,7 @@ main{
         width: 200px;
     }
 
-    /********SUB MAIN -> COMEÇO DA CLASSE "BENEFÍCIOS"********/
+    /********SUB MAIN -> BENEFÍCIOS********/
     .beneficios{
         flex-direction: column;
         align-items: center;
@@ -227,7 +212,7 @@ main{
         font-size: 13px;
     }
 
-    /********SUB MAIN -> COMEÇO DA CLASSE "GIF"********/
+    /********SUB MAIN -> GIF********/
     .gif{
         flex-direction: column;
     }
@@ -243,7 +228,7 @@ main{
         width: 250px;
     }
 
-    /********SUB MAIN -> COMEÇO DA CLASSE "FUNCIONALIDADES" + JAVASCRIPT"********/
+    /********SUB MAIN -> FUNCIONALIDADES" + JAVASCRIPT********/
     #titulo3{
         margin-top: 120px;
         margin-bottom: 20px;
@@ -264,7 +249,7 @@ main{
         height: 45px;
     }
 
-    .funcionalidades #imagem_demonstracao{
+    .funcionalidades .imagem_demonstracao{
         width: 320px;
         height: 200px;
     }
@@ -276,7 +261,7 @@ main{
         font-size: 10px;
     }
 
-    /********SUB MAIN -> COMEÇO DA CLASSE "ICONES-FUNCOES"********/
+    /********SUB MAIN -> ICONES-FUNCOES ********/
     .icones{
         width: 300px;
         grid-template-rows: repeat(5, 1fr);
@@ -313,7 +298,7 @@ main{
         margin-bottom: 50px;
     }
 
-    /********SUB MAIN -> COMEÇO DA CLASSE "ESCOLA"********/
+    /********SUB MAIN -> ESCOLA********/
     .escola img{
         width: 300px;
         height: 180px;
@@ -338,7 +323,7 @@ main{
         margin-left: 200px;
     }
 
-    /*******SUB MAIN -> COMEÇO DA CLASSE "BAIXEAQUI"********/
+    /*******SUB MAIN -> BAIXEAQUI********/
     .baixeaqui{
         flex-direction: column;
     }
@@ -357,7 +342,7 @@ main{
         font-size: 12px;
     }
 
-    /********SUB MAIN -> COMEÇO DA CLASSE "BENEFÍCIOS"********/
+    /********SUB MAIN -> BENEFÍCIOS"********/
     .beneficios{
         flex-direction: column;
         text-align: center;
@@ -376,7 +361,7 @@ main{
         font-size: 14px;
     }
 
-    /*********SUB MAIN -> COMEÇO DA CLASSE "GIF"********/
+    /*********SUB MAIN -> GIF"********/
     .gif{
         flex-direction: column;
     }    
@@ -392,7 +377,7 @@ main{
         margin-top: 20px;
     }
 
-    /********SUB MAIN -> COMEÇO DA CLASSE "FUNCIONALIDADES" + JAVASCRIPT"********/
+    /********SUB MAIN -> FUNCIONALIDADES" + JAVASCRIPT"********/
     #titulo3{
         margin-top: 150px;
         margin-bottom: 60px;
@@ -412,7 +397,7 @@ main{
         height: 55px;
     }
 
-    .funcionalidades #imagem_demonstracao{
+    .funcionalidades .imagem_demonstracao{
         width: 250px;
         height: 150px;
     }
@@ -424,7 +409,7 @@ main{
         font-size: 10px;
     }
 
-    /********SUB MAIN -> COMEÇO DA CLASSE "ICONES-FUNCOES"********/
+    /********SUB MAIN -> ICONES-FUNCOES"********/
     #titulo4{
         margin-bottom: 100px;
     }
@@ -460,7 +445,7 @@ main{
         width: 250px;
     }
 
-    /********SUB MAIN -> COMEÇO DA CLASSE "ESCOLA"********/
+    /********SUB MAIN -> ESCOLA"********/
     .escola img{
         width: 700px;
         height: 350px;
@@ -523,7 +508,7 @@ main{
 
 /* ------------------- MEDIA QUERIES - DESKTOP -----------------------*/
 @media screen and (min-width: 1200px){
-    /********SUB MAIN -> COMEÇO DA CLASSE "BAIXEAQUI"********/
+    /******** SUB MAIN -> BAIXEAQUI ********/
     .baixeaqui img{
         width: 430px;
         height: 420px;
@@ -538,7 +523,7 @@ main{
         font-size: 18px;
     }
 
-    /******** MAIN -> COMEÇO DA CLASSE "BENEFÍCIOS"********/
+    /******** MAIN -> BENEFÍCIOS ********/
 
     .conteudo #texto{
         font-size: 20px;
@@ -549,7 +534,7 @@ main{
         font-size: 16px;
     }
 
-    /********SUB MAIN -> COMEÇO DA CLASSE "GIF"********/
+    /******** SUB MAIN -> GIF ********/
     .gif{
         margin-left: 30px;
     }
@@ -562,10 +547,10 @@ main{
     .gif #texto{
         width: 500px;
         margin-left: 80px;
-        font-size: 20px;
+        font-size: 18px;
     }
 
-    /********SUB MAIN -> COMEÇO DA CLASSE "FUNCIONALIDADES" + JAVASCRIPT"********/
+    /******** SUB MAIN -> FUNCIONALIDADES + JAVASCRIPT ********/
     .funcionalidades #botoes{
         font-size: 25px;
     }
@@ -594,20 +579,20 @@ main{
         width: 258px;
         padding: 20px;
         font-size: 16px;
-        margin-top: 30px;
+        margin-top: 10px;
     }
 
-    .funcionalidades #imagem_demonstracao{
+    .funcionalidades .imagem_demonstracao{
         width: 600px;
         height: 400px;
     }
 
     
 
-    /********SUB MAIN -> COMEÇO DA CLASSE "ICONES-FUNCOES"********/
+    /******** SUB MAIN -> ICONES-FUNCOES ********/
     .icones-funcoes {
-        grid-template-columns: repeat(5, 0.3fr);
-        grid-template-rows: repeat(2, 0.3fr);
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(2, 1fr);
     }
     
     .icones-funcoes #img1 {
@@ -627,20 +612,20 @@ main{
     }
 
     .icones-funcoes img{
-        width: 150px;
-        height: 150px;
+        width: 100px;
+        height: 100px;
     }
 
     .icones-funcoes p{
         font-size: 16px;
+        width: 200px;
     }
 
     .icones-funcoes span{
         font-size: 20px;
     }
 
-    /********SUB MAIN -> COMEÇO DA CLASSE "ESCOLA"********/
-
+    /******** SUB MAIN -> ESCOLA ********/
     .escola img{
         width: 1000px;
         height: 500px;

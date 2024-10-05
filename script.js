@@ -1,4 +1,4 @@
-//Função para mudar a imagem
+//Função pgenérica para mudar a imagem
 function alterarImagem(vsrc, valt){
     const imagem = document.getElementById("imagem_demonstracao")
     imagem.src = vsrc
@@ -22,7 +22,7 @@ function alterarProfessor(){
 
     container_escondido.style.display = 'flex'
 
-    alterarPaginaProfessor()
+    alterarConteudoProfessor()
 }
 
 //Função para alterar o estilo dos botões Para alunos e Para professores quando clicar em alunos
@@ -37,203 +37,227 @@ function alterarAlunos(){
     alterarConteudo()
 }
 
+//Função genérica para alterar o estilo do container
+function alterarPagina(bloco1, bloco2, bloco3, bloco4, corContainer, conteudoTexto, praticaTexto, quizTexto, rankingTexto, imgSrc, imgAlt) {
+    // Definir a cor de fundo do container principal
+    container.style.backgroundColor = corContainer;
+    // Atualizar o conteúdo
+    conteudo.innerHTML = `<h2>${bloco1}</h2><p>${conteudoTexto}</p>`;
+    pratica.innerHTML = `<h2>${bloco2}</h2><p>${praticaTexto}</p>`;
+    quiz.innerHTML = `<h2>${bloco3}</h2><p>${quizTexto}</p>`;
+    ranking.innerHTML = `<h2>${bloco4}</h2><p>${rankingTexto}</p>`;
+        // Alterar a imagem
+    alterarImagem(imgSrc, imgAlt);
+    // Alterar cor de todos os botões para a cor do container
+    document.querySelectorAll('.bloco_dem').forEach(btn => {
+        btn.style.backgroundColor = corContainer;
+    });
+
+
+
+    // Alterar a imagem
+    alterarImagem(imgSrc, imgAlt);
+
+    // Alterar cor de todos os botões para a cor do container
+    document.querySelectorAll('.bloco_dem').forEach(btn => {
+        btn.style.backgroundColor = corContainer;
+    });
+}
+
+function alterarPaginaProfessor(bloco1, bloco2, bloco3, bloco4, corContainer, conteudoTexto, praticaTexto, quizTexto, rankingTexto, imgSrc, imgAlt) {
+    // Definir a cor de fundo do container principal
+    container_escondido.style.backgroundColor = corContainer; 
+
+    // Atualizar o conteúdo das seções
+    pagina.innerHTML = `<h2>${bloco1}</h2><p>${conteudoTexto}</p>`;
+    pratica_prof.innerHTML = `<h2>${bloco2}</h2><p>${praticaTexto}</p>`;
+    quiz_prof.innerHTML = `<h2>${bloco3}</h2><p>${quizTexto}</p>`;
+    ranking_prof.innerHTML = `<h2>${bloco4}</h2><p>${rankingTexto}</p>`;
+
+    // Alterar a imagem do professor
+    alterarImagemProfessor(imgSrc, imgAlt);
+}
+
+
 /* ----------------- FUNÇÃO ALUNOS --------------------- */
 
 //Função para alterar as demonstrações quando clicar em conteudo
-function alterarConteudo(){
+function alterarConteudo() {
+    alterarPagina(
+        'Conteúdo',
+        'Prática',
+        'Quiz',
+        'Ranking',
+        '#DEFBC7', // cor do container
+        'São disponibilizados diversos conteúdos para os alunos sobre os temas que estão sendo abordados. Os conteúdos são disponibilizados de forma escrita e vídeos podem ser acessados acerca do tema.', // texto do conteúdo
+        '', // texto da prática
+        '', // texto do quiz
+        '', // texto do ranking
+        'Imagens Início/11.png', // caminho da imagem
+        'Imagem que representa o conteúdo do app' // alt da imagem
+    );
 
-    alunos.style.backgroundColor = "#B5FB7D" //Mudando a cor do botão para alunos
-    container.style.backgroundColor = "#DEFBC7" //Mudando a cor do container
-    conteudo.style.backgroundColor = "#B5FB7D" //Colocando a cor para destacar o botão do conteúdo
-    pratica.style.backgroundColor = "#DEFBC7" //Tirando a marca vermelha da prátia
-    quiz.style.backgroundColor = "#DEFBC7" //Tirando a marca azul do quiz
-    ranking.style.backgroundColor = "#DEFBC7" //Tirando a marca laranja do ranking
-    
-
-    //Adicionando os conteúdos do Conteúdo
-    conteudo.innerHTML = "<h2>Conteúdo</h2>" 
-    conteudo.innerHTML += "<p>São disponibilizados diversos conteúdos para os alunos sobre os temas que estão sendo abordados. Os conteúdos são disponibilizados de forma escrita e vídeos podem ser acessados acerca do tema.</p>"
-
-    pratica.innerHTML = "<h2>Prática</h2>" //Tirando os textos da prática
-
-    quiz.innerHTML = "<h2>Quiz</h2>" //Tirando os textos do quiz
-
-    ranking.innerHTML = "<h2>Ranking</h2>" //Tirando os textos do Ranking
-
-    //Mudando a im'agem para representar o conteudo
-    alterarImagem("Imagens Início/11.png", "Image que representa o conteúdo do app")
+    //Mudando cor do botão conteúdo e dos alunos
+    conteudo.style.backgroundColor = "#B5FB7D"
+    alunos.style.backgroundColor = "#B5FB7D"
 }
 
 //Função para alterar as demonstrações quando clicar em prática
-function alterarPratica(){
+function alterarPratica() {
+    alterarPagina(
+        'Conteúdo',
+        'Prática',
+        'Quiz',
+        'Ranking',
+        '#FFC4C4', // cor do container
+        '', 
+        'Na parte da prática, um desafio prático é solicitado ao estudante. O aluno deve enviar uma foto da atividade, registrada no momento em que está sendo realizada e anexá-la no App.', 
+        '', 
+        '', 
+        'Imagens Início/6.png', 
+        'Imagem que mostra a prática do aplicativo'
+    );
 
-    alunos.style.backgroundColor = "#FFA3A3" //Mudando a cor do botão para alunos
-    container.style.backgroundColor = "#FFC4C4" //Mudando a cor do container
-    conteudo.style.backgroundColor = "#FFC4C4" //Tirando a marca verde do conteudo
-    pratica.style.backgroundColor = "#FFA3A3" //Colocando a cor para destacar o botão da prática
-    quiz.style.backgroundColor = "#FFC4C4" //Tirando a marca azul do quiz
-    ranking.style.backgroundColor = "#FFC4C4" //Tirando a marca laranja do ranking
-    
-
-    conteudo.innerHTML = "<h2>Conteúdo</h2>" //Tirando os textos do conteúdo
-
-    //Adicionando os conteúdos de Prática
-    pratica.innerHTML = "<h2>Prática</h2>"
-    pratica.innerHTML += "<p>Na parte da prática, um desafio prático é solicitado ao estudante. O aluno deve enviar uma foto da atividade, registrada no momento em que está sendo realizada e anexá-la no App.</p>"
-
-    quiz.innerHTML = "<h2>Quiz</h2>" //Tirando os textos do quiz
-
-    ranking.innerHTML = "<h2>Ranking</h2>" //Tirando os textos do Ranking[
-    
-    //Mostrando a imagem que representa a prática
-    alterarImagem("Imagens Início/6.png", "Imagem que mostra a prática do aplicativo")
+    //Mudando cor do botão prática e dos alunos
+    pratica.style.backgroundColor = "#FFA3A3"
+    alunos.style.backgroundColor = "#FFA3A3"
 }
 
 //Função para alterar as demonstrações quando clicar em quiz
-function alterarQuiz(){
+function alterarQuiz() {
+    alterarPagina(
+        'Conteúdo',
+        'Prática',
+        'Quiz',
+        'Ranking',
+        '#C3F4FF', // cor do container
+        '', 
+        '', 
+        'São disponibilizados diversos quizzes para o aluno acerca do tema, perguntas e respostas para a fixação do conteúdo.', 
+        '', 
+        'Imagens Início/8.png', 
+        'Imagem que representa o quiz no app'
+    );
 
-    alunos.style.backgroundColor = "#7AD8EE" //Mudando a cor do botão para alunos
-    container.style.backgroundColor = "#C3F4FF" //Mudando a cor do container
-    conteudo.style.backgroundColor = "#C3F4FF" //Tirando a marca verde do conteudo
-    pratica.style.backgroundColor = "#C3F4FF" //Tirando a marca vermelha de prática
-    quiz.style.backgroundColor = "#7AD8EE" //Colocando a cor para destacar o botão do quiz
-    ranking.style.backgroundColor = "#C3F4FF" //Tirando a marca laranja do ranking
-    
-
-    conteudo.innerHTML = "<h2>Conteúdo</h2>" //Tirando os textos do conteúdo
-
-    pratica.innerHTML = "<h2>Prática</h2>" //Tirando os textos da prática
-
-    //Adicionando os conteúdos do Quiz
-    quiz.innerHTML = "<h2>Quiz</h2>"
-    quiz.innerHTML += "<p>São disponibilizados diversos quizzes para o aluno acerca do tema, perguntas e respostas para a fixação do conteúdo.</p>"
-
-    ranking.innerHTML = "<h2>Ranking</h2>" //Tirando os textos do Ranking
-
-    //Mudando a imagem para a que representa o quiz
-    alterarImagem("Imagens Início/8.png", "Imagem que representa o quiz no app")
+    //Mudando cor do botão quiz e dos alunos
+    quiz.style.backgroundColor = "#7AD8EE"
+    alunos.style.backgroundColor = "#7AD8EE"
 }
 
 //Função para alterar as demonstrações quando clicar em ranking
-function alterarRanking(){
+function alterarRanking() {
+    alterarPagina(
+        'Conteúdo',
+        'Prática',
+        'Quiz',
+        'Ranking',
+        '#FFEADA', // cor do container
+        '', 
+        '', 
+        '', 
+        'Os alunos vão poder visualizar os rankings dos alunos mais engajados da turma. Promovendo um estimulo as práticas das atividades.', 
+        'Imagens Início/10.png', 
+        'Imagem que representa o Ranking'
+    );
 
-    alunos.style.backgroundColor = "#FFCDA7" //Mudando a cor do botão para alunos
-    container.style.backgroundColor = "#FFEADA" //Mudando a cor do container
-    conteudo.style.backgroundColor = "#FFEADA" //Tirando a marca verde do conteudo
-    pratica.style.backgroundColor = "#FFEADA" //Tirando a marca vermelha de prática
-    quiz.style.backgroundColor = "#FFEADA" //Tirando a marca azul do quiz
-    ranking.style.backgroundColor = "#FFCDA7" //Colocando a cor para destacar o botão do ranking
-    
-
-    conteudo.innerHTML = "<h2>Conteúdo</h2>" //Tirando os textos do conteúdo
-
-    pratica.innerHTML = "<h2>Prática</h2>" //Tirando os textos da prática
-
-    quiz.innerHTML = "<h2>Quiz</h2>" //Tirando os textos do quiz
-
-    //Adicionando os conteúdos do Ranking
-    ranking.innerHTML = "<h2>Ranking</h2>"
-    ranking.innerHTML += "<p>Os alunos vão poder visualizar os rankings dos alunos mais engajados da turma. Promovendo um estimulo as práticas das atividades.</p>"
-
-    //Mudando a imagem para ser a que representa
-    alterarImagem("Imagens Início/10.png", "Imagem que representa o Ranking")
+    //Mudando cor do botão ranking e dos alunos
+    ranking.style.backgroundColor = "#FFCDA7"
+    alunos.style.backgroundColor = "#FFCDA7"
 }
 
 /* ----------------- FUNÇÃO PROFESSORES --------------------- */
-function alterarPaginaProfessor(){
+function alterarConteudoProfessor(){
+    pagina.style.backgroundColor = "#B5FB7D"
+    pratica_prof.style.backgroundColor = "#DEFBC7"
+    quiz_prof.style.backgroundColor = "#DEFBC7"
+    ranking_prof.style.backgroundColor = "#DEFBC7"
+    professores.style.backgroundColor = "#B5FB7D"
 
-    professores.style.backgroundColor = "#B5FB7D" //Mudando a cor do botão para alunos
-    container_escondido.style.backgroundColor = "#DEFBC7" //Mudando a cor do container
-    pagina.style.backgroundColor = "#B5FB7D" //Colocando a cor para destacar o botão do conteúdo
-    pratica_prof.style.backgroundColor = "#DEFBC7" //Tirando a marca vermelha da prátia
-    quiz_prof.style.backgroundColor = "#DEFBC7" //Tirando a marca azul do quiz
-    ranking_prof.style.backgroundColor = "#DEFBC7" //Tirando a marca laranja do ranking
-    
+    alterarPaginaProfessor(
+        'Página Inicial',  // Título do conteúdo
+        'Atividade Prática',  // Título da prática
+        'Quiz',  // Título do quiz
+        'Ranking',  // Título do ranking
+        '#DEFBC7',  // Cor do container
+        'Na página inicial é possível visualizar as turmas que pertencem ao professor e os ícones que representam outras funcionalidades que podem ser acessadas no site.',  // Texto do conteúdo
+        '',  // Texto da prática
+        '',  // Texto do quiz
+        '',  // Texto do ranking
+        'Imagens Início/PaginaInicial.png',  // Caminho da imagem
+        'Imagem que representa a página inicial do app'  // Alt da imagem
+    );
 
-    //Adicionando os conteúdos do Conteúdo
-    pagina.innerHTML = "<h2>Página Inicial</h2>" 
-    pagina.innerHTML += "<p>Na página inicial é possível visualizar as turmas que pertencem ao professor e os ícones que representam outras funcionalidades que podem ser acessadas no site.</p>"
 
-    pratica_prof.innerHTML = "<h2>Atividades Práticas</h2>" //Tirando os textos da prática
-
-    quiz_prof.innerHTML = "<h2>Quiz</h2>" //Tirando os textos do quiz
-
-    ranking_prof.innerHTML = "<h2>Ranking</h2>" //Tirando os textos do Ranking
-
-    //Mudando a im'agem para representar o conteudo
-    alterarImagemProfessor("Imagens/Conteudo.png", "Image que representa o conteúdo do app")
 }
 
 function alterarPraticaProfessor(){
+    pagina.style.backgroundColor = "#FFC4C4"
+    pratica_prof.style.backgroundColor = "#FFA3A3"
+    quiz_prof.style.backgroundColor = "#FFC4C4"
+    ranking_prof.style.backgroundColor = "#FFC4C4"
+    professores.style.backgroundColor = "#FFA3A3"
 
-    professores.style.backgroundColor = "#FFA3A3" //Mudando a cor do botão para alunos
-    container_escondido.style.backgroundColor = "#FFC4C4" //Mudando a cor do container
-    pagina.style.backgroundColor = "#FFC4C4" //Tirando a marca verde do conteudo
-    pratica_prof.style.backgroundColor = "#FFA3A3" //Colocando a cor para destacar o botão da prática
-    quiz_prof.style.backgroundColor = "#FFC4C4" //Tirando a marca azul do quiz
-    ranking_prof.style.backgroundColor = "#FFC4C4" //Tirando a marca laranja do ranking
-    
+    alterarPaginaProfessor(
+        'Página Inicial',  // Título do conteúdo
+        'Atividade Prática',  // Título da prática
+        'Quiz',  // Título do quiz
+        'Ranking',  // Título do ranking
+        '#FFC4C4',  // Cor do container
+        '',  // Texto do conteúdo
+        'O professor tem acesso às fotos enviadas pelos alunos correspondentes às atividades práticas. Podendo validar a entrega da atividade.',  // Texto da prática
+        '',  // Texto do quiz
+        '',  // Texto do ranking
+        'Imagens Início/AtividadePratica.png',  // Caminho da imagem
+        'Imagem que mostra a prática do site'  // Alt da imagem
+    );
 
-    pagina.innerHTML = "<h2>Página Inicial</h2>" //Tirando os textos do conteúdo
-
-    //Adicionando os conteúdos de Prática
-    pratica_prof.innerHTML = "<h2>Atividades Práticas</h2>"
-    pratica_prof.innerHTML += "<p>O professor tem acesso as fotos enviadas pelos alunos correspondentes as atividades práticas. Podendo validar a entrega da atividade.</p>"
-
-    quiz_prof.innerHTML = "<h2>Quiz</h2>" //Tirando os textos do quiz
-
-    ranking_prof.innerHTML = "<h2>Ranking</h2>" //Tirando os textos do Ranking[
-    
-    //Mostrando a imagem que representa a prática
-    alterarImagemProfessor("Imagens/Pratica.png", "Imagem que mostra a prática do aplicativo")
+    //Mudando cor do botão prática e dos alunos
+    pratica_prof.style.backgroundColor = "#FFA3A3"
+    professores.style.backgroundColor = "#FFA3A3"
 }
 
 function alterarQuizProfessor(){
+    pagina.style.backgroundColor = "#C3F4FF"
+    pratica_prof.style.backgroundColor = "#C3F4FF"
+    quiz_prof.style.backgroundColor = "#7AD8EE"
+    ranking_prof.style.backgroundColor = "#C3F4FF"
+    professores.style.backgroundColor = "#7AD8EE"
 
-    professores.style.backgroundColor = "#7AD8EE" //Mudando a cor do botão para alunos
-    container_escondido.style.backgroundColor = "#C3F4FF" //Mudando a cor do container
-    pagina.style.backgroundColor = "#C3F4FF" //Tirando a marca verde do conteudo
-    pratica_prof.style.backgroundColor = "#C3F4FF" //Tirando a marca vermelha de prática
-    quiz_prof.style.backgroundColor = "#7AD8EE" //Colocando a cor para destacar o botão do quiz
-    ranking_prof.style.backgroundColor = "#C3F4FF" //Tirando a marca laranja do ranking
-    
-
-    pagina.innerHTML = "<h2>Página Inicial</h2>" //Tirando os textos do conteúdo
-
-    pratica_prof.innerHTML = "<h2>Atividades Práticas</h2>" //Tirando os textos da prática
-
-    //Adicionando os conteúdos do Quiz
-    quiz_prof.innerHTML = "<h2>Quiz</h2>"
-    quiz_prof.innerHTML += "<p>Na área do quiz o professor consegue visualizar os nomes dos alunos e as notas dos quizzes correspondentes a esse aluno. Inclusive a sua média geral.</p>"
-
-    ranking_prof.innerHTML = "<h2>Ranking</h2>" //Tirando os textos do Ranking
-
-    //Mudando a imagem para a que representa o quiz
-    alterarImagemProfessor("Imagens/Quiz.png", "Imagem que representa o quiz no app")
+    alterarPaginaProfessor(
+        'Página Inicial',  // Título do conteúdo
+        'Atividade Prática',  // Título da prática
+        'Quiz',  // Título do quiz
+        'Ranking',  // Título do ranking
+        '#C3F4FF',  // Cor do container
+        '',  // Texto do conteúdo
+        '',  // Texto da prática
+        'Na área do quiz, o professor consegue visualizar os nomes dos alunos e as notas dos quizzes correspondentes a esse aluno. Inclusive a sua média geral.',  // Texto do quiz
+        '',  // Texto do ranking
+        'Imagens Início/Quiz.png',  // Caminho da imagem
+        'Imagem que representa o quiz no app'  // Alt da imagem
+    );
 }
 
 function alterarRankingProfessor(){
+    pagina.style.backgroundColor = "#FFEADA"
+    pratica_prof.style.backgroundColor = "#FFEADA"
+    quiz_prof.style.backgroundColor = "#FFEADA"
+    ranking_prof.style.backgroundColor = "#FFCDA7"
+    professores.style.backgroundColor = "#FFCDA7"
 
-    professores.style.backgroundColor = "#FFCDA7" //Mudando a cor do botão para alunos
-    container_escondido.style.backgroundColor = "#FFEADA" //Mudando a cor do container
-    pagina.style.backgroundColor = "#FFEADA" //Tirando a marca verde do conteudo
-    pratica_prof.style.backgroundColor = "#FFEADA" //Tirando a marca vermelha de prática
-    quiz_prof.style.backgroundColor = "#FFEADA" //Tirando a marca azul do quiz
-    ranking_prof.style.backgroundColor = "#FFCDA7" //Colocando a cor para destacar o botão do ranking
-    
-
-    pagina.innerHTML = "<h2>Página Inicial</h2>" //Tirando os textos do conteúdo
-
-    pratica_prof.innerHTML = "<h2>Atividades Práticas</h2>" //Tirando os textos da prática
-
-    quiz_prof.innerHTML = "<h2>Quiz</h2>" //Tirando os textos do quiz
-
-    //Adicionando os conteúdos do Ranking
-    ranking_prof.innerHTML = "<h2>Ranking</h2>"
-    ranking_prof.innerHTML += "Nesta parte há os rankings dos alunos de cada turma. Assim, sendo possível verificar os alunos mais engajados com as atividades e aqueles menos envolvidos.</p>"
-
-    //Mudando a imagem para ser a que representa
-    alterarImagemProfessor("Imagens/Ranking.png", "Imagem que representa o Raning")
+    alterarPaginaProfessor(
+        'Página Inicial',  // Título do conteúdo
+        'Atividade Prática',  // Título da prática
+        'Quiz',  // Título do quiz
+        'Ranking',  // Título do ranking
+        '#FFEADA',  // Cor do container
+        '',  // Texto do conteúdo
+        '',  // Texto da prática
+        '',  // Texto do quiz
+        'Nesta parte, há os rankings dos alunos de cada turma. Assim, sendo possível verificar os alunos mais engajados com as atividades e aqueles menos envolvidos.',  // Texto do ranking
+        'Imagens Início/Ranking.png',  // Caminho da imagem
+        'Imagem que representa o Ranking'  // Alt da imagem
+    );
 }
 
 
@@ -274,7 +298,7 @@ ranking.addEventListener('click', alterarRanking)
 /* -------------------------- Chamando Funções do Professor  ----------------------- */
 
 //Chamando a Função quando clicar em prática no professor
-pagina.addEventListener('click', alterarPaginaProfessor)
+pagina.addEventListener('click', alterarConteudoProfessor)
 
 //Chamado a Função caso clique em prática do professor
 pratica_prof.addEventListener('click', alterarPraticaProfessor)

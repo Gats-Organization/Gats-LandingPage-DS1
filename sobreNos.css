@@ -1,9 +1,20 @@
-/* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "VALORES"---------------------------------- */
-#titulo1{
-    margin-top: 100px;
+/* Estilização geral */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Título principal */
+#titulo1 {
+    margin: 100px 0;
     color: #1A990F;
     text-align: center;
-    margin-bottom: 100px;
+}
+
+/* Estilo da classe "valores" */
+.valores {
+    display: grid;
 }
 
 .valores div {
@@ -19,17 +30,17 @@
     box-shadow: 2px 3px 2px rgba(128, 128, 128, 0.321);
 }
 
-/* ---------------------------SUB MAIN -> CLASSE CONTAINER-FOTOS (INTEGRANTES DO GATS) ---------------------------------- */
-/*Mexendo na parte das fotos*/
-
-.container-fotos{
+/* Estilo do container de fotos */
+.container-fotos {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     margin-top: 180px;
 }
 
-div#fotos-int{
+
+div#fotos-int {
     display: flex;
     align-items: center;
     width: 100%;
@@ -39,197 +50,193 @@ div#fotos-int{
 
 div#foto-sobre{
     border-radius: 40px 0px 0px 40px;
-    border-right: 1px solid black;
 }
 
-div#foto-sobre img{
+div#foto-sobre img {
     margin-top: 50px;
-    border-radius: 40px 0px 0px 40px;
+    border-radius: 40px 0 0 40px;
+    border-right: 1px solid black;
+    background-color: white;
 }
 
 /* Estilo dos textos */
-
-#titulo-integrantes{
+#titulo-integrantes {
     color: #1A990F;
     margin-right: 50px;
 }
 
-div#texto-int1{
+
+div#texto-int1 {
     width: 100%;
     height: 100%;
-    border-radius: 0px 40px 40px 0px;
+    border-radius: 0 40px 40px 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 0 10px;
 }
 
-div#texto-int1 span{
+div#texto-int1 span {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     color: #181818;
 }
 
-/* Botões do Próximo e anterior */
-div#proximo-anterior{
+/* Botões de navegação */
+div#proximo-anterior {
     display: flex;
-    /*Vai mudar para space between no javaScript*/
-    justify-content: end;
+    justify-content: flex-end; /* Será alterado no JavaScript */
     user-select: none;
     margin-top: 20px;
 }
 
-div.prox-ant{
+div.prox-ant {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #FFA3A3;
     color: #282525;
     border-radius: 100px;
-    border: #000000 solid 1px;
+    border: 1px solid #000000;
 }
 
-div#proximo{
-    margin-right: 0px;
+div#proximo {
+    margin-right: 0;
 }
 
-/* O botão vai aparecer no javaScript*/
-div#anterior{
-    display: none;
+div#anterior {
+    display: none; /* Botão escondido por padrão */
     margin-right: 5%;
 }
 
-/* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "VÍDEO"---------------------------------- */
-#titulo2{
-    margin-top: 170px;
+/* Estilo do título da seção de vídeo */
+#titulo2 {
+    margin: 170px 0 100px; /* Combina margin-top e margin-bottom */
     color: #1A990F;
     text-align: center;
-    margin-bottom: 100px;
 }
 
+/* Estilo dp vídeo dentro da seção de vídeo */
+.video{
+    display: flex;
+}
 
-.video img{
+.video img {
+    margin: auto;
     border-radius: 10px;
 }
 
-/* ------------------- MEDIA QUERIES - CELULAR-----------------------*/
-@media screen and (max-width: 849px){
+/* ------------------- MEDIA QUERIES - CELULAR----------------------- */
+@media screen and (max-width: 849px) {
     /**********COMEÇO DA MAIN***********/
-    main{
-        margin-right: 10px;
-        margin-left: 10px;
+    main {
+        margin: 0 10px;
     }
 
-    /***********SUB MAIN -> COMEÇO DA CLASSE "VALORES"***********/
-    .valores {
-        display: flex;
-        flex-direction: column;
-    }
 
-    
-    .valores img{
+    /* Define áreas específicas para cada valor */
+    .valores #valor1 { grid-area: 1 / 1 / 1 / 1; }
+    .valores #valor2 { grid-area: 2 / 1 / 2 / 1; }
+    .valores #valor3 { grid-area: 3 / 1 / 3 / 1; }
+    .valores #valor4 { grid-area: 4 / 1 / 4 / 1; }
+    .valores #valor5 { grid-area: 5 / 1 / 5 / 1; }
+
+    .valores img {
         margin-top: 30px;
         width: 100px;
     }
 
-        /*************SUB MAIN -> CLASSE CONTAINER-FOTOS (INTEGRANTES DO GATS)*******************/
-    /*Mexendo na parte das fotos*/
-    .container-fotos{
-        flex-direction: column;
-    }
-    
-    div#fotos-int{
+    /*************SUB MAIN -> CLASSE CONTAINER-FOTOS (INTEGRANTES DO GATS)*******************/
+    div#fotos-int {
         margin-top: 30px;
-        width: 400px;
+        width: 300px;
         height: 200px;
     }
 
-    div#foto-sobre{
+    div#foto-sobre {
         width: 150px;
-        height: 200px;
+        height: 300px;
     }
 
-    div#foto-sobre img{
+    div#foto-sobre img {
         width: 112px;
+        height: 200px;
     }
 
     /* Estilo dos textos */
-    #titulo-integrantes{
+    #titulo-integrantes {
         font-size: 30px;
-        width: 350px;
+        text-align: center;
     }
 
-    div#texto-int1{
+    div#texto-int1 {
         font-size: 12px;
     }
 
     /* Botões do Próximo e anterior */
-    div.prox-ant{
-        width: 150px;
+    div.prox-ant {
+        width: 120px;
         height: 40px;
         font-size: 16px;
     }
 
-    div#proximo-anterior{
-        margin-right: 15%;
-    }
-
-    /**************SUB MAIN -> COMEÇO DA CLASSE "VÍDEO"**************/
-    #titulo2{
+   /**************SUB MAIN -> CLASSE "VÍDEO"**************/
+    #titulo2 {
         font-size: 25px;
     }
 
-    .video{
-        display: flex;
-    }
-
-    .video img{
-        margin: auto;
+    .video img {
         width: 300px;
         height: 200px;
     }
-    
 }
 
-/* ------------------- MEDIA QUERIES - TABLET-----------------------*/
+/* ------------------- MEDIA QUERIES - TABLET----------------------- */
 @media screen and (min-width: 850px) {
     /**********COMEÇO DA MAIN***********/
-    main{
-        margin-right: 100px;
-        margin-left: 100px;
+    main {
+        margin: 0 100px;
     }
 
-    /***********SUB MAIN -> COMEÇO DA CLASSE "VALORES"***********/
+    /***********SUB MAIN -> CLASSE "VALORES"***********/
     .valores {
-        display: flex;
-        justify-content: space-between;
+        grid-template-rows: repeat(5, 1fr);
     }
 
-    .valores img{
+    /* Define áreas específicas para cada valor */
+    .valores #valor1 { grid-area: 1 / 1 / 1 / 1; }
+    .valores #valor2 { grid-area: 2 / 1 / 2 / 1; }
+    .valores #valor3 { grid-area: 3 / 1 / 3 / 1; }
+    .valores #valor4 { grid-area: 4 / 1 / 4 / 1; }
+    .valores #valor5 { grid-area: 5 / 1 / 5 / 1; }
+
+
+    .valores img {
+        margin-top: 20px;
         width: 150px;
     }
 
     /*************SUB MAIN -> CLASSE CONTAINER-FOTOS (INTEGRANTES DO GATS)*******************/
-    /*Mexendo na parte das fotos*/
-    div#fotos-int{
-        width: 561px;
+    div#fotos-int {
+        width: 500px;
         height: 250px;
     }
 
     div#foto-sobre{
         width: 150px;
-        height: 250px;
+        height: 350px;
     }
 
     div#foto-sobre img{
         width: 150px;
+        height: 250px;
     }
 
     /* Estilo dos textos */
-    #titulo-integrantes{
+    #titulo-integrantes {
         font-size: 40px;
         width: 600px;
+        margin-bottom: 30px;
     }
 
     div#texto-int1{
@@ -243,40 +250,29 @@ div#anterior{
         font-size: 16px;
     }
 
-    /**************SUB MAIN -> COMEÇO DA CLASSE "VÍDEO"**************/
-    #titulo2{
+    /**************SUB MAIN -> CLASSE "VÍDEO"**************/
+    #titulo2 {
         font-size: 35px;
     }
 
-    .video{
-        display: flex;
-    }
-
-    .video img{
-        margin: auto;
+    .video img {
         width: 600px;
         height: 350px;
     }
 }
 
-/* ------------------- MEDIA QUERIES - DESKTOP -----------------------*/
-@media screen and (min-width: 1300px){
+/* ------------------- MEDIA QUERIES - DESKTOP ----------------------- */
+@media screen and (min-width: 1200px) {
     /**********COMEÇO DA MAIN***********/
-    main{
-        margin-right: 200px;
-        margin-left: 200px;
+    main {
+        margin: 0 200px;
     }
 
-    
-
-    /***********SUB MAIN -> COMEÇO DA CLASSE "VALORES"***********/
+    /***********SUB MAIN -> CLASSE "VALORES"***********/
     .valores {
-        display: grid;
-        grid-template-columns: repeat(5, 0.5fr);
-        grid-template-rows: repeat(2, 0.5fr);
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(2, 1fr);
         justify-content: center;
-        width: 350px;
-        margin-left: 350px;
         row-gap: 100px;
     }
 
@@ -284,65 +280,50 @@ div#anterior{
         display: flex; 
         flex-direction: column; 
         align-items: center;
-        font-size: 25px;
+        font-size: 25px; 
         text-align: center;
     }
 
-    .valores div {
-        font-size: 25px;
-    }
-
-    .valores img{
+    .valores img {
         width: 230px;
         height: 230px;
     }
 
-    .valores #valor1 {
-        grid-area: 1 / 1 / 2 / 2;
-    }
-    .valores #valor2 {
-        grid-area: 1 / 3 / 2 / 4;
-    }
-    .valores #valor3 {
-        grid-area: 1 / 5 / 2 / 6;
-    }
-    .valores #valor4 {
-        grid-area: 2 / 2 / 3 / 3;
-    }
-    .valores #valor5 {
-        grid-area: 2 / 4 / 3 / 5;
-    }
+    /* Define áreas específicas para cada valor */
+    .valores #valor1 { grid-area: 1 / 1 / 2 / 2; }
+    .valores #valor2 { grid-area: 1 / 3 / 2 / 4; }
+    .valores #valor3 { grid-area: 1 / 5 / 2 / 6; }
+    .valores #valor4 { grid-area: 2 / 2 / 3 / 3; }
+    .valores #valor5 { grid-area: 2 / 4 / 3 / 5; }
     
     /*************SUB MAIN -> CLASSE CONTAINER-FOTOS (INTEGRANTES DO GATS)*******************/
-    /*Mexendo na parte das fotos*/
-    div#foto-sobre{
+    div#foto-sobre {
         width: 166px;
+        height: 350px;
+    }
+
+    div#foto-sobre img {
         height: 250px;
     }
 
     /* Estilo dos textos */
-    div#texto-int1{
+    div#texto-int1 {
         font-size: 16px;
     }
 
     /* Botões do Próximo e anterior */
-    div.prox-ant{
+    div.prox-ant {
         width: 200px;
         height: 60px;
         font-size: 26px;
     }
 
-    /**************SUB MAIN -> COMEÇO DA CLASSE "VÍDEO"**************/
-    #titulo2{
+    /**************SUB MAIN -> CLASSE "VÍDEO"**************/
+    #titulo2 {
         font-size: 45px;
     }
 
-    .video{
-        display: flex;
-    }
-
-    .video img{
-        margin: auto;
+    .video img {
         width: 700px;
         height: 400px;
     }
