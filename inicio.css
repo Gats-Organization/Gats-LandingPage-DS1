@@ -236,7 +236,7 @@ p {
     
     .containers-js{
         width: 300px;
-        height: 520px;
+        height: 570px;
         flex-direction: column;
     }
     
@@ -398,8 +398,8 @@ p {
     }
 
     .funcionalidades .imagem_demonstracao{
-        width: 250px;
-        height: 150px;
+        width: 350px;
+        height: 200px;
     }
 
     .bloco_dem{
@@ -436,8 +436,8 @@ p {
     
     
     .icones-funcoes img{
-        width: 100px;
-        height: 100px;
+        width: 150px;
+        height: 150px;
     }
 
     .icones-funcoes p{
@@ -583,8 +583,8 @@ p {
     }
 
     .funcionalidades .imagem_demonstracao{
-        width: 600px;
-        height: 400px;
+        width: 800px;
+        height: 500px;
     }
 
     
@@ -612,8 +612,8 @@ p {
     }
 
     .icones-funcoes img{
-        width: 100px;
-        height: 100px;
+        width: 200px;
+        height: 200px;
     }
 
     .icones-funcoes p{
