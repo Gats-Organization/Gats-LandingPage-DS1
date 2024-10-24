@@ -18,6 +18,7 @@ p {
 
 #titulo1 {
     color: #23BCDF;
+    text-align: left;
 }
 
 #titulo2, #titulo3, #titulo4, #titulo5 {
@@ -54,6 +55,54 @@ p {
     border: none;
     font-size: 16px;
     border-radius: 45px;
+    cursor: pointer;
+    animation: pulsar 1s infinite alternate; /* Chamando a animação */
+    z-index: 1; /* Colocando o índice no item, para definir a ordem de sobreposição */
+}
+
+/* Estado de hover (mouse sobre o botão) */
+.baixeaqui #baixeaqui:hover {
+    background-color: #3e8e41; /* Cor mais escura ao passar o mouse */
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Estado de active (botão pressionado) */
+.baixeaqui #baixeaqui:active {
+    background-color: #2E7D32; /* Cor ainda mais escura */
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombra interna */
+}
+
+/* KeyFrames para fazer a animação da seção baixe aqui aparecendo */
+@keyframes aparecendo {
+    from {
+        opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+}
+
+/* KeyFrames para fazer a animação do botão pulsando */
+
+@keyframes pulsar {
+    0% {
+      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+      transform: scale(1);
+    }
+    100% {
+      box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.2);
+      transform: scale(1.1);
+    }
+}
+
+/* KeyFrames para fazer a animação da seção baixe aqui aparecendo */
+@keyframes aparecendo {
+    from {
+        opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
 }
 
 /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "BENEFÍCIOS"---------------------------------- */
@@ -77,11 +126,42 @@ p {
 .seta p{
     margin: 0px;
 }
+
+.seta-animacao {
+    animation: moveInLoop 3s infinite; /* Duração total da animação de cada seta */
+}
+
+/* Repetir animação apontando para os itens*/
+@keyframes moveInLoop {
+    0% {
+        transform: translateX(-25px); /* Começa distante à esquerda */
+    }
+    20% {
+        transform: translateX(0); /* Chega à posição final */
+    }
+
+    100% {
+        transform: translateX(-25px); /* Move-se para fora à direita */
+    }
+}
 /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "GIF"---------------------------------- */
+#section-gif{
+    margin-top: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(241, 250, 251);
+    width: 100vw;
+    height: 700px;
+
+}
+
 .gif{
     display:flex;
     align-items: center;
-    margin-top: 130px;
+    width: 1000px;
+    height: 399px;
+    background-color: #deffc4;
 }
 
 .gif #gif_img{
@@ -100,6 +180,8 @@ p {
     justify-content: center;
     align-items: center;
     border-radius: 20px;
+    cursor: pointer;
+    user-select: none;
 }
 
 #p-alunos, #demonstracao1 {
@@ -112,6 +194,8 @@ p {
     background-color: #DEFBC7;
     margin: auto;
     border-radius: 50px;
+    box-shadow: 5px 5px 5px rgb(186, 181, 181);
+    user-select: none;
 }
 
 #container-escondido{
@@ -120,25 +204,39 @@ p {
 
 .bloco_dem{
     text-align: justify;
+    user-select: none;
     border-radius: 20px;
+    cursor: pointer;
 }
 
 .bloco_dem p{
     margin-top: 20px;
 }
 /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "ICONES-FUNCOES"---------------------------------- */
+#funcoes{
+    background-color: rgb(241, 250, 251);
+    margin-top: 50px;
+    width: 100vw;
+    padding-bottom: 200px;
+}
 
 .icones-funcoes {
-    display: grid;
-    justify-items: center;
+    display: flex;
+    justify-content: space-around;
 }
 
 .icones-funcoes div {
-    display: flex; 
+    display: flex;
     flex-direction: column; 
     align-items: center;
     text-align: justify;
     margin-bottom: 50px;
+}
+
+.icones-funcoes #duas-imagens{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .icones-funcoes img{
@@ -150,28 +248,33 @@ p {
 }
 /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "ESCOLA"---------------------------------- */
 
-.escola{
+.crianca{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.escola img{
+.crianca img{
     margin-bottom: 50px;
+    width: 650px;
+    border-radius: 15px;
+    box-shadow: 3px 3px 3px rgb(109, 100, 100);
 }
 
-.escola p{
+.crianca p{
     color: #66C88E;
+    font-size: 1.6em;
+    
 }
 
 
 /* ------------------- MEDIA QUERIES - CELULAR -----------------------*/
 @media screen and (max-width: 755px){
     /********COMEÇO DA MAIN********/
-    main{
+    /* main{
         margin-right: 10px;
         margin-left: 10px;
-    }
+    } */
 
     /********SUB MAIN -> BAIXEAQUI********/
     .baixeaqui{
@@ -318,10 +421,10 @@ p {
 
 /* ------------------- MEDIA QUERIES - TABLET -----------------------*/
 @media screen and (min-width: 756px){
-    main{
+    /* main{
         margin-right: 200px;
         margin-left: 200px;
-    }
+    } */
 
     /*******SUB MAIN -> BAIXEAQUI********/
     .baixeaqui{
@@ -487,8 +590,17 @@ p {
 /* ------------------- MEDIA QUERIES - DESKTOP (pequenos detalhes) -----------------------*/
 @media screen  and (min-width: 1024px){
     main{
+        margin-top: 2px;
+    }
+
+    main > img{
+        width: 100vw;
+    }
+
+    .baixeaqui{
         margin-right: 200px;
         margin-left: 200px;
+
     }
 
     .baixeaqui img{
@@ -524,6 +636,9 @@ p {
     }
 
     /******** MAIN -> BENEFÍCIOS ********/
+    .beneficios{
+        margin: 120px 200px;
+    }
 
     .conteudo #texto{
         font-size: 20px;
@@ -536,7 +651,9 @@ p {
 
     /******** SUB MAIN -> GIF ********/
     .gif{
-        margin-left: 30px;
+        padding-right: 30px;
+        border-radius: 20px;
+        border: 2px solid #1A990F;
     }
     
     .gif #gif_img{
@@ -590,35 +707,13 @@ p {
     
 
     /******** SUB MAIN -> ICONES-FUNCOES ********/
-    .icones-funcoes {
-        grid-template-columns: repeat(5, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-    }
-    
-    .icones-funcoes #img1 {
-        grid-area: 1 / 1 / 2 / 2;
-    }
-    .icones-funcoes #img2 {
-        grid-area: 1 / 3 / 2 / 4;
-    }
-    .icones-funcoes #img3 {
-        grid-area: 1 / 5 / 2 / 6;
-    }
-    .icones-funcoes #img4 {
-        grid-area: 2 / 2 / 3 / 3;
-    }
-    .icones-funcoes #img5 {
-        grid-area: 2 / 4 / 3 / 5;
+    .icones-funcoes #duas-imagens #img2{
+        margin-right: 300px;
     }
 
     .icones-funcoes img{
-        width: 200px;
-        height: 200px;
-    }
-
-    .icones-funcoes p{
-        font-size: 16px;
-        width: 200px;
+        width: 150px;
+        height: 150px;
     }
 
     .icones-funcoes span{

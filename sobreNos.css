@@ -5,6 +5,12 @@ main {
     align-items: center;
 }
 
+main img{
+    margin-top: 2px;
+    width: 100vw;
+    height: 700px;
+}
+
 /* Título principal */
 .titulo {
     margin: 100px 0;
