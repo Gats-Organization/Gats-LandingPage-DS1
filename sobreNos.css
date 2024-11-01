@@ -1,0 +1,210 @@
+/* Estilização geral */
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main img{
+    margin-top: 2px;
+    width: 100vw;
+}
+
+/* Título principal */
+.titulo {
+    margin: 100px 0;
+    color: #1A990F;
+    text-align: center;
+}
+
+/* Estilo da classe "valores" */
+.valores {
+    display: grid;
+    margin-bottom: 100px;
+}
+
+.valores div {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    text-align: center;
+}
+
+.valores img{
+    border-radius: 10px;
+    margin-bottom: 13px;
+    box-shadow: 2px 3px 2px rgba(128, 128, 128, 0.321);
+}
+
+/* Estilo do container de fotos */
+
+
+.container-fotos {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 100px;
+    
+}
+
+.container-fotos img{
+    border-radius: 20px;
+    box-shadow: 3px 3px 3px rgb(150, 146, 146);
+}
+
+/* Estilo dp vídeo dentro da seção de vídeo */
+.video{
+    display: flex;
+}
+
+.video video {
+    margin: auto;
+    border-radius: 20px;
+    box-shadow: 3px 3px 3px rgb(132, 126, 126);
+}
+
+/* ------------------- MEDIA QUERIES - CELULAR----------------------- */
+@media screen and (max-width: 849px) {
+    /**********COMEÇO DA MAIN***********/
+    main {
+        margin: 0 10px;
+    }
+
+    .titulo{
+        font-size: 25px;
+    }
+
+
+    /* Define áreas específicas para cada valor */
+    .valores #valor1 { grid-area: 1 / 1 / 1 / 1; }
+    .valores #valor2 { grid-area: 2 / 1 / 2 / 1; }
+    .valores #valor3 { grid-area: 3 / 1 / 3 / 1; }
+    .valores #valor4 { grid-area: 4 / 1 / 4 / 1; }
+    .valores #valor5 { grid-area: 5 / 1 / 5 / 1; }
+
+    .valores img {
+        margin-top: 30px;
+        width: 100px;
+        height: 100px;
+    }
+
+    /*************SUB MAIN -> CLASSE CONTAINER-FOTOS (INTEGRANTES DO GATS)*******************/
+    .container-fotos{
+        flex-direction: column;
+    }
+
+    .container-fotos img{
+        height: 250px;
+        width: 400px;
+        margin-bottom: 50px;
+    }
+
+
+   /**************SUB MAIN -> CLASSE "VÍDEO"**************/
+    .video video {
+        width: 300px;
+        height: 200px;
+    }
+}
+
+/* ------------------- MEDIA QUERIES - TABLET----------------------- */
+@media screen and (min-width: 850px) {
+    /**********COMEÇO DA MAIN***********/
+    .titulo{
+        font-size: 35px;
+        width: 900px;
+    }
+
+    /***********SUB MAIN -> CLASSE "VALORES"***********/
+    .valores {
+        grid-template-rows: repeat(5, 1fr);
+    }
+
+    /* Define áreas específicas para cada valor */
+    .valores #valor1 { grid-area: 1 / 1 / 1 / 1; }
+    .valores #valor2 { grid-area: 2 / 1 / 2 / 1; }
+    .valores #valor3 { grid-area: 3 / 1 / 3 / 1; }
+    .valores #valor4 { grid-area: 4 / 1 / 4 / 1; }
+    .valores #valor5 { grid-area: 5 / 1 / 5 / 1; }
+
+
+    .valores img {
+        margin-top: 20px;
+        width: 150px;
+        height: 150px;
+    }
+
+    /*************SUB MAIN -> CLASSE CONTAINER-FOTOS (INTEGRANTES DO GATS)*******************/
+    .container-fotos{
+        flex-direction: column;
+    }
+
+    .container-fotos img{
+        height: 300px;
+        width: 500px;
+        margin-bottom: 50px;
+    }
+
+    /**************SUB MAIN -> CLASSE "VÍDEO"**************/
+    .video video {
+        width: 500px;
+        height: 300px;
+    }
+}
+
+/* ------------------- MEDIA QUERIES - DESKTOP ----------------------- */
+@media screen and (min-width: 1200px) {
+    /**********COMEÇO DA MAIN***********/
+    .titulo{
+        font-size: 45px;
+    }
+
+    /***********SUB MAIN -> CLASSE "VALORES"***********/
+    .valores {
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        justify-content: center;
+        row-gap: 100px;
+    }
+
+    .valores div {
+        display: flex; 
+        flex-direction: column; 
+        align-items: center;
+        font-size: 25px; 
+        text-align: center;
+    }
+
+    .valores img {
+        width: 230px;
+        height: 230px;
+    }
+
+    /* Define áreas específicas para cada valor */
+    .valores #valor1 { grid-area: 1 / 1 / 2 / 2; }
+    .valores #valor2 { grid-area: 1 / 3 / 2 / 4; }
+    .valores #valor3 { grid-area: 1 / 5 / 2 / 6; }
+    .valores #valor4 { grid-area: 2 / 2 / 3 / 3; }
+    .valores #valor5 { grid-area: 2 / 4 / 3 / 5; }
+    
+    /*************SUB MAIN -> CLASSE CONTAINER-FOTOS (INTEGRANTES DO GATS)*******************/
+    .container-fotos{
+        width: 1200px;
+        flex-direction: row;
+    }
+
+    /**************SUB MAIN -> CLASSE "VÍDEO"**************/
+    .video video {
+        width: 700px;
+        height: 400px;
+    }
+}
+
+
