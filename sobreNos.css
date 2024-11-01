@@ -64,7 +64,7 @@ main img{
     display: flex;
 }
 
-.video video {
+.video iframe {
     margin: auto;
     border-radius: 20px;
     box-shadow: 3px 3px 3px rgb(132, 126, 126);
@@ -108,7 +108,7 @@ main img{
 
 
    /**************SUB MAIN -> CLASSE "VÍDEO"**************/
-    .video video {
+    .video iframe {
         width: 300px;
         height: 200px;
     }
@@ -153,7 +153,7 @@ main img{
     }
 
     /**************SUB MAIN -> CLASSE "VÍDEO"**************/
-    .video video {
+    .video iframe {
         width: 500px;
         height: 300px;
     }
@@ -201,7 +201,7 @@ main img{
     }
 
     /**************SUB MAIN -> CLASSE "VÍDEO"**************/
-    .video video {
+    .video iframe {
         width: 700px;
         height: 400px;
     }
