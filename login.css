@@ -1,7 +1,11 @@
 /* --------------------------------FUNDO FO BODY---------------------------------- */
-/* body{
-    background:url('Imagens Login/Fundo do login.jpg');
-} */
+body{
+    background: url('Imagens Login/Fundo do login.png');
+    background-size: cover;         /* Ajusta a imagem para cobrir todo o fundo */
+    background-position: center;    /* Centraliza a imagem */
+    background-repeat: no-repeat;   /* Evita repetição da imagem */
+    background-attachment: fixed;   /* Mantém a imagem fixa ao rolar a página */
+}
 
 /* --------------------------------COMEÇO DA MAIN---------------------------------- */
 main{

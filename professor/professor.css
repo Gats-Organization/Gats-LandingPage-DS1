@@ -1,0 +1,170 @@
+.hero-section {
+    width: 100%;
+    height: 402px;
+    background-color: #F2FEE2;
+    display: flex;
+    align-items: center;
+}
+
+h1 {
+    margin-top: 105px;
+    font-size: 45px;
+    color: #1A990F;
+    margin-bottom: 38px;
+}
+
+.hero-section h2 {
+    margin-left: 200px;
+    font-size: 45px;
+    color: #1A990F;
+}
+
+#perfil {
+    height: 250px;
+    width: 253px;
+    position: relative;
+    left: 68px;
+}
+
+#perfil button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 255px;
+    left: 100px;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    border: 1px solid black;
+    background-color: white;
+    scale: 0.7;
+}
+
+#perfil button:hover {
+    background-color: #d8e1ff;
+}
+
+#foto-prof {
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    align-content: center;
+}
+
+#nome-prof {
+    position: relative;
+    left: 0px;
+    font-size: 45px;
+    color: #1A990F;
+}
+
+#quadro-turmas {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 75px;
+    row-gap: 60px;
+    width: 976px;
+    min-height: 242px;
+    height: auto;
+    padding: 5px;
+    margin: 40px auto 0 auto;
+    justify-content: center;
+}
+
+.turma {
+    display: flex;
+    height: 91px;
+    width: 269px;
+    border-radius: 15px;
+    border: inset 1px black;
+    background-color: #D0FBBB;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#cards {
+    display: flex;
+    width: 956px;
+    height: 385px;
+    align-items: center;
+    margin: 0 auto;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+.card {
+    width: 252px;
+    height: 375px;
+    background-color: #FFD0B6;
+    border: 1px solid black;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    position: relative;
+}
+
+.capa {
+    width: 100%;
+    text-align: center;
+    height: 100%;
+    background-color: #FFD0B6;
+    border-radius: 20px;
+    position: absolute;
+    z-index: 3;
+}
+
+.capa img {
+    margin: 30px auto;
+    width: 150px;
+    height: 150px;
+}
+
+.capa p {
+    width: 200px;
+    margin: 0 auto;
+}
+
+main {
+    padding-bottom: 60px;
+    min-height: max-content;
+}
+
+.nome-card {
+    font-size: 24px;
+    text-align: center;
+    font-weight: bold;
+    color: #974900;
+    margin-bottom: 30px;
+}
+
+.conteudo {
+    width: 100%;
+    text-align: center;
+    height: 100%;
+    background-color: #FFD0B6;
+    border-radius: 20px;
+    position: absolute;
+    z-index: 2;
+}
+
+.conteudo .nome-card {
+    margin-top: 30px;
+}
+
+@keyframes desap {
+    100% {
+        opacity: 0;
+    }
+}
+
+.invisivel {
+    display: none;
+}

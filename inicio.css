@@ -1,8 +1,19 @@
 /* Estilos Gerais */
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
 main {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+main > img{
+    width: 100vw;
 }
 
 p {
@@ -18,6 +29,11 @@ p {
 
 #titulo1 {
     color: #23BCDF;
+    text-align: left;
+}
+
+#titulo2{
+    text-align: left;
 }
 
 #titulo2, #titulo3, #titulo4, #titulo5 {
@@ -31,20 +47,20 @@ p {
 }
 
 /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "BAIXEAQUI"---------------------------------- */
-.baixeaqui{
+#baixeaqui{
     display: flex;
     align-items: center;
 }
 
-.baixeaqui img{
+#baixeaqui img{
     margin-top: 40px;
 }
 
-.baixeaqui #texto1{
+#baixeaqui #texto1{
     text-align: justify;
 }
 
-.baixeaqui #baixeaqui{
+#baixeaqui #baixeaqui{
     background-color: #A3D977;
     color: white;
     margin-top: 20px;
@@ -54,14 +70,63 @@ p {
     border: none;
     font-size: 16px;
     border-radius: 45px;
+    cursor: pointer;
+    animation: pulsar 1s infinite alternate; /* Chamando a animação */
+    z-index: 1; /* Colocando o índice no item, para definir a ordem de sobreposição */
+}
+
+/* Estado de hover (mouse sobre o botão) */
+#baixeaqui #baixeaqui:hover {
+    background-color: #3e8e41; /* Cor mais escura ao passar o mouse */
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Estado de active (botão pressionado) */
+#baixeaqui #baixeaqui:active {
+    background-color: #2E7D32; /* Cor ainda mais escura */
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombra interna */
+}
+
+/* KeyFrames para fazer a animação da seção baixe aqui aparecendo */
+@keyframes aparecendo {
+    from {
+        opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+}
+
+/* KeyFrames para fazer a animação do botão pulsando */
+
+@keyframes pulsar {
+    0% {
+      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+      transform: scale(1);
+    }
+    100% {
+      box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.2);
+      transform: scale(1.1);
+    }
+}
+
+/* KeyFrames para fazer a animação da seção baixe aqui aparecendo */
+@keyframes aparecendo {
+    from {
+        opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
 }
 
 /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "BENEFÍCIOS"---------------------------------- */
 
-.beneficios{
+#beneficios{
     display: flex;
     margin-top: 130px;
 }
+
 
 .seta{
     display: flex;
@@ -77,19 +142,52 @@ p {
 .seta p{
     margin: 0px;
 }
-/* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "GIF"---------------------------------- */
-.gif{
-    display:flex;
-    align-items: center;
-    margin-top: 130px;
+
+.seta-animacao {
+    animation: moveInLoop 3s infinite; /* Duração total da animação de cada seta */
 }
 
-.gif #gif_img{
+/* Repetir animação apontando para os itens*/
+@keyframes moveInLoop {
+    0% {
+        transform: translateX(-25px); /* Começa distante à esquerda */
+    }
+    20% {
+        transform: translateX(0); /* Chega à posição final */
+    }
+
+    100% {
+        transform: translateX(-25px); /* Move-se para fora à direita */
+    }
+}
+/* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "GIF"---------------------------------- */
+#section-gif{
+    margin-top: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(241, 250, 251);
+    width: 100vw;
+    height: 700px;
+
+}
+
+#gif{
+    display: flex;
+    align-items: center;
+    width: 70vw;
+    background-color: #deffc4;
+    padding-right: 30px;
+    border-radius: 20px;
+    border: 2px solid #1A990F;
+}
+
+#gif #gif_img{
     border-radius: 25px;
 }
 /* -------------------------SUB MAIN -> COMEÇO DA CLASSE "FUNCIONALIDADES" + JAVASCRIPT"----------------------- */
 
-.funcionalidades #botoes{
+#funcionalidades #botoes{
     display: flex;
     justify-content: center;
     margin-top: 28px;
@@ -100,6 +198,8 @@ p {
     justify-content: center;
     align-items: center;
     border-radius: 20px;
+    cursor: pointer;
+    user-select: none;
 }
 
 #p-alunos, #demonstracao1 {
@@ -112,6 +212,8 @@ p {
     background-color: #DEFBC7;
     margin: auto;
     border-radius: 50px;
+    box-shadow: 5px 5px 5px rgb(186, 181, 181);
+    user-select: none;
 }
 
 #container-escondido{
@@ -120,65 +222,79 @@ p {
 
 .bloco_dem{
     text-align: justify;
+    user-select: none;
     border-radius: 20px;
+    cursor: pointer;
 }
 
 .bloco_dem p{
     margin-top: 20px;
 }
 /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "ICONES-FUNCOES"---------------------------------- */
-
-.icones-funcoes {
-    display: grid;
-    justify-items: center;
+#funcoes{
+    background-color: rgb(241, 250, 251);
+    margin-top: 50px;
+    width: 100vw;
+    padding-bottom: 200px;
 }
 
-.icones-funcoes div {
-    display: flex; 
+#icones-funcoes {
+    display: flex;
+    justify-content: space-around;
+    align-items: end;
+}
+
+#icones-funcoes div {
+    display: flex;
     flex-direction: column; 
     align-items: center;
     text-align: justify;
     margin-bottom: 50px;
 }
 
-.icones-funcoes img{
+#icones-funcoes #duas-imagens{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#icones-funcoes img{
     margin-bottom: 15px;
 }
 
-.icones-funcoes span{
+#icones-funcoes span{
     color: #23BCDF;
 }
 /* --------------------------------SUB MAIN -> COMEÇO DA CLASSE "ESCOLA"---------------------------------- */
 
-.escola{
+.crianca{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.escola img{
+.crianca img{
     margin-bottom: 50px;
+    width: 650px;
+    border-radius: 15px;
+    box-shadow: 3px 3px 3px rgb(109, 100, 100);
 }
 
-.escola p{
+.crianca p{
     color: #66C88E;
+    font-size: 1.6em;
+    
 }
 
 
 /* ------------------- MEDIA QUERIES - CELULAR -----------------------*/
 @media screen and (max-width: 755px){
-    /********COMEÇO DA MAIN********/
-    main{
-        margin-right: 10px;
-        margin-left: 10px;
-    }
-
     /********SUB MAIN -> BAIXEAQUI********/
-    .baixeaqui{
+    #baixeaqui{
         flex-direction: column;
     }
 
-    .baixeaqui img{
+    #baixeaqui img{
         width: 200px;
         height: 190px;
     }
@@ -187,18 +303,18 @@ p {
         font-size: 20px;
     }
 
-    .baixeaqui #texto{
+    #baixeaqui #texto{
         font-size: 12px;
         width: 200px;
     }
 
     /********SUB MAIN -> BENEFÍCIOS********/
-    .beneficios{
+    #beneficios{
         flex-direction: column;
         align-items: center;
     }
 
-    .beneficios #titulo2{
+    #beneficios #titulo2{
         font-size: 20px;
     }
 
@@ -213,16 +329,17 @@ p {
     }
 
     /********SUB MAIN -> GIF********/
-    .gif{
+    #gif{
         flex-direction: column;
+        height: 60vh;
     }
 
-    .gif #gif_img{
+    #gif #gif_img{
         width: 200px;
         height: 200px;
     }
 
-    .gif #texto{
+    #gif #texto{
         margin-top: 20px;
         font-size: 12px;
         width: 250px;
@@ -236,11 +353,11 @@ p {
     
     .containers-js{
         width: 300px;
-        height: 520px;
+        height: 570px;
         flex-direction: column;
     }
     
-    .funcionalidades #botoes{
+    #funcionalidades #botoes{
         font-size: 12px;
     }
 
@@ -249,7 +366,7 @@ p {
         height: 45px;
     }
 
-    .funcionalidades .imagem_demonstracao{
+    #funcionalidades .imagem_demonstracao{
         width: 320px;
         height: 200px;
     }
@@ -262,36 +379,30 @@ p {
     }
 
     /********SUB MAIN -> ICONES-FUNCOES ********/
-    .icones{
-        width: 300px;
-        grid-template-rows: repeat(5, 1fr);
+    #icones-funcoes{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
-
-    .icones-funcoes #img1 {
-        grid-area: 1 / 1 / 1 / 1;
-    }
-    .icones-funcoes #img2 {
-        grid-area: 2 / 1 / 2 / 1;
-    }
-    .icones-funcoes #img3 {
-        grid-area: 3 / 1 / 3 / 1;
-    }
-    .icones-funcoes #img4 {
-        grid-area: 4 / 1 / 4 / 1;
-    }
-    .icones-funcoes #img5 {
-        grid-area: 5 / 1 / 5 / 1;
-    }
-    
-    .icones-funcoes img{
+    #icones-funcoes img{
         width: 80px;
         height: 80px;
     }
 
-    .icones-funcoes p{
-        font-size: 12px;
-        width: 300px;
+    #icones-funcoes #atvPratica{
+        width: 90px;
+        height: 60px;
+    }
+
+    #icones-funcoes #ranking{
+        width: 120px;
+        height: 70px;
+    }
+
+    #icones-funcoes #jogo{
+        width: 90px;
+        height: 70px;
     }
 
     #titulo4{
@@ -299,19 +410,13 @@ p {
     }
 
     /********SUB MAIN -> ESCOLA********/
-    .escola img{
-        width: 300px;
-        height: 180px;
+    .crianca img{
+        width: 400px;
     }
 
-    #titulo5{
+    .crianca p{
         font-size: 16px;
     }
-    
-    .escola p{
-        font-size: 13px;
-    }
-    
     
     
 }
@@ -324,11 +429,11 @@ p {
     }
 
     /*******SUB MAIN -> BAIXEAQUI********/
-    .baixeaqui{
+    #baixeaqui{
         flex-direction: column;
     }
 
-    .baixeaqui img{
+    #baixeaqui img{
         width: 270px;
         height: 260px;
     }
@@ -337,13 +442,13 @@ p {
         font-size: 25px;
     }
 
-    .baixeaqui #texto{
+    #baixeaqui #texto{
         margin-right: 80px;
         font-size: 12px;
     }
 
     /********SUB MAIN -> BENEFÍCIOS"********/
-    .beneficios{
+    #beneficios{
         flex-direction: column;
         text-align: center;
     }
@@ -362,17 +467,19 @@ p {
     }
 
     /*********SUB MAIN -> GIF"********/
-    .gif{
+    #gif{
         flex-direction: column;
+        height: 70vh;
+
     }    
 
-    .gif #gif_img{
+    #gif #gif_img{
         width: 300px;
         height: 300px;
     }
     
-    .gif #texto{
-        font-size: 16px;
+    #gif #texto{
+        font-size: 18px;
         width: 500px;
         margin-top: 20px;
     }
@@ -388,7 +495,7 @@ p {
         height: 300px;
     }
     
-    .funcionalidades #botoes{
+    #funcionalidades #botoes{
         font-size: 16px;
     }
 
@@ -397,9 +504,9 @@ p {
         height: 55px;
     }
 
-    .funcionalidades .imagem_demonstracao{
-        width: 250px;
-        height: 150px;
+    #funcionalidades .imagem_demonstracao{
+        width: 350px;
+        height: 200px;
     }
 
     .bloco_dem{
@@ -414,64 +521,41 @@ p {
         margin-bottom: 100px;
     }
 
-    .icones-funcoes {
-        grid-template-rows: repeat(5, 1fr);
+    #icones-funcoes img{
+        width: 150px;
+        height: 150px;
     }
 
-    .icones-funcoes #img1 {
-        grid-area: 1 / 1 / 1 / 1;
-    }
-    .icones-funcoes #img2 {
-        grid-area: 2 / 1 / 2 / 1;
-    }
-    .icones-funcoes #img3 {
-        grid-area: 3 / 1 / 3 / 1;
-    }
-    .icones-funcoes #img4 {
-        grid-area: 4 / 1 / 4 / 1;
-    }
-    .icones-funcoes #img5 {
-        grid-area: 5 / 1 / 5 / 1;
-    }
-    
-    
-    .icones-funcoes img{
-        width: 100px;
-        height: 100px;
-    }
-
-    .icones-funcoes p{
+    #icones-funcoes p{
         font-size: 14px;
         width: 250px;
     }
 
     /********SUB MAIN -> ESCOLA"********/
-    .escola img{
-        width: 700px;
-        height: 350px;
-    }
-    
-    .escola p{
-        font-size: 20px;
+    .crianca img{
+        width: 500px;
     }
 }
 
+/*Ajustes desktop*/
 @media screen and (min-width: 900px) {
-    .baixeaqui{
+    #baixeaqui{
         flex-direction: row-reverse;
     }
     
-    .gif{
+    #gif{
         flex-direction: row;
-    }
+        height: 40vh;
 
-    .gif #texto{
+    }  
+
+    #gif #texto{
         font-size: 12px;
         width: 300px;
         margin-left: 20px;
     }
 
-    .beneficios{
+    #beneficios{
         flex-direction: row;
     }
 
@@ -487,11 +571,16 @@ p {
 /* ------------------- MEDIA QUERIES - DESKTOP (pequenos detalhes) -----------------------*/
 @media screen  and (min-width: 1024px){
     main{
-        margin-right: 200px;
-        margin-left: 200px;
+        margin-top: 2px;
     }
 
-    .baixeaqui img{
+    #baixeaqui{
+        margin-right: 200px;
+        margin-left: 200px;
+
+    }
+
+    #baixeaqui img{
         width: 400px;
         height: 390px;
     }
@@ -500,7 +589,7 @@ p {
         font-size: 35px;
     }
 
-    .baixeaqui #texto{
+    #baixeaqui #texto{
         margin-right: 80px;
         font-size: 14px;
     }
@@ -509,7 +598,7 @@ p {
 /* ------------------- MEDIA QUERIES - DESKTOP -----------------------*/
 @media screen and (min-width: 1200px){
     /******** SUB MAIN -> BAIXEAQUI ********/
-    .baixeaqui img{
+    #baixeaqui img{
         width: 430px;
         height: 420px;
     }
@@ -518,16 +607,20 @@ p {
         font-size: 45px;
     }
 
-    .baixeaqui #texto{
+    #baixeaqui #texto{
         margin-right: 80px;
         font-size: 18px;
     }
 
     /******** MAIN -> BENEFÍCIOS ********/
+    #beneficios{
+        margin: 120px 100px;
+    }
 
     .conteudo #texto{
+        margin-top: 30px;
         font-size: 20px;
-        width: 540px;
+        width: 400px;
     }
 
     .seta{
@@ -535,23 +628,26 @@ p {
     }
 
     /******** SUB MAIN -> GIF ********/
-    .gif{
-        margin-left: 30px;
+    #gif{
+        padding-right: 30px;
+        border-radius: 20px;
+        border: 2px solid #1A990F;
+        height: 53vh;
     }
     
-    .gif #gif_img{
+    #gif #gif_img{
         width: 400px;
         height: 400px;
     }
 
-    .gif #texto{
+    #gif #texto{
         width: 500px;
         margin-left: 80px;
         font-size: 18px;
     }
 
     /******** SUB MAIN -> FUNCIONALIDADES + JAVASCRIPT ********/
-    .funcionalidades #botoes{
+    #funcionalidades #botoes{
         font-size: 25px;
     }
 
@@ -560,11 +656,11 @@ p {
         height: 75px;
     }
 
-    .funcionalidades #p-alunos{
+    #funcionalidades #p-alunos{
         margin-right: 60px;
     }
 
-    .funcionalidades #p-professores{
+    #funcionalidades #p-professores{
         margin-left: 60px;
     }
     
@@ -582,57 +678,43 @@ p {
         margin-top: 10px;
     }
 
-    .funcionalidades .imagem_demonstracao{
-        width: 600px;
-        height: 400px;
+    #funcionalidades .imagem_demonstracao{
+        width: 800px;
+        height: 500px;
     }
 
     
 
     /******** SUB MAIN -> ICONES-FUNCOES ********/
-    .icones-funcoes {
-        grid-template-columns: repeat(5, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-    }
-    
-    .icones-funcoes #img1 {
-        grid-area: 1 / 1 / 2 / 2;
-    }
-    .icones-funcoes #img2 {
-        grid-area: 1 / 3 / 2 / 4;
-    }
-    .icones-funcoes #img3 {
-        grid-area: 1 / 5 / 2 / 6;
-    }
-    .icones-funcoes #img4 {
-        grid-area: 2 / 2 / 3 / 3;
-    }
-    .icones-funcoes #img5 {
-        grid-area: 2 / 4 / 3 / 5;
+    #icones-funcoes img{
+        width: 150px;
+        height: 150px;
     }
 
-    .icones-funcoes img{
-        width: 100px;
-        height: 100px;
-    }
-
-    .icones-funcoes p{
-        font-size: 16px;
+    #icones-funcoes #atvPratica{
         width: 200px;
+        height: 140px;
     }
 
-    .icones-funcoes span{
+    #icones-funcoes #ranking{
+        width: 200px;
+        height: 140px;
+    }
+
+    #icones-funcoes #jogo{
+        width: 160px;
+        height: 140px;
+    }
+
+    
+
+    #icones-funcoes span{
         font-size: 20px;
     }
 
     /******** SUB MAIN -> ESCOLA ********/
-    .escola img{
-        width: 1000px;
-        height: 500px;
-    }
-    
-    .escola p{
-        font-size: 30px;
+    .crianca img{
+        width: 650px;
     }
     
 }

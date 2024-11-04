@@ -1,12 +1,24 @@
 /* Estilização geral */
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
 main {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+main img{
+    margin-top: 2px;
+    width: 100vw;
+}
+
 /* Título principal */
-#titulo1 {
+.titulo {
     margin: 100px 0;
     color: #1A990F;
     text-align: center;
@@ -15,6 +27,7 @@ main {
 /* Estilo da classe "valores" */
 .valores {
     display: grid;
+    margin-bottom: 100px;
 }
 
 .valores div {
@@ -31,89 +44,19 @@ main {
 }
 
 /* Estilo do container de fotos */
+
+
 .container-fotos {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    margin-top: 180px;
+    margin-bottom: 100px;
+    
 }
 
-
-div#fotos-int {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    border: 1px solid #000000;
-    border-radius: 40px;
-}
-
-div#foto-sobre{
-    border-radius: 40px 0px 0px 40px;
-}
-
-div#foto-sobre img {
-    margin-top: 50px;
-    border-radius: 40px 0 0 40px;
-    border-right: 1px solid black;
-    background-color: white;
-}
-
-/* Estilo dos textos */
-#titulo-integrantes {
-    color: #1A990F;
-    margin-right: 50px;
-}
-
-
-div#texto-int1 {
-    width: 100%;
-    height: 100%;
-    border-radius: 0 40px 40px 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0 10px;
-}
-
-div#texto-int1 span {
-    display: flex;
-    justify-content: flex-end;
-    color: #181818;
-}
-
-/* Botões de navegação */
-div#proximo-anterior {
-    display: flex;
-    justify-content: flex-end; /* Será alterado no JavaScript */
-    user-select: none;
-    margin-top: 20px;
-}
-
-div.prox-ant {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #FFA3A3;
-    color: #282525;
-    border-radius: 100px;
-    border: 1px solid #000000;
-}
-
-div#proximo {
-    margin-right: 0;
-}
-
-div#anterior {
-    display: none; /* Botão escondido por padrão */
-    margin-right: 5%;
-}
-
-/* Estilo do título da seção de vídeo */
-#titulo2 {
-    margin: 170px 0 100px; /* Combina margin-top e margin-bottom */
-    color: #1A990F;
-    text-align: center;
+.container-fotos img{
+    border-radius: 20px;
+    box-shadow: 3px 3px 3px rgb(150, 146, 146);
 }
 
 /* Estilo dp vídeo dentro da seção de vídeo */
@@ -121,9 +64,10 @@ div#anterior {
     display: flex;
 }
 
-.video img {
+.video iframe {
     margin: auto;
-    border-radius: 10px;
+    border-radius: 20px;
+    box-shadow: 3px 3px 3px rgb(132, 126, 126);
 }
 
 /* ------------------- MEDIA QUERIES - CELULAR----------------------- */
@@ -131,6 +75,10 @@ div#anterior {
     /**********COMEÇO DA MAIN***********/
     main {
         margin: 0 10px;
+    }
+
+    .titulo{
+        font-size: 25px;
     }
 
 
@@ -144,48 +92,23 @@ div#anterior {
     .valores img {
         margin-top: 30px;
         width: 100px;
+        height: 100px;
     }
 
     /*************SUB MAIN -> CLASSE CONTAINER-FOTOS (INTEGRANTES DO GATS)*******************/
-    div#fotos-int {
-        margin-top: 30px;
-        width: 300px;
-        height: 200px;
+    .container-fotos{
+        flex-direction: column;
     }
 
-    div#foto-sobre {
-        width: 150px;
-        height: 300px;
+    .container-fotos img{
+        height: 250px;
+        width: 400px;
+        margin-bottom: 50px;
     }
 
-    div#foto-sobre img {
-        width: 112px;
-        height: 200px;
-    }
-
-    /* Estilo dos textos */
-    #titulo-integrantes {
-        font-size: 30px;
-        text-align: center;
-    }
-
-    div#texto-int1 {
-        font-size: 12px;
-    }
-
-    /* Botões do Próximo e anterior */
-    div.prox-ant {
-        width: 120px;
-        height: 40px;
-        font-size: 16px;
-    }
 
    /**************SUB MAIN -> CLASSE "VÍDEO"**************/
-    #titulo2 {
-        font-size: 25px;
-    }
-
-    .video img {
+    .video iframe {
         width: 300px;
         height: 200px;
     }
@@ -194,8 +117,9 @@ div#anterior {
 /* ------------------- MEDIA QUERIES - TABLET----------------------- */
 @media screen and (min-width: 850px) {
     /**********COMEÇO DA MAIN***********/
-    main {
-        margin: 0 100px;
+    .titulo{
+        font-size: 35px;
+        width: 900px;
     }
 
     /***********SUB MAIN -> CLASSE "VALORES"***********/
@@ -214,58 +138,32 @@ div#anterior {
     .valores img {
         margin-top: 20px;
         width: 150px;
+        height: 150px;
     }
 
     /*************SUB MAIN -> CLASSE CONTAINER-FOTOS (INTEGRANTES DO GATS)*******************/
-    div#fotos-int {
+    .container-fotos{
+        flex-direction: column;
+    }
+
+    .container-fotos img{
+        height: 300px;
         width: 500px;
-        height: 250px;
-    }
-
-    div#foto-sobre{
-        width: 150px;
-        height: 350px;
-    }
-
-    div#foto-sobre img{
-        width: 150px;
-        height: 250px;
-    }
-
-    /* Estilo dos textos */
-    #titulo-integrantes {
-        font-size: 40px;
-        width: 600px;
-        margin-bottom: 30px;
-    }
-
-    div#texto-int1{
-        font-size: 12px;
-    }
-
-    /* Botões do Próximo e anterior */
-    div.prox-ant{
-        width: 150px;
-        height: 40px;
-        font-size: 16px;
+        margin-bottom: 50px;
     }
 
     /**************SUB MAIN -> CLASSE "VÍDEO"**************/
-    #titulo2 {
-        font-size: 35px;
-    }
-
-    .video img {
-        width: 600px;
-        height: 350px;
+    .video iframe {
+        width: 500px;
+        height: 300px;
     }
 }
 
 /* ------------------- MEDIA QUERIES - DESKTOP ----------------------- */
 @media screen and (min-width: 1200px) {
     /**********COMEÇO DA MAIN***********/
-    main {
-        margin: 0 200px;
+    .titulo{
+        font-size: 45px;
     }
 
     /***********SUB MAIN -> CLASSE "VALORES"***********/
@@ -297,33 +195,13 @@ div#anterior {
     .valores #valor5 { grid-area: 2 / 4 / 3 / 5; }
     
     /*************SUB MAIN -> CLASSE CONTAINER-FOTOS (INTEGRANTES DO GATS)*******************/
-    div#foto-sobre {
-        width: 166px;
-        height: 350px;
-    }
-
-    div#foto-sobre img {
-        height: 250px;
-    }
-
-    /* Estilo dos textos */
-    div#texto-int1 {
-        font-size: 16px;
-    }
-
-    /* Botões do Próximo e anterior */
-    div.prox-ant {
-        width: 200px;
-        height: 60px;
-        font-size: 26px;
+    .container-fotos{
+        width: 1200px;
+        flex-direction: row;
     }
 
     /**************SUB MAIN -> CLASSE "VÍDEO"**************/
-    #titulo2 {
-        font-size: 45px;
-    }
-
-    .video img {
+    .video iframe {
         width: 700px;
         height: 400px;
     }

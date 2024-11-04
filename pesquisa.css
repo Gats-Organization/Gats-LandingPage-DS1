@@ -1,0 +1,10 @@
+main{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+main iframe{
+    width: 90vw;
+    height: 89vh;
+}

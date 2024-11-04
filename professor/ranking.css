@@ -1,0 +1,38 @@
+.dropdown-container {
+    position: relative;
+    width: 963px;
+    height: 64px;
+    top: 100px;
+    margin: 0 auto;
+}
+
+.dropdown {
+    width: 100%;
+    height: 100%;
+    background-color: #F9C197;
+    border: 1px solid #FFFFFF;
+    border-radius: 5px;
+    font-size: 20px;
+    color: #FFFFFF;
+    cursor: pointer;
+    padding-left: 33px;
+    appearance: none;
+}
+
+.dropdown:focus {
+    outline: none;
+}
+
+.dropdown option {
+    
+    background: #F9C197;
+    color: #FFFFFF;
+}
+
+.dropdown option:hover {
+    background: #D89B75; /* cor ao passar o mouse (não aplicável a <option>, mas aqui para referência) */
+}
+
+h1{
+    text-align: center;
+}

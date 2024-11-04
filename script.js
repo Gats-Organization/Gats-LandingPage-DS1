@@ -48,12 +48,6 @@ function alterarPagina(bloco1, bloco2, bloco3, bloco4, corContainer, conteudoTex
     ranking.innerHTML = `<h2>${bloco4}</h2><p>${rankingTexto}</p>`;
         // Alterar a imagem
     alterarImagem(imgSrc, imgAlt);
-    // Alterar cor de todos os botões para a cor do container
-    document.querySelectorAll('.bloco_dem').forEach(btn => {
-        btn.style.backgroundColor = corContainer;
-    });
-
-
 
     // Alterar a imagem
     alterarImagem(imgSrc, imgAlt);

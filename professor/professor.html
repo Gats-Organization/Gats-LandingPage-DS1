@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área do Professor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="professor.css">
+    <script src="professor.js" defer></script>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+    <link rel="stylesheet" href="./components/Header/header.css">
+</head>
+
+<body>
+    <header>
+        <div id="logo-educaeco">
+            <img src="../Imagens Início/logo app.png" />
+            <p id="educaeco">EducaEco</p>
+        </div>
+        <a href="./minhas-atividades.html">Minhas Atividades</a>
+        <a href="./ranking.html">Ranking</a>
+        <a href="./quizzes.html">Quizzes</a>
+        <a href="./atividades.html">Atividades Práticas</a>
+        <input type="button" value="Professor" />
+    </header>
+    <main>
+        <h1 style="text-align: center;">Área do Professor</h1>
+        <div class="hero-section">
+            <div id="perfil">
+                <input type="file" id="file-input" style="display: none;" accept="image/*">
+                <img id="foto-prof" alt="Foto do Professor" />
+                <button id="abrir-imagem"><img src="assets/editar.svg" alt="editar"></button>
+            </div>
+            <h2 id="nome-prof">Bem-vindo(a) </h2>
+        </div>
+
+        <div id="quadro-turmas"></div>
+
+        <div id="cards">
+            <div class="card">
+                <div class="capa">
+                    <img src="assets/imgRanking.svg" alt="" />
+                    <p class="nome-card">RANKING</p>
+                    <p>Entre aqui para ver o ranking de seus alunos.</p>
+                </div>
+                <div class="conteudo">
+                    <p class="nome-card">RANKING</p>
+                    <p>Aqui você poderá ver todas as fotos tiradas, e enviadas de práticas sustentáveis, por seus alunos
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="capa" style="background-color: #7AD8EE;">
+                    <img src="assets/imgQuiz.svg" alt="" />
+                    <p class="nome-card" style="color: #1B7286;">QUIZZES</p>
+                    <p>Entre aqui para ver a nota de seus alunos nos quizzes.</p>
+                </div>
+                <div class="conteudo" style="background-color: #7AD8EE;"">
+                    <p class=" nome-card" style="color: #1B7286;">QUIZZES</p>
+                    <p>Aqui você irá poder ver todas as nota dos seus alunos nos quizzes realizados.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="capa" style="background-color: #FFA3A3;">
+                    <img src="assets/imgPraticas.svg" alt="" />
+                    <p class="nome-card" style="color: #B64949;">ATIVIDADES<br />PRÁTICAS</p>
+                    <p>Entre aqui para validar as Atividades Práticas.</p>
+                </div>
+                <div class="conteudo" style="background-color: #FFA3A3;">
+                    <p class="nome-card" style="color: #B64949;">ATIVIDADES <br />PRÁTICAS</p>
+                    <p>Os rankings são feitos com base em XP obtido pelos alunos, nos quais são possíveis obter com o
+                        uso contínuo do nosso aplicativo.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script type="text/babel">
+        const Turma = ({ nome }) => {
+            return (
+                <div className="turma">{nome}</div>
+            );
+        };
+
+        const QuadroTurmas = () => {
+            const turmas = localStorage.getItem('turmas') ? JSON.parse(localStorage.getItem('turmas')) : [];
+
+            return (
+                <div id="quadro-turmas">
+                    {turmas.map((turma, index) => (
+                        <Turma key={index} nome={turma.serie + "° ano " + turma.nomenclatura} />
+                    ))}
+                </div>
+            );
+        };
+
+        ReactDOM.render(<QuadroTurmas />, document.getElementById('quadro-turmas'));
+    </script>
+</body>
+
+</html>
