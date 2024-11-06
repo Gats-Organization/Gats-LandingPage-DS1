@@ -46,6 +46,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   foto_professor.src = localStorage.getItem("foto");
 
   abrirImagem();
+
 });
 
 function abrirImagem() {

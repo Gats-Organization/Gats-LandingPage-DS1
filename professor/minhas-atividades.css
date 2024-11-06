@@ -1,6 +1,3 @@
-h1{
-    text-align: center;
-}
 #criarQuiz{
     display: flex;
     margin-top: 80px;
@@ -22,4 +19,7 @@ h1{
 #tres-pontinhos:hover{
     transition: ease-in 0.1s;
     scale: 1.1;
+}
+h1{
+    text-align: center;
 }

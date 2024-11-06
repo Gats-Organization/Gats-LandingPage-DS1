@@ -43,3 +43,8 @@ h1{
 .listaTurmas{
     z-index: 9;
 }
+#logo-educaeco{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

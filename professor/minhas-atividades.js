@@ -61,33 +61,78 @@ const criarModal = (conteudo) => {
     // Atualiza a referência para o último modal criado
     ultimoModal = fundo;
 };
+// Função para obter o próximo ID disponível para a atividade
+async function getNextAvailableId(collectionName) {
+    const db = firebase.firestore();
+    const snapshot = await db.collection(collectionName).get(); // Remova o String.toString()
+    const existingIds = snapshot.docs.map((doc) => parseInt(doc.id, 10));
+
+    // Encontre o menor ID não utilizado
+    let newId = 1; // Começando do ID 1
+    while (existingIds.includes(newId)) {
+        newId++;
+    }
+
+    return newId;
+}
+
+// Função para verificar se a proposta já existe
+async function isPraticaExistente(praticaTitle) {
+    const db = firebase.firestore();
+    const snapshot = await db
+        .collection("praticas")
+        .where("pratica", "==", praticaTitle.trim())
+        .get();
+    return !snapshot.empty; // Retorna true se a prática já existir
+}
 
 // Função para abrir o modal de atividades
 const abrirModalAtividade = () => {
+    const db = firebase.firestore();
     const conteudo = `
     <div class="container mt-2">
       <h2 style="text-align: center;">Criar Atividade</h2>
       <form id="quizForm">
-        <div class="row mb-3">
-          <div class="col-md-6">
-            <label for="startDate" class="form-label">Data de Início: </label>
-            <input type="date" class="form-control" id="startDate">
-          </div>
-          <div class="col-md-6">
-            <label for="endDate" class="form-label">Data de Fim: </label>
-            <input type="date" class="form-control" id="endDate">
-          </div>
-        </div>
         <div class="mb-3">
-          <label for="praticaTitle" class="form-label">Título da Atividade</label>
+          <label for="praticaTitle" class="form-label">Proposta da Atividade</label>
           <input type="text" class="form-control" id="praticaTitle" required>
         </div>
         
-        <button type="submit" class="btn btn-primary" style="background-color: #B5FB7D; border-color: #B5FB7D; color: rgb(72, 100, 50)">Criar Quiz</button>
+        <button type="submit" class="btn btn-primary" style="background-color: #B5FB7D; border-color: #B5FB7D; color: rgb(72, 100, 50)" id="criarAtividadeBtn">Criar Atividade</button>
       </form>
     </div>
   `;
     criarModal(conteudo);
+
+    const criarAtividadeBtn = document.getElementById("criarAtividadeBtn");
+    criarAtividadeBtn.addEventListener("click", async (e) => {
+        e.preventDefault();
+
+        const praticaTitle = document.getElementById("praticaTitle").value;
+
+        if (praticaTitle) {
+            // Verifique se a prática já existe
+            const existe = await isPraticaExistente(praticaTitle);
+            if (existe) {
+                alert(
+                    "Já existe uma prática com essa proposta. Por favor, insira uma proposta diferente."
+                );
+                return;
+            }
+
+            const newId = await getNextAvailableId("praticas");
+            const pratica = {
+                id_professor: localStorage.getItem("id_professor"),
+                pratica: praticaTitle.trim(),
+            };
+
+            await db.collection("praticas").doc(String(newId)).set(pratica);
+            console.log("Atividade criada com ID:", newId);
+        } else {
+            alert("Preencha todos os campos");
+        }
+        window.location.reload();
+    });
 };
 
 // Função para abrir o modal de quiz
@@ -99,16 +144,6 @@ const abrirModalQuiz = () => {
     <div class="container mt-2">
       <h2 style="text-align: center;">Criar Quiz</h2>
       <form id="quizForm">
-        <div class="row mb-3">
-          <div class="col-md-6">
-            <label for="startDate" class="form-label">Data de Início: </label>
-            <input type="date" class="form-control" id="startDate">
-          </div>
-          <div class="col-md-6">
-            <label for="endDate" class="form-label">Data de Fim: </label>
-            <input type="date" class="form-control" id="endDate">
-          </div>
-        </div>
         <label for="quizTitle" class="form-label">Tema</label>
         <input type="text" class="form-control mb-3" id="quizTitle" required>
         <label for="questionsContainer" class="form-label">Perguntas</label>
@@ -311,6 +346,8 @@ const atualizarIndicesOpcoes = (questionNumber) => {
 const configurarOpcaoQuiz = (questionNumber) => {
     let optionCount = 0; // Contador de opções
     const maxOptions = 4; // Limite de opções
+
+    // Obtém os elementos com base no questionNumber
     const optionsContainer = document.getElementById(
         `optionsContainer${questionNumber}`
     );
@@ -320,6 +357,15 @@ const configurarOpcaoQuiz = (questionNumber) => {
     const correctOptionSelect = document.getElementById(
         `correctOption${questionNumber}`
     );
+
+    // Verifica se os elementos foram encontrados
+    if (!optionsContainer || !addOptionBtn || !correctOptionSelect) {
+        console.error(
+            "Erro: Não foi possível encontrar um ou mais elementos para a questão",
+            questionNumber
+        );
+        return; // Sai da função caso algum elemento não seja encontrado
+    }
 
     const atualizarSelectOpcoesCorretas = () => {
         // Limpa o select e o reconstrói com as opções atuais
@@ -334,21 +380,21 @@ const configurarOpcaoQuiz = (questionNumber) => {
             correctOptionSelect.appendChild(newOption);
         });
 
-        // Garantir que o primeiro valor seja selecionado por padrão, se houver opções
+        // Garante que o primeiro valor seja selecionado por padrão, se houver opções
         if (correctOptionSelect.options.length > 0) {
             correctOptionSelect.selectedIndex = 0;
         }
     };
 
-    addOptionBtn.addEventListener("click", function () {
+    addOptionBtn.addEventListener("click", () => {
         if (optionCount < maxOptions) {
             optionCount++;
             const optionDiv = document.createElement("div");
             optionDiv.classList.add("option-container", "mb-2");
             optionDiv.innerHTML = `
-        <input type="text" class="form-control me-2" placeholder="" required>
-        <span class="remove-option" style="display: none; color: red; cursor: pointer;">&times;</span>
-      `;
+                <input type="text" class="form-control me-2" placeholder="" required>
+                <span class="remove-option" style="display: none; color: red; cursor: pointer;">&times;</span>
+            `;
             optionsContainer.appendChild(optionDiv);
 
             atualizarSelectOpcoesCorretas();
@@ -358,10 +404,7 @@ const configurarOpcaoQuiz = (questionNumber) => {
             removeBtn.addEventListener("click", function () {
                 optionDiv.remove();
                 optionCount--;
-
                 atualizarSelectOpcoesCorretas();
-
-                // Reabilita o botão de adicionar se o limite não for atingido
                 if (optionCount < maxOptions) {
                     addOptionBtn.disabled = false;
                 }
@@ -391,10 +434,6 @@ async function criarQuiz(event) {
     event.preventDefault();
 
     const quizTitle = document.getElementById("quizTitle").value.trim();
-    const startDate = new Date(
-        document.getElementById("startDate").value.trim()
-    );
-    const endDate = new Date(document.getElementById("endDate").value.trim());
     const questionsContainer = document.getElementById("questionsContainer");
     const questions = questionsContainer.children;
 
@@ -406,17 +445,6 @@ async function criarQuiz(event) {
     if (questions.length < 4) {
         alert("Por favor, adicione pelo menos 4 perguntas ao quiz.");
         return;
-    }
-
-    const today = new Date();
-    if (startDate && startDate < today) {
-        alert("A data de início deve ser maior ou igual a data de hoje.");
-        return; // Interrompe a execução da função
-    }
-
-    if (endDate && endDate < startDate) {
-        alert("A data de fim deve ser maior ou igual à data de início.");
-        return; // Interrompe a execução da função
     }
 
     // Array para armazenar as perguntas e respostas
@@ -479,9 +507,7 @@ async function criarQuiz(event) {
             .set(questionData);
     }
 
-    // Se precisar usar um ID baseado no tamanho da coleção (não recomendado)
-    const snapshot = await db.collection("quiz").get();
-    const newQuizId = snapshot.size + 1; // Novo ID baseado no tamanho da coleção
+    const newQuizId = await getNextAvailableId("quiz"); // Novo ID baseado no tamanho da coleção
 
     // Adicionar o quiz com o ID baseado no tamanho da coleção (não recomendado)
     await db.collection("quiz").doc(newQuizId.toString()).set(quizData);
@@ -490,57 +516,144 @@ async function criarQuiz(event) {
     window.location.reload();
 }
 
-// Componente principal
 const App = () => {
+    useEffect(() => {
+        const btnVisualizarAtribuicao = document.getElementById(
+            "btn-visualizar-atribuicao"
+        );
+        btnVisualizarAtribuicao.addEventListener(
+            "click",
+            visualizarAtribuicoes
+        );
+        const btnVisualizarAtribuicaoPratica = document.getElementById(
+            "btn-visualizar-atribuicao-pratica"
+        );
+        btnVisualizarAtribuicaoPratica.addEventListener(
+            "click",
+            visualizarAtribuicoesPratica
+        );
+        // Limpa o event listener quando o componente é desmontado
+        return () => {
+            btnVisualizarAtribuicao.removeEventListener(
+                "click",
+                visualizarAtribuicoes
+            );
+            btnVisualizarAtribuicaoPratica.removeEventListener(
+                "click",
+                visualizarAtribuicoesPratica
+            );
+        };
+    }, []);
     return (
         <div
             style={{
                 display: "flex",
                 justifyContent: "space-between",
-                width: "50%",
+                width: "100%",
+                alignItems: "center",
+                flexDirection: "column",
             }}
         >
             <div
                 style={{
                     display: "flex",
-                    backgroundColor: "#A3D977",
-                    height: "120px",
-                    width: "320px",
-                    borderRadius: "20px",
-                    padding: "0 22px",
                     alignItems: "center",
-                    justifyContent: "space-between",
-                    boxShadow: "0 4px 4px rgba(0, 0, 0, 0.25)",
-                    cursor: "pointer",
+                    gap: "20px",
                 }}
-                onClick={abrirModalAtividade}
             >
-                <h3 style={{ color: "#FFF", textAlign: "center", margin: "0" }}>
-                    CRIAR ATIVIDADE
-                </h3>
-                <img src="./assets/criarAtividade.svg" alt="" />
+                <h1 style={{ margin: "0" }}>MINHAS ATIVIDADES</h1>
+                <div
+                    style={{
+                        display: "flex",
+                        backgroundColor: "#ff9a9a",
+                        height: "50px",
+                        width: "220px",
+                        borderRadius: "20px",
+                        padding: "0 22px",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                        boxShadow: "0 4px 4px rgba(0, 0, 0, 0.25)",
+                        cursor: "pointer",
+                    }}
+                    onClick={abrirModalAtividade}
+                >
+                    <h3
+                        style={{
+                            color: "#FFF",
+                            textAlign: "center",
+                            margin: "0",
+                            fontSize: "15px",
+                        }}
+                    >
+                        CRIAR ATIVIDADE
+                    </h3>
+                    <img
+                        src="./assets/criarAtividade.svg"
+                        alt=""
+                        height="45px"
+                    />
+                </div>
+                <button
+                    id="btn-visualizar-atribuicao-pratica"
+                    style={{ cursor: "pointer" }}
+                >
+                    Visualizar Atribuições
+                </button>
             </div>
-
+            <div
+                id="atividades"
+                style={{
+                    width: "100%",
+                }}
+            ></div>
             <div
                 style={{
                     display: "flex",
-                    backgroundColor: "#A3D977",
-                    height: "120px",
-                    width: "320px",
-                    borderRadius: "20px",
-                    padding: "0 22px",
                     alignItems: "center",
-                    justifyContent: "space-between",
-                    boxShadow: "0 4px 4px rgba(0, 0, 0, 0.25)",
-                    cursor: "pointer",
+                    gap: "20px",
                 }}
-                onClick={abrirModalQuiz}
             >
-                <h3 style={{ color: "#FFF", textAlign: "center", margin: "0" }}>
-                    CRIAR QUIZ
-                </h3>
-                <img src="./assets/criarQuiz.svg" alt="" />
+                <h1 style={{ margin: "0" }}>MEUS QUIZZES</h1>
+                <div
+                    style={{
+                        display: "flex",
+                        backgroundColor: "#277E93",
+                        height: "50px",
+                        width: "220px",
+                        borderRadius: "20px",
+                        padding: "0 22px",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                        boxShadow: "0 4px 4px rgba(0, 0, 0, 0.25)",
+                        cursor: "pointer",
+                    }}
+                    onClick={abrirModalQuiz}
+                >
+                    <h3
+                        style={{
+                            color: "#FFF",
+                            textAlign: "center",
+                            margin: "0",
+                            fontSize: "15px",
+                        }}
+                    >
+                        CRIAR QUIZ
+                    </h3>
+                    <img src="./assets/criarQuiz.svg" alt="" height="45px" />
+                </div>
+                <button
+                    id="btn-visualizar-atribuicao"
+                    style={{ cursor: "pointer" }}
+                >
+                    Visualizar Atribuições
+                </button>
             </div>
+            <div
+                id="quizzes"
+                style={{
+                    width: "100%",
+                }}
+            ></div>
         </div>
     );
 };
@@ -550,176 +663,301 @@ ReactDOM.render(<App />, document.getElementById("criarQuiz"));
 
 async function getQuizzesWithQuestions() {
     const db = firebase.firestore();
+    const idProfessor = localStorage.getItem("id_professor"); // Obtém o id do professor do localStorage
 
     try {
-        // 1. Obter todos os quizzes
-        const quizzesSnapshot = await db.collection("quiz").get();
-        const quizzes = [];
-
-        // 2. Obter todas as perguntas
+        // Filtra quizzes pelo id do professor
+        const quizzesSnapshot = await db
+            .collection("quiz")
+            .where("id_professor", "==", idProfessor)
+            .get();
         const questionsSnapshot = await db.collection("perguntas").get();
+
         const allQuestions = questionsSnapshot.docs.map((doc) => ({
             id: doc.id,
             ...doc.data(),
         }));
 
-        // 3. Iterar sobre cada quiz e associar as perguntas
-        for (const quizDoc of quizzesSnapshot.docs) {
+        const quizzes = quizzesSnapshot.docs.map((quizDoc) => {
             const quizData = quizDoc.data();
-            const quizId = quizDoc.id;
-
-            // Extrair IDs das perguntas do quiz
             const perguntasIds = quizData.perguntasIds || [];
 
-            // Filtrar as perguntas correspondentes ao quiz atual
             const relatedQuestions = allQuestions.filter((question) =>
                 perguntasIds.includes(question.id)
             );
 
-            // Criar um objeto contendo o quiz e suas perguntas
-            const quizWithQuestions = {
-                id: quizId,
-                ...quizData,
-                questions: relatedQuestions,
-            };
-            // Adicionar o objeto à lista de quizzes
-            quizzes.push(quizWithQuestions);
-        }
+            return { id: quizDoc.id, ...quizData, questions: relatedQuestions };
+        });
 
-        // Retorna a lista de quizzes com suas perguntas
         return quizzes;
     } catch (error) {
         console.error("Erro ao buscar quizzes e perguntas:", error);
     }
-    // Adicionar o objeto   lista de quizzes
+}
+
+async function getAtividadesWithQuestions() {
+    const db = firebase.firestore();
+    const idProfessor = localStorage.getItem("id_professor"); // Obtém o id do professor do localStorage
+
+    try {
+        // Filtra práticas pelo id do professor
+        const atividadesSnapshot = await db
+            .collection("praticas")
+            .where("id_professor", "==", idProfessor)
+            .get();
+
+        return atividadesSnapshot.docs.map((praticaDoc) => ({
+            id: praticaDoc.id,
+            ...praticaDoc.data(),
+        }));
+    } catch (error) {
+        console.error("Erro ao buscar práticas:", error);
+    }
+}
+
+async function getAtividadesWithQuestions() {
+    const db = firebase.firestore();
+    const idProfessor = localStorage.getItem("id_professor"); // Obtém o id do professor do localStorage
+
+    try {
+        // Filtra práticas pelo id do professor
+        const atividadesSnapshot = await db
+            .collection("praticas")
+            .where("id_professor", "==", idProfessor)
+            .get();
+
+        return atividadesSnapshot.docs.map((praticaDoc) => ({
+            id: praticaDoc.id,
+            ...praticaDoc.data(),
+        }));
+    } catch (error) {
+        console.error("Erro ao buscar práticas:", error);
+    }
 }
 
 async function excluirQuiz(quiz) {
     const db = firebase.firestore();
-    try {
-        await db.collection("quiz").doc(quiz.id).delete();
-        for (const question of quiz.questions) {
-            await db.collection("perguntas").doc(question.id).delete();
-        }
-    } catch (error) {
-        console.error("Erro ao excluir o quiz:", error);
-    } finally {
-        window.location.reload();
-    }
-}
-async function getNextAvailableId(collectionName) {
-    const snapshot = await db.collection(collectionName.toString()).get();
-    const existingIds = snapshot.docs.map((doc) => parseInt(doc.id, 10));
-
-    // Encontre o menor ID não utilizado
-    let newId = 1; // Começando do ID 1
-    while (existingIds.includes(newId)) {
-        newId++;
-    }
-
-    return newId;
-}
-
-async function atribuirQuiz(quiz, turmaId) {
-    const db = firebase.firestore();
+    const batch = db.batch();
 
     try {
-        const turmasParaAtribuir = Array.isArray(turmaId)
-            ? turmaId.map((id) => Number.parseInt(id))
-            : [Number.parseInt(turmaId)];
+        const quizRef = db.collection("quiz").doc(quiz.id);
+        batch.delete(quizRef);
 
-        const atribuicoesQuerySnapshot = await db
+        // Excluir as perguntas associadas ao quiz
+        quiz.questions.forEach((question) => {
+            const questionRef = db.collection("perguntas").doc(question.id);
+            batch.delete(questionRef);
+        });
+
+        // Excluir as atribuições associadas ao quiz
+        const atribuicoesSnapshot = await db
             .collection("atribuir_quiz")
             .where("id_quiz", "==", quiz.id)
             .get();
 
-        if (!atribuicoesQuerySnapshot.empty) {
-            atribuicoesQuerySnapshot.forEach(async (doc) => {
-                const atribuicaoData = doc.data();
-                console.log("Atribuição encontrada:", atribuicaoData);
+        atribuicoesSnapshot.forEach((doc) => {
+            const atribRef = db.collection("atribuir_quiz").doc(doc.id);
+            batch.delete(atribRef);
+        });
 
-                const novasTurmas = [
-                    ...new Set([
-                        ...atribuicaoData.id_turmas,
-                        ...turmasParaAtribuir,
-                    ]),
-                ].map((id) => Number.parseInt(id));
+        await batch.commit();
+        console.log("Quiz, perguntas e atribuições excluídos com sucesso!");
+        window.location.reload();
+    } catch (error) {
+        console.error("Erro ao excluir o quiz:", error);
+    }
+}
 
-                await db
-                    .collection("atribuir_quiz")
-                    .doc(atribuicaoData.id)
-                    .update({
-                        id_turmas: novasTurmas,
-                    });
+async function excluirPratica(pratica) {
+    const db = firebase.firestore();
+    try {
+        // 1. Excluir todos os documentos em controle_pratica com o id_pratica correspondente
+        const controlePraticaSnapshot = await db
+            .collection("controle_pratica")
+            .where("id_pratica", "==", Number.parseInt(pratica.id))
+            .get();
+
+        // 2. Excluir cada documento encontrado em controle_pratica
+        const deleteControlePraticaPromises = controlePraticaSnapshot.docs.map(
+            (doc) => {
+                return doc.ref.delete();
+            }
+        );
+
+        // 3. Esperar que todas as exclusões em controle_pratica sejam concluídas
+        await Promise.all(deleteControlePraticaPromises);
+
+        // 4. Excluir todos os documentos em atribuir_pratica com o id_pratica correspondente
+        const atribuirPraticaSnapshot = await db
+            .collection("atribuir_pratica")
+            .where("id_pratica", "==", Number.parseInt(pratica.id))
+            .get();
+
+        // 5. Excluir cada documento encontrado em atribuir_pratica
+        const deleteAtribuirPraticaPromises = atribuirPraticaSnapshot.docs.map(
+            (doc) => {
+                return doc.ref.delete();
+            }
+        );
+
+        // 6. Esperar que todas as exclusões em atribuir_pratica sejam concluídas
+        await Promise.all(deleteAtribuirPraticaPromises);
+
+        // 7. Excluir a prática principal da coleção praticas
+        const praticaRef = db.collection("praticas").doc(pratica.id);
+        await praticaRef.delete();
+
+        // 8. Recarregar a página ou atualizar a UI como necessário
+        window.location.reload();
+    } catch (error) {
+        console.error("Erro ao excluir a prática:", error);
+    }
+}
+
+async function atribuirQuiz(quiz, turmaIds, dataInicio, dataEntrega) {
+    const db = firebase.firestore();
+    try {
+        // Passo 1: Criar a atribuição na coleção "atribuir_quiz"
+        const newId = await getNextAvailableId("atribuir_quiz");
+        await db
+            .collection("atribuir_quiz")
+            .doc(newId.toString())
+            .set({
+                id_quiz: quiz.id,
+                id_turmas: turmaIds.map((id) => Number.parseInt(id)),
+                dataInicio,
+                dataEntrega,
             });
-            console.log("Quiz atribuído com sucesso!");
-        } else {
-            const dataInicio = new Date("2024-10-09T12:12:00-03:00");
-            const dataEntrega = new Date("2024-11-31T12:12:00-03:00");
 
-            // Obtém o próximo ID disponível para o novo documento
-            const newId = await getNextAvailableId("atribuir_quiz");
+        // Passo 2: Buscar alunos de todas as turmas selecionadas
+        const atribPromises = turmaIds.map(async (turmaId) => {
+            // Busca todos os alunos da turma
+            const response = await fetch(
+                `https://gats-repository-api.onrender.com/api/alunos/turma/${turmaId}`
+            );
+            const alunos = await response.json();
 
-            await db
-                .collection("atribuir_quiz")
-                .doc(newId)
-                .set({
-                    id_quiz: quiz.id,
-                    id_turmas: turmasParaAtribuir,
-                    dataInicio:
-                        firebase.firestore.Timestamp.fromDate(dataInicio),
-                    dataEntrega:
-                        firebase.firestore.Timestamp.fromDate(dataEntrega),
+            if (alunos && alunos.length > 0) {
+                const alunoPromises = alunos.map(async (alunoData) => {
+                    const alunoId = alunoData.id; // Supondo que cada aluno possui um campo 'id'
+
+                    const docId = `${quiz.id}_${alunoId}`; // Formato do ID: iddoquiz_iddoaluno
+                    await db
+                        .collection("controle_quiz")
+                        .doc(docId)
+                        .set({
+                            dataConclusao: null,
+                            duracao: null,
+                            id_aluno: Number.parseInt(alunoId),
+                            id_quiz: quiz.id,
+                            nota: 0,
+                            quantAcertos: 0,
+                            totalPerguntas: 0, // Define o status inicial do quiz
+                        });
                 });
 
-            console.log(
-                "Novo documento criado com o ID disponível e quiz atribuído com sucesso!"
-            );
-        }
+                // Espera que todas as operações de criação de documentos para alunos sejam concluídas
+                await Promise.all(alunoPromises);
+            }
+        });
+
+        // Espera que todas as operações de atribuição sejam concluídas
+        await Promise.all(atribPromises);
+
+        alert(
+            "Quiz atribuído com sucesso a todos os alunos das turmas selecionadas!"
+        );
     } catch (error) {
         console.error("Erro ao atribuir o quiz:", error);
     }
 }
 
-const abrirModalAtribuirTurma = (quiz) => {
-    console.log("abrirModalAtribuirTurma");
-
-    // Recupera as turmas do localStorage e tenta converter em JSON
-    let turmas = localStorage.getItem("turmas");
+async function atribuirPratica(pratica, turmaIds, dataInicio, dataEntrega) {
+    const db = firebase.firestore();
     try {
-        turmas = JSON.parse(turmas) || [];
+        // Passo 1: Criar a atribuição na coleção "atribuir_pratica"
+        const newId = await getNextAvailableId("atribuir_pratica");
+        await db
+            .collection("atribuir_pratica")
+            .doc(newId.toString())
+            .set({
+                id_pratica: Number.parseInt(pratica.id),
+                id_turmas: turmaIds.map((id) => Number.parseInt(id)),
+                dataInicio,
+                dataEntrega,
+            });
+
+        // Passo 2: Buscar alunos de todas as turmas selecionadas
+        const atribPromises = turmaIds.map(async (turmaId) => {
+            // Busca todos os alunos da turma
+            const response = await fetch(
+                `https://gats-repository-api.onrender.com/api/alunos/turma/${turmaId}`
+            );
+            const alunos = await response.json(); // Aguarde a conversão da resposta para JSON
+
+            if (alunos && alunos.length > 0) {
+                // Verifique se alunos é um array e não está vazio
+                const alunoPromises = alunos.map(async (alunoData) => {
+                    const alunoId = alunoData.id; // Supondo que cada aluno possui um campo 'id'
+
+                    const docId = `${pratica.id}_${alunoId}`; // Formato do ID: iddoquiz_iddoaluno
+                    await db
+                        .collection("controle_pratica")
+                        .doc(docId)
+                        .set({
+                            id_aluno: Number.parseInt(alunoId),
+                            id_pratica: Number.parseInt(pratica.id),
+                            status: "Coloque em anexo",
+                        });
+                });
+
+                // Espera que todas as operações de criação de documentos para alunos sejam concluídas
+                await Promise.all(alunoPromises);
+            }
+        });
+
+        // Espera que todas as operações de atribuição sejam concluídas
+        await Promise.all(atribPromises);
+
+        alert(
+            "Prática atribuída com sucesso a todos os alunos das turmas selecionadas!"
+        );
     } catch (error) {
-        console.error("Erro ao parsear turmas:", error);
-        turmas = [];
+        console.error("Erro ao atribuir a prática:", error);
     }
+}
+// Adicionando a opção "Visualizar Atribuições" no menu de opções
+const abrirModalAtribuirTurma = (quiz) => {
+    let turmas = JSON.parse(localStorage.getItem("turmas")) || [];
     const dataAtual = new Date();
     dataAtual.setHours(dataAtual.getHours() - 3);
+    const dataEntrega = new Date(dataAtual);
+    dataEntrega.setMinutes(dataEntrega.getMinutes() + 10);
+
     const conteudo = `
         <form id="form-atribuir-turma">
-            <label for="turma">Selecione as turmas:</label>
-            <div>
-            <br>
+            <label for="turma">Selecione as turmas:</label><div><br>
                 ${turmas
                     .map(
-                        (turma) => `
-                            <label>
-                                <input type="checkbox" name="turma" value="${
-                                    turma.id
-                                }">
-                                ${turma.serie + "° ano " + turma.nomenclatura}
-                            </label>
-                        `
+                        (
+                            turma
+                        ) => `<label><input type="checkbox" name="turma" value="${
+                            turma.id
+                        }">
+                                ${
+                                    turma.serie + "° ano " + turma.nomenclatura
+                                }</label>`
                     )
                     .join("<br><br>")}
-            </div>
-            <br>
-            <label for="horas">Selecione a data e a hora de atribuição:</label>
-            <input type="datetime-local" name="horas" value="${dataAtual.toISOString().slice(0, 16)}" >
-            <br>
-            <br>
-            <label for="horas">Selecione a data e a hora de Encerramento:</label>
-            <input type="datetime-local" name="horas" value="${(dataAtual.set).toISOString().slice(0, 16)}" >
-            <br>
+            </div><br>
+            <label for="horas">Data de atribuição:</label>
+            <input type="datetime-local" id="dataAtribuicao" value="${dataAtual
+                .toISOString()
+                .slice(0, 16)}"><br><br>
+            <label for="horas">Data de Encerramento:</label>
+            <input type="datetime-local" id="dataEncerramento" value="${dataEntrega
+                .toISOString()
+                .slice(0, 16)}"><br>
             <button type="submit">Atribuir</button>
         </form>
     `;
@@ -729,44 +967,389 @@ const abrirModalAtribuirTurma = (quiz) => {
     const form = document.getElementById("form-atribuir-turma");
     form.addEventListener("submit", async (event) => {
         event.preventDefault();
-
-        // Coleta todos os IDs das turmas selecionadas
         const turmaIds = Array.from(
             form.querySelectorAll('input[name="turma"]:checked')
         ).map((input) => input.value);
+
+        const atribuicaoData = new Date(
+            form.querySelector("#dataAtribuicao").value
+        );
+        const encerramentoData = new Date(
+            form.querySelector("#dataEncerramento").value
+        );
+        const agora = new Date();
+
+        if (atribuicaoData < agora) {
+            alert(
+                "A data de atribuição não pode ser menor que a data e hora atual."
+            );
+            return;
+        }
+
+        if (encerramentoData <= atribuicaoData) {
+            alert(
+                "A data de encerramento deve ser maior que a data de atribuição."
+            );
+            return;
+        }
+
+        const atribuicao =
+            firebase.firestore.Timestamp.fromDate(atribuicaoData);
+        const prazo = firebase.firestore.Timestamp.fromDate(encerramentoData);
 
         if (turmaIds.length === 0) {
             alert("Selecione ao menos uma turma.");
             return;
         }
 
-        // Atribui o quiz para cada turma selecionada
-        for (const turmaId of turmaIds) {
-            await atribuirQuiz(quiz, turmaId);
+        await atribuirQuiz(quiz, turmaIds, atribuicao, prazo);
+    });
+};
+const abrirModalAtribuirTurmaPratica = (pratica) => {
+    let turmas = JSON.parse(localStorage.getItem("turmas")) || [];
+    const dataAtual = new Date();
+    dataAtual.setHours(dataAtual.getHours() - 3);
+    const dataEntrega = new Date(dataAtual);
+    dataEntrega.setMinutes(dataEntrega.getMinutes() + 10);
+
+    const conteudo = `
+        <form id="form-atribuir-turma">
+            <label for="turma">Selecione as turmas:</label><div><br>
+                ${turmas
+                    .map(
+                        (
+                            turma
+                        ) => `<label><input type="checkbox" name="turma" value="${
+                            turma.id
+                        }">
+                                ${
+                                    turma.serie + "° ano " + turma.nomenclatura
+                                }</label>`
+                    )
+                    .join("<br><br>")}
+            </div><br>
+            <label for="horas">Data de atribuição:</label>
+            <input type="datetime-local" id="dataAtribuicao" value="${dataAtual
+                .toISOString()
+                .slice(0, 16)}"><br><br>
+            <label for="horas">Data de Encerramento:</label>
+            <input type="datetime-local" id="dataEncerramento" value="${dataEntrega
+                .toISOString()
+                .slice(0, 16)}"><br>
+            <button type="submit">Atribuir</button>
+        </form>
+    `;
+
+    criarModal(conteudo);
+
+    const form = document.getElementById("form-atribuir-turma");
+    form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        const turmaIds = Array.from(
+            form.querySelectorAll('input[name="turma"]:checked')
+        ).map((input) => input.value);
+
+        const atribuicaoData = new Date(
+            form.querySelector("#dataAtribuicao").value
+        );
+        const encerramentoData = new Date(
+            form.querySelector("#dataEncerramento").value
+        );
+        const agora = new Date();
+
+        if (atribuicaoData < agora) {
+            alert(
+                "A data de atribuição não pode ser menor que a data e hora atual."
+            );
+            return;
         }
 
-        window.location.reload();
+        if (encerramentoData <= atribuicaoData) {
+            alert(
+                "A data de encerramento deve ser maior que a data de atribuição."
+            );
+            return;
+        }
+
+        const atribuicao =
+            firebase.firestore.Timestamp.fromDate(atribuicaoData);
+        const prazo = firebase.firestore.Timestamp.fromDate(encerramentoData);
+
+        if (turmaIds.length === 0) {
+            alert("Selecione ao menos uma turma.");
+            return;
+        }
+
+        await atribuirPratica(pratica, turmaIds, atribuicao, prazo);
     });
+};
+
+const visualizarAtribuicoes = async () => {
+    const db = firebase.firestore();
+    try {
+        // Busca todos os documentos da coleção "atribuir_quiz"
+        const atribuicoesSnapshot = await db.collection("atribuir_quiz").get();
+
+        if (atribuicoesSnapshot.empty) {
+            alert("Nenhuma atribuição encontrada.");
+            return;
+        }
+
+        const atribuicoes = await Promise.all(
+            atribuicoesSnapshot.docs.map(async (doc) => {
+                const data = doc.data();
+                const atribId = doc.id;
+
+                // Busca o nome do quiz usando o id_quiz
+                const quizDoc = await db
+                    .collection("quiz")
+                    .doc(data.id_quiz)
+                    .get();
+
+                let nomeQuiz;
+                if (quizDoc.exists) {
+                    nomeQuiz =
+                        quizDoc.data().tema || "Nome do Quiz não especificado";
+                } else {
+                    nomeQuiz = "Quiz não encontrado";
+                }
+
+                const dataInicio = data.dataInicio.toDate().toLocaleString();
+                const dataEntrega = data.dataEntrega.toDate().toLocaleString();
+                const turmas = data.id_turmas.join(", ");
+
+                return `
+                    <div class="atrib-card" data-id="${atribId}">
+                        <p><strong>Quiz:</strong> ${nomeQuiz}</p>
+                        <p><strong>Data de Início:</strong> ${dataInicio}</p>
+                        <p><strong>Data de Entrega:</strong> ${dataEntrega}</p>
+                        <p><strong>Turmas:</strong> ${turmas}</p>
+                        <div class="delete-overlay">
+                            <img src="./assets/excluir.png" height="50" onclick="excluirAtribuicao('${atribId}')" />
+                        </div>
+                    </div>
+                `;
+            })
+        );
+
+        criarModal(`<div>${atribuicoes.join("")}</div>`);
+
+        // Adiciona o CSS para estilizar os cards e o overlay de exclusão
+        const style = document.createElement("style");
+        style.innerHTML = `
+            .atrib-card {
+                position: relative;
+                padding: 10px;
+                margin-bottom: 10px;
+                border: 1px solid #ddd;
+                user-select: none;
+            }
+            .delete-overlay {
+                display: none;
+                position: absolute;
+                top: 0;
+                right: 0;
+                color: white;
+                font-size: 18px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+                transition: opacity 0.2s;
+                height: 87%;
+                width: 20%;
+            }
+            .delete-overlay img {
+                cursor: pointer;
+            }
+            .atrib-card:hover .delete-overlay {
+                display: flex;
+                opacity: 1;
+            }
+        `;
+        document.head.appendChild(style);
+    } catch (error) {
+        console.error("Erro ao visualizar atribuições:", error);
+    }
+};
+const visualizarAtribuicoesPratica = async () => {
+    const db = firebase.firestore();
+    try {
+        // Busca todos os documentos da coleção "atribuir_pratica"
+        const atribuicoesSnapshot = await db
+            .collection("atribuir_pratica")
+            .get();
+
+        if (atribuicoesSnapshot.empty) {
+            alert("Nenhuma atribuição encontrada.");
+            return;
+        }
+
+        const atribuicoes = await Promise.all(
+            atribuicoesSnapshot.docs.map(async (doc) => {
+                const data = doc.data();
+                const atribId = doc.id;
+
+                // Busca o nome do quiz usando o id_quiz
+                const praticaDoc = await db
+                    .collection("praticas")
+                    .doc(data.id_pratica.toString())
+                    .get();
+
+                let nomePratica;
+                if (praticaDoc.exists) {
+                    nomePratica =
+                        praticaDoc.data().pratica ||
+                        "Nome da Prática não especificado";
+                } else {
+                    nomePratica = "Prática não encontrado";
+                }
+
+                const dataInicio = data.dataInicio.toDate().toLocaleString();
+                const dataEntrega = data.dataEntrega.toDate().toLocaleString();
+                const turmas = data.id_turmas.join(", ");
+
+                return `
+                    <div class="atrib-card" data-id="${atribId}">
+                        <p><strong>Prática:</strong> ${nomePratica}</p>
+                        <p><strong>Data de Início:</strong> ${dataInicio}</p>
+                        <p><strong>Data de Entrega:</strong> ${dataEntrega}</p>
+                        <p><strong>Turmas:</strong> ${turmas}</p>
+                        <div class="delete-overlay">
+                            <img src="./assets/excluir.png" height="50" onclick="excluirAtribuicaoPratica('${atribId}')" />
+                        </div>
+                    </div>
+                `;
+            })
+        );
+
+        criarModal(`<div>${atribuicoes.join("")}</div>`);
+
+        // Adiciona o CSS para estilizar os cards e o overlay de exclusão
+        const style = document.createElement("style");
+        style.innerHTML = `
+            .atrib-card {
+                position: relative;
+                padding: 10px;
+                margin-bottom: 10px;
+                border: 1px solid #ddd;
+                user-select: none;
+            }
+            .delete-overlay {
+                display: none;
+                position: absolute;
+                top: 0;
+                right: 0;
+                color: white;
+                font-size: 18px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+                transition: opacity 0.2s;
+                height: 87%;
+                width: 20%;
+            }
+            .delete-overlay img {
+                cursor: pointer;
+            }
+            .atrib-card:hover .delete-overlay {
+                display: flex;
+                opacity: 1;
+            }
+        `;
+        document.head.appendChild(style);
+    } catch (error) {
+        console.error("Erro ao visualizar atribuições:", error);
+    }
+};
+
+async function listarAlunosPorTurmaId(turmaId) {
+    const db = firebase.firestore();
+    try {
+        fetch(
+            "https://gats-repository-api.onrender.com/api/alunos/turma/" +
+                turmaId
+        )
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data);
+                return data;
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    } catch (error) {}
+}
+
+// Função para excluir uma atribuição
+const excluirAtribuicao = async (atribId) => {
+    const db = firebase.firestore();
+    try {
+        await db.collection("atribuir_quiz").doc(atribId).delete();
+        alert("Atribuição excluída com sucesso.");
+        visualizarAtribuicoes(); // Atualiza o modal após a exclusão
+    } catch (error) {
+        console.error("Erro ao excluir atribuição:", error);
+    }
+};
+const excluirAtribuicaoPratica = async (atribId) => {
+    const db = firebase.firestore();
+    try {
+        await db.collection("atribuir_pratica").doc(atribId).delete();
+        alert("Atribuição excluída com sucesso.");
+        visualizarAtribuicoesPratica(); // Atualiza o modal após a exclusão
+    } catch (error) {
+        console.error("Erro ao excluir atribuição:", error);
+    }
 };
 
 const abrirModalOpcoesQuiz = (quiz) => {
-    const conteudo = `<form id="form-escolher">
-        <button id="escolher-atribuir">Atribuir Turma</button>
-        <button id="escolher-excluir">Excluir Perguntas</button>
-    </form>`;
+    const conteudo = `
+        <form id="form-escolher" style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
+            <button id="escolher-atribuir" style="background-color: #B5FB7D; color: rgb(72, 100, 50); width: 200px;">Atribuir Turma</button>
+            <button id="escolher-excluir" style="background-color: #FF2030; color: #B40000; width: 200px;">Excluir Quiz</button>
+        </form>
+    `;
 
-    criarModal(conteudo)
-    const atribuir = document.getElementById("escolher-atribuir");
-    const excluir = document.getElementById("escolher-excluir");
-    atribuir.addEventListener("click", () => {
-        abrirModalAtribuirTurma(quiz);
-    });
-    excluir.addEventListener("click", () => {
-        excluirQuiz(quiz);
-    });
+    criarModal(conteudo);
+    document
+        .getElementById("escolher-atribuir")
+        .addEventListener("click", (event) => {
+            event.preventDefault();
+            abrirModalAtribuirTurma(quiz);
+        });
+    document
+        .getElementById("escolher-excluir")
+        .addEventListener("click", (event) => {
+            event.preventDefault();
+            excluirQuiz(quiz);
+        });
+};
+const abrirModalOpcoesAtividades = (pratica) => {
+    const conteudo = `
+        <form id="form-escolher" style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
+            <button id="escolher-atribuir" style="background-color: #B5FB7D; color: rgb(72, 100, 50); width: 200px;">Atribuir Turma</button>
+            <button id="escolher-excluir" style="background-color: #FF2030; color: #B40000; width: 200px;">Excluir Prática</button>
+        </form>
+    `;
+
+    criarModal(conteudo);
+    document
+        .getElementById("escolher-atribuir")
+        .addEventListener("click", (event) => {
+            event.preventDefault();
+            abrirModalAtribuirTurmaPratica(pratica);
+        });
+    document
+        .getElementById("escolher-excluir")
+        .addEventListener("click", (event) => {
+            event.preventDefault();
+            excluirPratica(pratica);
+        });
 };
 
-const Atividades = ({ quizzes }) => {
+const Quizzes = ({ quizzes }) => {
     const [hoveredIndex, setHoveredIndex] = useState(null);
 
     return (
@@ -786,7 +1369,7 @@ const Atividades = ({ quizzes }) => {
                         key={index}
                         style={{
                             display: "flex",
-                            backgroundColor: "#A3D977",
+                            backgroundColor: "#7BC5E5",
                             height: "80px",
                             width: "320px",
                             borderRadius: "20px",
@@ -835,10 +1418,93 @@ const Atividades = ({ quizzes }) => {
     );
 };
 
+const Atividades = ({ praticas }) => {
+    const [hoveredIndex, setHoveredIndex] = useState(null);
+
+    return (
+        <div
+            style={{
+                display: "flex",
+                justifyContent: "center",
+                width: "70%",
+                flexWrap: "wrap",
+                margin: "40px auto",
+                gap: "51.72px",
+            }}
+        >
+            {praticas.map((pratica, index) => {
+                return (
+                    <div
+                        key={index}
+                        style={{
+                            display: "flex",
+                            backgroundColor: "#FFBEBE",
+                            height: "80px",
+                            width: "320px",
+                            borderRadius: "20px",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            boxShadow: "0 4px 4px rgba(0, 0, 0, 0.25)",
+                            cursor: "pointer",
+                            position: "relative",
+                        }}
+                        onMouseEnter={() => setHoveredIndex(index)}
+                        onMouseLeave={() => setHoveredIndex(null)}
+                    >
+                        {hoveredIndex === index && (
+                            <div>
+                                <img
+                                    src="./assets/opcoes.svg"
+                                    alt="ícone de 3 pontinhos"
+                                    id="tres-pontinhos"
+                                    style={{
+                                        position: "absolute",
+                                        top: "10px",
+                                        right: "10px",
+                                        height: "24px",
+                                        width: "24px",
+                                    }}
+                                    onClick={() => {
+                                        abrirModalOpcoesAtividades(pratica);
+                                    }}
+                                />
+                            </div>
+                        )}
+                        <h1
+                            style={{
+                                color: "#FFF",
+                                textAlign: "center",
+                                margin: "0",
+                                fontSize: "20px",
+                                textOverflow: "ellipsis",
+                                overflow: "hidden",
+                                whiteSpace: "nowrap",
+                                maxWidth: "80%",
+                            }}
+                        >
+                            {pratica.pratica}{" "}
+                            {/* Use o campo correto do objeto pratica */}
+                        </h1>
+                    </div>
+                );
+            })}
+        </div>
+    );
+};
+
 // Exemplo de uso
 getQuizzesWithQuestions().then((quizzes) => {
+    console.log(quizzes);
     ReactDOM.render(
-        <Atividades quizzes={quizzes} />,
+        <Quizzes quizzes={quizzes} />,
+        document.getElementById("quizzes")
+    );
+});
+
+// A função getAtividadesWithQuestions deve ser definida como a getQuizzesWithQuestions
+getAtividadesWithQuestions().then((praticas) => {
+    ReactDOM.render(
+        <Atividades praticas={praticas} />,
         document.getElementById("atividades")
     );
 });
