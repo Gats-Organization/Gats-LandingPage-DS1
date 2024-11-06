@@ -87,7 +87,7 @@ function alterarConteudo() {
         '', // texto da prática
         '', // texto do quiz
         '', // texto do ranking
-        'Imagens Início/11.png', // caminho da imagem
+        'imagens inicio/11.png', // caminho da imagem
         'Imagem que representa o conteúdo do app' // alt da imagem
     );
 
@@ -108,7 +108,7 @@ function alterarPratica() {
         'Na parte da prática, um desafio prático é solicitado ao estudante. O aluno deve enviar uma foto da atividade, registrada no momento em que está sendo realizada e anexá-la no App.', 
         '', 
         '', 
-        'Imagens Início/6.png', 
+        'imagens inicio/6.png', 
         'Imagem que mostra a prática do aplicativo'
     );
 
@@ -129,7 +129,7 @@ function alterarQuiz() {
         '', 
         'São disponibilizados diversos quizzes para o aluno acerca do tema, perguntas e respostas para a fixação do conteúdo.', 
         '', 
-        'Imagens Início/8.png', 
+        'imagens inicio/8.png', 
         'Imagem que representa o quiz no app'
     );
 
@@ -150,7 +150,7 @@ function alterarRanking() {
         '', 
         '', 
         'Os alunos vão poder visualizar os rankings dos alunos mais engajados da turma. Promovendo um estimulo as práticas das atividades.', 
-        'Imagens Início/10.png', 
+        'imagens inicio/10.png', 
         'Imagem que representa o Ranking'
     );
 
@@ -177,7 +177,7 @@ function alterarConteudoProfessor(){
         '',  // Texto da prática
         '',  // Texto do quiz
         '',  // Texto do ranking
-        'Imagens Início/PaginaInicial.png',  // Caminho da imagem
+        'imagens inicio/PaginaInicial.png',  // Caminho da imagem
         'Imagem que representa a página inicial do app'  // Alt da imagem
     );
 
@@ -201,7 +201,7 @@ function alterarPraticaProfessor(){
         'O professor tem acesso às fotos enviadas pelos alunos correspondentes às atividades práticas. Podendo validar a entrega da atividade.',  // Texto da prática
         '',  // Texto do quiz
         '',  // Texto do ranking
-        'Imagens Início/AtividadePratica.png',  // Caminho da imagem
+        'imagens inicio/AtividadePratica.png',  // Caminho da imagem
         'Imagem que mostra a prática do site'  // Alt da imagem
     );
 
@@ -227,7 +227,7 @@ function alterarQuizProfessor(){
         '',  // Texto da prática
         'Na área do quiz, o professor consegue visualizar os nomes dos alunos e as notas dos quizzes correspondentes a esse aluno. Inclusive a sua média geral.',  // Texto do quiz
         '',  // Texto do ranking
-        'Imagens Início/Quiz.png',  // Caminho da imagem
+        'imagens inicio/Quiz.png',  // Caminho da imagem
         'Imagem que representa o quiz no app'  // Alt da imagem
     );
 }
@@ -249,7 +249,7 @@ function alterarRankingProfessor(){
         '',  // Texto da prática
         '',  // Texto do quiz
         'Nesta parte, há os rankings dos alunos de cada turma. Assim, sendo possível verificar os alunos mais engajados com as atividades e aqueles menos envolvidos.',  // Texto do ranking
-        'Imagens Início/Ranking.png',  // Caminho da imagem
+        'imagens inicio/Ranking.png',  // Caminho da imagem
         'Imagem que representa o Ranking'  // Alt da imagem
     );
 }
