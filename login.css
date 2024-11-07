@@ -27,6 +27,9 @@ main{
 }
 
 .login #lateral{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-right: 50px;
     width: 440px;
     height: 440px;
@@ -42,10 +45,14 @@ main{
 
 .login #lateral p{
     margin-top: 35px;
-    margin-left: 75px;
     width: 250px;
     font-size: 20px;
     color: gray;
+}
+
+#lateral img{
+    width: 110px;
+    margin-top: 20px;
 }
 
 .login form{
@@ -102,4 +109,16 @@ main{
     right: 10px;
     cursor: pointer;
     font-size: 18px;
+}
+
+#botão-login-adm{
+    text-align: center;
+    text-decoration: none;
+    color: rgb(40, 136, 167);
+}
+
+#botão-login-adm:hover{
+    text-align: center;
+    text-decoration: none;
+    color: rgb(117, 198, 225);
 }
