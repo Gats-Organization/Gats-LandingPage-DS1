@@ -96,7 +96,7 @@
             return (
                 <div id="quadro-turmas">
                     {turmas.map((turma, index) => (
-                        <Turma key={index} nome={turma.serie + "° ano " + turma.nomenclatura} />
+                        <Turma key={index} nome={turma.nomenclatura + "° ano " + turma.serie} />
                     ))}
                 </div>
             );
