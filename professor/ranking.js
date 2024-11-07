@@ -6,7 +6,7 @@ const ListaTurmas = () => {
     : [];
   return turmas.map((turma, index) => (
     <option key={index} value={turma.id}>
-      {turma.serie + "° ano " + turma.nomenclatura}
+      {turma.nomenclatura + "° ano " + turma.serie}
     </option>
   ));
 };
