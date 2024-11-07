@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranking</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="ranking.css">
+    <link rel="stylesheet" href="./components/Header/header.css">
+    <script src="ranking.js"></script>
+</head>
+
+<body>
+    <header>
+        <div id="logo-educaeco" onclick="location.href='../inicio.html'">
+            <img src="../Imagens Início/logo app.png" alt="Logo EducaEco">
+            <p id="educaeco">EducaEco</p>
+        </div>
+        <a href="./minhas-atividades.html">Minhas Atividades</a>
+        <a href="#">Ranking</a>
+        <a href="./quizzes.html">Quizzes</a>
+        <a href="./atividades.html">Atividades Práticas</a>
+        <input type="button" value="Professor" onclick="location.href='./professor.html'">
+    </header>
+    <main>
+        <h1 class="mt-5">RANKING</h1>
+        <div class="dropdown-container" id="dropdown-container"></div>
+    </main>
+
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel" src="ranking.js"></script>
+</body>
+
+</html>

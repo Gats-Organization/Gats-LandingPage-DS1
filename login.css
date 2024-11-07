@@ -18,7 +18,8 @@ main{
 .login{
     display: flex;
     align-items: center;
-    width: 800px;
+    width: 840px;
+    min-height: 440px;
     height: auto;
     background-color: white;
     border-radius: 50px;
@@ -27,8 +28,8 @@ main{
 
 .login #lateral{
     margin-right: 50px;
-    width: 400px;
-    height: 400px;
+    width: 440px;
+    height: 440px;
     background-color: #ecfedd;
     border-radius: 50px 0px 0px 50px;
     text-align: center;
