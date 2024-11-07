@@ -3,17 +3,20 @@ header {
     position: sticky;
     top: 0;
     height: 90px;
-    width: 100vw;
+    width: 100yvw;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     background-color: white;
     box-shadow: 2px 3px 2px rgba(128, 128, 128, 0.321);
+    z-index: 2; /* Colocando o índice no item, para definir a ordem de sobreposição */
 }
 
 header div#logo-educaeco {
     display: flex;
     align-items: center;
+    padding-bottom: 15px;
+
 }
 
 header div#logo-educaeco p {
@@ -49,10 +52,24 @@ header input {
     border: none;
     font-size: 16px;
     border-radius: 10px;
+    cursor: pointer;
 }
 
+/* Estado de hover (mouse sobre o botão) */
 header input:hover {
-    border: 2px solid #33AB58;
+    background-color: #3e8e41; /* Cor mais escura ao passar o mouse */
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Estado de active (botão pressionado) */
+header input:active {
+    background-color: #2E7D32; /* Cor ainda mais escura */
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombra interna */
+}
+
+header a:hover {
+    text-decoration: underline;
+    color: rgb(71, 185, 223);
 }
 
 /* ------------------- MEDIA QUERIES - CELULAR ----------------------- */
@@ -73,23 +90,23 @@ header input:hover {
         line-height: 30px;
         width: 60px;
         font-size: 12px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-right: 70px;
+        padding-left: 20px;
     }
 }
 
 /* ------------------------------------------------ FOOTER --------------------------------------------------------- */
 footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     background-color: #BEEE97;
-    border-top-right-radius: 50px;
-    border-top-left-radius: 50px;
     margin: auto;
     margin-top: 150px;
     padding: 30px;
-}
 
-footer #parte-cima-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 }
 
 #LogoTexto {
@@ -103,150 +120,76 @@ footer #parte-cima-footer {
     text-decoration: underline;
 }
 
-#barra {
-    display: flex;
-    width: 3px;
-    height: 100px;
-    background-color: #247B3F;
-}
-
-#sobrenos {
-    width: 600px;
-}
-
-#sobrenos h1 {
-    color: #247B3F;
-}
-
 /* FOOTER - ÍCONES */
 #icones img {
     margin-top: 20px;
 }
 
-/* ------------------- MEDIA QUERIES - CELULAR ----------------------- */
-@media screen and (max-width: 755px) {
-    footer {
-        width: 200px;
-    }
-
-    footer img {
-        width: 30px;
-    }
-
-    #LogoTexto {
-        font-size: 10px;
-    }
-
-    #barra {
-        display: none;
-    }
-
-    #sobrenos {
-        display: none;
-        width: 70px;
-    }
-
-    #sobrenos h1 {
-        font-size: 10px;
-    }
-
-    #sobrenos p {
-        font-size: 8px;
-    }
-
-    /* FOOTER - ÍCONES */
-    #youtube, #instagram {
-        width: 25px;
-        height: 25px;
-    }
-
-    #email, #linkedin {
-        width: 23px;
-        height: 23px;
-    }
-
-    #whatsapp {
-        width: 30px;
-        height: 30px;
-    }
+#icones{
+    display: flex;
 }
 
-/* ------------------- MEDIA QUERIES - TABLET ----------------------- */
-@media screen and (min-width: 756px) {
-    footer {
-        width: 600px;
-    }
-
-    footer img {
-        width: 40px;
-    }
-
-    #LogoTexto {
-        font-size: 18px;
-    }
-
-    #sobrenos {
-        width: 200px;
-    }
-
-    #sobrenos h1 {
-        font-size: 30px;
-    }
-
-    #sobrenos p {
-        font-size: 12px;
-    }
-
-    /* FOOTER - ÍCONES */
-    #youtube, #instagram {
-        width: 40px;
-        height: 40px;
-    }
-
-    #email, #linkedin {
-        width: 38px;
-        height: 38px;
-    }
-
-    #whatsapp {
-        width: 45px;
-        height: 45px;
-    }
-}
-
-/* ------------------- MEDIA QUERIES - DESKTOP ----------------------- */
-@media screen and (min-width: 1000px) {
-    footer {
-        width: 600px;
-    }
-
-    footer img {
+/* ------------------- MEDIA QUERIES - CELULAR -----------------------*/
+@media screen and (max-width: 755px){
+    #LogoTexto img{
         width: 50px;
     }
 
-    #LogoTexto {
-        font-size: 18px;
+    #LogoTexto h1 {
+        font-size: 1.4em;
     }
 
-    #sobrenos {
-        width: 300px;
+    /* FOOTER - ÍCONES */
+    #icones img {
+        width: 35px;
     }
 
-    #sobrenos h1 {
-        font-size: 45px;
+    #icones #youtube{
+        width: 50px;
+    }
+
+    #icones #email{
+        width: 40px;
+    }
+
+    #icones #linkedin{
+        width: 32px;
     }
 }
 
-@media screen and (min-width: 1220px) {
-    footer {
-        width: 1100px;
+
+/* ------------------- MEDIA QUERIES - TABLET -----------------------*/
+@media screen and (min-width: 756px){
+    #LogoTexto img{
+        width: 75px;
     }
 
-    footer img {
-        width: 80px;
+    #LogoTexto h1 {
+        font-size: 2.2em;
     }
 
-    #LogoTexto {
-        font-size: 24px;
+    /* FOOTER - ÍCONES */
+    #icones img {
+        width: 50px;
     }
+
+    #icones #youtube{
+        width: 70px;
+    }
+
+    #icones #email{
+        width: 60px;
+    }
+
+    #icones{
+        padding-left: 180px;
+    }
+}
+
+/* ------------------- MEDIA QUERIES - DESKTOP -----------------------*/
+@media screen and (min-width: 1200px){
+    #icones{
+        padding-left: 500px;
+    }
+
 }
