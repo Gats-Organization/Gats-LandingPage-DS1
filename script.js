@@ -1,4 +1,4 @@
-    //Função pgenérica para mudar a imagem
+//Função pgenérica para mudar a imagem
 function alterarImagem(vsrc, valt){
     const imagem = document.getElementById("imagem_demonstracao")
     imagem.src = vsrc
